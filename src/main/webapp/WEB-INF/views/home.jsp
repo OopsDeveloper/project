@@ -14,7 +14,7 @@
             <h1>
                 Page Header
                 <small>Optional description</small>
-                메인페이지
+                메인페이지 수정수정
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
