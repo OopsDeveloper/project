@@ -33,9 +33,9 @@
 			</div>
 		</div>
 		<ul class = "thumb">                         
-			<li><img src="/resources/image/thumb1.png"onclick="imgSlider('img1.png')changeCircleColor('#017143')"></li>
-			<li><img src="/resources/image/thumb2.png"onclick="imgSlider('img2.png')changeCircleColor('#eb7495')"></li>
-			<li><img src="/resources/image/thumb3.png"onclick="imgSlider('img3.png')changeCircleColor('#d752b1')"></li>
+			<li><img src="/resources/image/thumb1.png"onclick="imgSlider('img1.png') changeCircleColor('#017143')"></li>
+			<li><img src="/resources/image/thumb2.png"onclick="imgSlider('img2.png') changeCircleColor('#eb7495')"></li>
+			<li><img src="/resources/image/thumb3.png"onclick="imgSlider('img3.png') changeCircleColor('#d752b1')"></li>
 		</ul>                                                            
 		<ul class="sci">
 			<li> <a href="#"><img src="/resources/image/facebook.png"></a></li>
