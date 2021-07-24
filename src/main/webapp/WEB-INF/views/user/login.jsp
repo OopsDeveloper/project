@@ -1,7 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
+<%@ include file="../includes/header.jsp" %>
+=======
  <%@ include file="../include/head.jsp" %>
+>>>>>>> branch 'master' of https://github.com/OopsDeveloper/project.git
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
@@ -59,7 +63,6 @@
 </div>
 <!-- /.login-box -->
 
-<%@ include file="../include/plugin_js.jsp" %>
 <script>
 
     var msg = "${msg}";
