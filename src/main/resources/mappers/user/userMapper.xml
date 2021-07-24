@@ -6,17 +6,37 @@
 <mapper namespace="com.study.project.mappers.user.userMapper">
 
     <insert id="register">
-        INSERT INTO tbl_user (
-                           user_id
-                         , user_pw
-                         , user_name
-                         , user_email
+        INSERT INTO study.tbl_join (
+                           join_id
+                         , join_pass
+                         , join_name
+                         , join_email
+                         , join_birth
+                         , join_gender
+                         , join_phone
+                         , join_interests_code
         ) VALUES (
-                     #{userId}
-                 , #{userPw}
-                 , #{userName}
-                 , #{userEmail}
+                #{joinId}
+                 , #{joinPass}
+                 , #{joinName}
+                 , #{joinEmail}
+                 , #{joinBirth}
+                 , #{joinGender}
+                 , #{joinPhone}
+                 , #{joinInterestsCode}
                  )
     </insert>
+
+    <resultMap id="userVOResultMap" type="UserVO">
+        <result property="joinId" column="join_id"/>
+        <result property="joinPass" column="join_pass"/>
+        <result property="joinName" column="join_name"/>
+        <result property="joinEmail" column="join_email"/>
+        <result property="joinBirth" column="join_birth"/>
+        <result property="joinRegistrationDate" column="join_registration_date"/>
+        <result property="joinInterestsCode" column="join_interests_code"/>
+        <result property="joinGender" column="join_gender"/>
+        <result property="joinPhone" column="join_phone"/>
+    </resultMap>
 
 </mapper>

@@ -4,101 +4,101 @@ import java.util.Date;
 
 public class UserVO {
 
-    private String userId;
-    private String userPw;
-    private String userName;
-    private String userEmail;
-    private Date userJoinDate;
-    private Date userLoginDate;
-    private String userSignature;
-    private String userImg;
-    private int userPoint;
+    private String joinId;
+    private String joinPass;
+    private String joinName;
+    private String joinEmail;
+    private String joinBirth;
+    private Date joinRegistrationDate;
+    private String joinInterestsCode;
+    private String joinGender;
+    private String joinPhone;
 
     // getter, setter, toString...
     @Override
     public String toString() {
         return "UserVO{" +
-                "userId='" + userId + '\'' +
-                ", userPw='" + userPw + '\'' +
-                ", userName='" + userName + '\'' +
-                ", userEmail='" + userEmail + '\'' +
-                ", userJoinDate=" + userJoinDate +
-                ", userLoginDate=" + userLoginDate +
-                ", userSignature='" + userSignature + '\'' +
-                ", userImg='" + userImg + '\'' +
-                ", userPoint=" + userPoint +
+                "joinId='" + joinId + '\'' +
+                ", joinPass='" + joinPass + '\'' +
+                ", joinName='" + joinName + '\'' +
+                ", joinEmail='" + joinEmail + '\'' +
+                ", joinBirth=" + joinBirth +
+                ", joinRegistrationDate=" + joinRegistrationDate +
+                ", joinInterestsCode='" + joinInterestsCode + '\'' +
+                ", joinGender='" + joinGender + '\'' +
+                ", joinPhone='" + joinPhone + '\'' +
                 '}';
     }
 
-    public String getUserId() {
-        return userId;
+    public String getJoinId() {
+        return joinId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setJoinId(String joinId) {
+        this.joinId = joinId;
     }
 
-    public String getUserPw() {
-        return userPw;
+    public String getJoinPass() {
+        return joinPass;
     }
 
-    public void setUserPw(String userPw) {
-        this.userPw = userPw;
+    public void setJoinPass(String joinPass) {
+        this.joinPass = joinPass;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getJoinName() {
+        return joinName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setJoinName(String joinName) {
+        this.joinName = joinName;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getJoinEmail() {
+        return joinEmail;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setJoinEmail(String joinEmail) {
+        this.joinEmail = joinEmail;
     }
 
-    public Date getUserJoinDate() {
-        return userJoinDate;
+    public String getJoinBirth() {
+        return joinBirth;
     }
 
-    public void setUserJoinDate(Date userJoinDate) {
-        this.userJoinDate = userJoinDate;
+    public void setJoinBirth(String joinBirth) {
+        this.joinBirth = joinBirth;
     }
 
-    public Date getUserLoginDate() {
-        return userLoginDate;
+    public Date getJoinRegistrationDate() {
+        return joinRegistrationDate;
     }
 
-    public void setUserLoginDate(Date userLoginDate) {
-        this.userLoginDate = userLoginDate;
+    public void setJoinRegistrationDate(Date joinRegistrationDate) {
+        this.joinRegistrationDate = joinRegistrationDate;
     }
 
-    public String getUserSignature() {
-        return userSignature;
+    public String getJoinInterestsCode() {
+        return joinInterestsCode;
     }
 
-    public void setUserSignature(String userSignature) {
-        this.userSignature = userSignature;
+    public void setJoinInterestsCode(String joinInterestsCode) {
+        this.joinInterestsCode = joinInterestsCode;
     }
 
-    public String getUserImg() {
-        return userImg;
+    public String getJoinGender() {
+        return joinGender;
     }
 
-    public void setUserImg(String userImg) {
-        this.userImg = userImg;
+    public void setJoinGender(String joinGender) {
+        this.joinGender = joinGender;
     }
 
-    public int getUserPoint() {
-        return userPoint;
+    public String getJoinPhone() {
+        return joinPhone;
     }
 
-    public void setUserPoint(int userPoint) {
-        this.userPoint = userPoint;
+    public void setJoinPhone(String joinPhone) {
+        this.joinPhone = joinPhone;
     }
 }
