@@ -22,6 +22,13 @@
     <!--기본패키지 설정-->
     <context:component-scan base-package="com.study.project"/>
 
+    <bean id="loginInterceptor" class="com.study.project.commons.interceptor.LoginInterceptor"/>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/user/loginPost"/>
+            <ref bean="loginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

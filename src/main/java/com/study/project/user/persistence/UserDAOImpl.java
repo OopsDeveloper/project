@@ -1,5 +1,6 @@
 package com.study.project.user.persistence;
 
+import com.study.project.user.domain.LoginDTO;
 import com.study.project.user.domain.UserVO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -22,6 +23,11 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public void register(UserVO userVO) throws Exception {
         sqlSession.insert(NAMESPACE + ".register", userVO);
+    }
+
+    @Override
+    public UserVO login(LoginDTO loginDTO) throws Exception {
+        return sqlSession.selectOne(NAMESPACE + ".login", loginDTO);
     }
 
 }

@@ -27,6 +27,13 @@
                  )
     </insert>
 
+    <!-- 로그인 -->
+    <select id="login" resultMap="userVOResultMap">
+        SELECT *
+        FROM study.tbl_join
+        WHERE join_id = #{joinId}
+    </select>
+
     <resultMap id="userVOResultMap" type="UserVO">
         <result property="joinId" column="join_id"/>
         <result property="joinPass" column="join_pass"/>

@@ -1,83 +1,112 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html>
-<<<<<<< HEAD
-<%@ include file="../includes/header.jsp" %>
-=======
- <%@ include file="../include/head.jsp" %>
->>>>>>> branch 'master' of https://github.com/OopsDeveloper/project.git
-<body class="hold-transition login-page">
-<div class="login-box">
-    <div class="login-logo">
-        <a href="${path}/">
-            <b>얄라차 개발자</b>&nbsp IntelliJ IDEA
-        </a>
-    </div>
-    <!-- /.login-logo -->
-    <div class="login-box-body">
-        <p class="login-box-msg">로그인 페이지</p>
+<html lang="en">
 
-        <form action="${path}/user/loginPost" method="post">
-            <div class="form-group has-feedback">
-                <input type="text" name="userId" class="form-control" placeholder="아아디">
-                <span class="glyphicon glyphicon-exclamation-sign form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <input type="password" name="userPw" class="form-control" placeholder="비밀번호">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-            <div class="row">
-                <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox" name="useCookie"> 로그인유지
-                        </label>
-                    </div>
-                </div>
-                <!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">
-                        <i class="fa fa-sign-in"></i> 로그인
-                    </button>
-                </div>
-                <!-- /.col -->
-            </div>
-        </form>
+<head>
 
-        <div class="social-auth-links text-center">
-            <p>- 또는 -</p>
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
-                <i class="fa fa-facebook"></i> 페이스북으로 로그인
-            </a>
-            <a href="#" class="btn btn-block btn-social btn-google btn-flat">
-                <i class="fa fa-google-plus"></i> 구글 계정으로 로그인
-            </a>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>얄라차 개발자 - IntelliJ IDEA</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom Fonts -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Study Tap</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="loginForm" action="${path}/user/loginPost" method="post" role="form">
+                        <fieldset>
+                            <div class="form-group">
+                                <input type="text" name="joinId" class="form-control" placeholder="아이디" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="joinPass" class="form-control" placeholder="패스워드">
+                            </div>
+                            <button type="submit" class="btn btn-lg btn-success btn-block">
+                                <i class="fa fa-sign-in"></i> 로그인
+                            </button>
+                            <button type="button" class="btn btn-lg btn-success btn-block">
+                                <i class="fa fa-sign-in"></i> 회원가입
+                            </button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
         </div>
-        <!-- /.social-auth-links -->
-
-        <a href="#">비밀번호 찾기</a><br>
-        <a href="${path}/user/register" class="text-center">회원가입</a>
-
     </div>
-    <!-- /.login-box-body -->
 </div>
-<!-- /.login-box -->
+<%--${path}/user/register --%>
+
+<!-- jQuery -->
+<script src="/resources/vendor/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="/resources/vendor/metisMenu/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/resources/dist/js/sb-admin-2.js"></script>
 
 <script>
-
     var msg = "${msg}";
     if (msg === "REGISTERED") {
         alert("회원가입이 완료되었습니다. 로그인해주세요~");
-    } else if (msg == "FAILURE") {
-        alert("아이디와 비밀번호를 확인해주세요.");
     }
 
-    $(function () {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%' // optional
-        });
+
+
+    $("button[type=submit]").on("click", function (e) {
+        e.preventDefault();
+        console.log("click");
+        console.log($(".form-group").find("input[name='userId']").val() == "");
+        console.log($(".form-group").find("input[name='userPw']").val() == "");
+
+        if($(".form-group").find("input[name='userId']").val() == "") {
+            alert("아이디를 입력해주세요.");
+            return;
+        } else if ($(".form-group").find("input[name='userPw']").val() == "") {
+            alert("비밀번호를 입력해주세요.");
+            return;
+        }
+        $("#loginForm").submit();
+    })
+
+
+    $("button[type=button]").on("click",function (e) {
+        e.preventDefault();
+        console.log("click");
+        location.href="/user/register";
     });
 </script>
 </body>
