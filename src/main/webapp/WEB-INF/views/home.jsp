@@ -11,6 +11,7 @@
 </head>
 <body>
 	<section>
+	
 			<div class = "circle"></div>
 		<header>
 			<a href="#" class ="logo"><img alt="logo가 들어갈 곳" src="/resources/image/logo.png"></a>
