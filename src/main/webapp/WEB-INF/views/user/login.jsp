@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>얄라차 개발자 - IntelliJ IDEA</title>
+    <title>StudyTap</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,15 +32,21 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+        .btn {
+            background : #017143;
+        }
+    </style>
+
 </head>
 
 <body>
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <div class="login-panel panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Study Tap</h3>
+            <div class="login-panel">
+                <div class="my-3 text-center text-small">
+                    <a href="/" class ="md-3"><img  alt="logo가 들어갈 곳" src="/resources/startpage/logo1.png"></a>
                 </div>
                 <div class="panel-body">
                     <form id="loginForm" action="${path}/user/loginPost" method="post" role="form">
