@@ -20,8 +20,8 @@
         }
         .input-form {
             max-width: 480px;
-            margin-top: 140px;
-            padding: 32px;
+            /*margin-top: 5px;*/
+            padding: 45px;
             background: #fff;
             border: 1px solid #dcdcdc;
             /*-webkit-border-radius: 10px;*/
@@ -31,11 +31,16 @@
             /*-moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);*/
             /*box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)*/
         }
+        #header {
+            height: 100px;
+        }
+
     </style>
 </head>
 
 <body>
 <div class="container">
+    <header id="header" class="my-3 text-center text-small"> <a href="/" class ="md-3"><img  alt="logo가 들어갈 곳" src="/resources/startpage/logo1.png"></a></header>
     <div class="input-form-backgroud row">
         <div class="input-form col-md-8 mx-auto">
             <form class="validation-form" novalidate action="/user/register" method="post">
@@ -91,7 +96,6 @@
             </form>
         </div>
     </div>
-    &nbsp
     <footer class="my-3 text-center text-small"> <p class="mb-1">&copy; 2021 StudyTap</p> </footer>
 </div>
 <script>

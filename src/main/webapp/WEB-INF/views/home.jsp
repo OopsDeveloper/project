@@ -28,27 +28,28 @@
 	
 			<div class = "circle"></div>
 		<header>
-			<a href="#" class ="logo"><img alt="logo가 들어갈 곳" src="/resources/image/logo1.png"></a>
-			
+			<a href="/" class ="logo"><img alt="logo가 들어갈 곳" src="/resources/startpage/logo1.png"></a>
+
 		</header>
 		<div class = "content">
 			<div class = "textBox">
 				<h2>언제 어디서나 <span>StudyTab!</span></h2>
-				<a href="#">Learn more</a>
-			</div>				
+				<a href="/user/login">로그인</a>
+				<a href="/user/register">회원가입</a>
+			</div>
 			<div class = "imgBox">
-				<img alt="11" src="/resources/image/img1.png" class = "starbucks">
+				<img alt="11" src="/resources/startpage/img1.png" class ="starbucks">
 			</div>
 		</div>
-		<ul class = "thumb">                         
-			<li><img src="/resources/image/thumb1.png"onclick="imgSlider('/resources/image/img1.png');changeCircleColor('#017143')"></li>
-			<li><img src="/resources/image/logo2.png"onclick="imgSlider('/resources/image/logo2.png');changeCircleColor('#eb7495')"></li>
-			<li><img src="/resources/image/thumb3.png"onclick="imgSlider('/resources/image/img3.png');changeCircleColor('#d752b1')"></li>
-		</ul>                                                         
+		<ul class = "thumb">
+			<li><img src="/resources/startpage/thumb1.png"onclick="imgSlider('/resources/startpage/img1.png');changeCircleColor('#017143')"></li>
+			<li><img src="/resources/startpage/logo2.png"onclick="imgSlider('/resources/startpage/logo2.png');changeCircleColor('#eb7495')"></li>
+			<li><img src="/resources/startpage/thumb3.png"onclick="imgSlider('/resources/startpage/img3.png');changeCircleColor('#d752b1')"></li>
+		</ul>
 		<ul class="sci">
-			<li><a href="#"><img src="/resources/image/facebook.png"></a></li>
-			<li><a href="#"><img src="/resources/image/twitter.png"></a></li>
-			<li><a href="#"><img src="/resources/image/instagram.png"></a></li>
+			<li><a href="#"><img src="/resources/startpage/facebook.png"></a></li>
+			<li><a href="#"><img src="/resources/startpage/twitter.png"></a></li>
+			<li><a href="#"><img src="/resources/startpage/instagram.png"></a></li>
 		</ul>
 	</section>
 	
