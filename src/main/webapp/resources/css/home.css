@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 @import url('http://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
 *{
 	margin:0;
 	padding:0;
@@ -11,18 +12,18 @@ section {
 	position:relative;
 	width:100%;
 	min-height:100vh;
-	padding:100px;
+	padding:0px;
 	display:flex;
 	justify-content:space-between;
 	align-items:center;
-	background:#fff; 
+	background:#fff;
 }
 header {
 	position:absolute;
 	top:0;
-	left:0;
+	left:0%;
 	width:100%;
-	padding:20px 100px;
+	padding:50px 100px;
 	display:flex;
 	justify-content: space-between;
 	align-items: center;
@@ -51,14 +52,18 @@ header ul li a
 .content
 {
 	position:relative;
+	/* position:flex; */
 	width:100%;
 	display:flex;
 	justify-content:space-between;
 	align-content:center;
+	
 }
 .content .textBox
 {
-	position:relative;
+	/* position:relative; */
+	margin-left:230px;
+ 	position:flex;
 	max-width:600px;
 }
 .content .textBox h2
@@ -120,11 +125,11 @@ header ul li a
 }
 .thumb li:hover
 {
-	transform:translateY(-15px);
+	transform:translateY(-60px);
 }
 .thumb li img
 {
-	max-width: 60px;
+	max-width: 170px;
 }
 .sci
 {

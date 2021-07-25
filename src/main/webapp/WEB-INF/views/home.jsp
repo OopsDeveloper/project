@@ -25,42 +25,41 @@
 </head>
 <body>
 	<section>
-	
-			<div class = "circle"></div>
+	<div class = "circle"></div>
 		<header>
-			<a href="/" class ="logo"><img alt="logo가 들어갈 곳" src="/resources/startpage/logo1.png"></a>
-
+			 <a href="/WEB-INF/views/home.jsp" class ="logo"><img alt="logo" src="/resources/startpage/logo1.png"></a>
 		</header>
 		<div class = "content">
+		<!-- 시작페이지 문장 및 로그인 회원가입 버튼  -->
 			<div class = "textBox">
 				<h2>언제 어디서나 <span>StudyTab!</span></h2>
 				<a href="/user/login">로그인</a>
-				<a href="/user/register">회원가입</a>
+				<a href="/user/register">회원가입</a>	
 			</div>
+			<!-- 시작페이지 5시 방향 눈알 이미지  -->
 			<div class = "imgBox">
-				<img alt="11" src="/resources/startpage/img1.png" class ="starbucks">
+				 <img alt="11" src="/resources/startpage/other12.png" class ="iii">
 			</div>
 		</div>
-		<ul class = "thumb">
-			<li><img src="/resources/startpage/thumb1.png"onclick="imgSlider('/resources/startpage/img1.png');changeCircleColor('#017143')"></li>
-			<li><img src="/resources/startpage/logo2.png"onclick="imgSlider('/resources/startpage/logo2.png');changeCircleColor('#eb7495')"></li>
-			<li><img src="/resources/startpage/thumb3.png"onclick="imgSlider('/resources/startpage/img3.png');changeCircleColor('#d752b1')"></li>
-		</ul>
-		<ul class="sci">
-			<li><a href="#"><img src="/resources/startpage/facebook.png"></a></li>
-			<li><a href="#"><img src="/resources/startpage/twitter.png"></a></li>
-			<li><a href="#"><img src="/resources/startpage/instagram.png"></a></li>
+		<!-- 버튼 누르면 색상 및 사진 변경  -->
+		 <ul class = "thumb">
+			<li ><img src="/resources/startpage/start1.png"onclick="imgSlider('/resources/startpage/start1.png');changeCircleColor('#017143')"></li>
+			<li><img src="/resources/startpage/start2.png"onclick="imgSlider('/resources/startpage/start2.png');changeCircleColor('#eb7495')"></li>
+			<li><img src="/resources/startpage/start3.png"onclick="imgSlider('/resources/startpage/start3.png');changeCircleColor('#d752b1')"></li>
 		</ul>
 	</section>
 	
 	<script type="text/javascript">
+	//버튼 누르면 이미지 변경
 	function imgSlider(anything){
-		document.querySelector('.starbucks').src = anything;
+		document.querySelector('.iii').src = anything;
 	}
+	//버튼 누르면 원 색상 변경
 	function changeCircleColor(color) {
 		var circle = document.querySelector('.circle');
 		circle.style.background = color;
 	}
 	</script>
+	
 </body>
 </html>
