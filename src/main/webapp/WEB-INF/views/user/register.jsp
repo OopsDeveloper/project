@@ -135,7 +135,7 @@
                         $(".btn").attr("disabled", "disabled");
                     } else {
                         $("#id_check").attr("class","invalid-feedback");
-                        $("#joinId").css("border","1px solid #ced4da");
+                        $("#joinId").css("border","1px solid #dcdcdc");
                         $("#id_check").html("아이디를 입력해주세요.");
                         $(".btn").removeAttr("disabled");
                     }
