@@ -34,6 +34,12 @@
         WHERE join_id = #{joinId}
     </select>
 
+
+    <!--아이디 중복 검사-->
+    <select id="check_id" parameterType="String" resultType="int">
+        SELECT COUNT(*) FROM tbl_join where join_id = #{joinId}
+    </select>
+
     <resultMap id="userVOResultMap" type="UserVO">
         <result property="joinId" column="join_id"/>
         <result property="joinPass" column="join_pass"/>
@@ -45,5 +51,6 @@
         <result property="joinGender" column="join_gender"/>
         <result property="joinPhone" column="join_phone"/>
     </resultMap>
+
 
 </mapper>

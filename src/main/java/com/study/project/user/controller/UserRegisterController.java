@@ -11,9 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -37,13 +39,19 @@ public class UserRegisterController {
 
     // 회원가입 처리
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String registerPOST(UserVO userVO, RedirectAttributes redirectAttributes) throws Exception {
+    public String registerPOST(UserVO userVO, RedirectAttributes redirectAttributes, HttpServletResponse response) throws Exception {
         String hashedPw = BCrypt.hashpw(userVO.getJoinPass(), BCrypt.gensalt());
         userVO.setJoinPass(hashedPw);
-        userService.register(userVO);
+        userService.register(userVO, response);
         redirectAttributes.addFlashAttribute("msg", "REGISTERED");
 
         return "redirect:/user/login";
+    }
+
+    // 아이디 중복 검사(AJAX)
+    @RequestMapping(value = "/checkId.do", method = RequestMethod.POST)
+    public void checkId(@RequestParam("joinId") String joinId, HttpServletResponse response) throws Exception{
+        userService.check_id(joinId, response);
     }
 
     // 로그인 GET

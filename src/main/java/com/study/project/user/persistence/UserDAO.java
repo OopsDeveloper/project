@@ -10,4 +10,6 @@ public interface UserDAO {
 
     UserVO login(LoginDTO loginDTO) throws Exception;
 
+    int check_id(String joinId) throws Exception;
+
 }

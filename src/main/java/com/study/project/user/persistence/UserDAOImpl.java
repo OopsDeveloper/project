@@ -30,4 +30,9 @@ public class UserDAOImpl implements UserDAO {
         return sqlSession.selectOne(NAMESPACE + ".login", loginDTO);
     }
 
+    @Override
+    public int check_id(String joinId) throws Exception {
+        return sqlSession.selectOne(NAMESPACE + ".check_id", joinId);
+    }
+
 }

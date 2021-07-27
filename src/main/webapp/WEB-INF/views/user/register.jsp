@@ -40,6 +40,7 @@
         }
 
     </style>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 
 <body>
@@ -51,7 +52,7 @@
                 <div class="mb-3">
                     <label for="joinId">아이디</label>
                     <input type="text" class="form-control" name="joinId" id="joinId" placeholder="" value="" required>
-                    <div class="invalid-feedback"> 아이디를 입력해주세요. </div>
+                    <div id="id_check" class="invalid-feedback"> 아이디를 입력해주세요. </div>
                 </div>
                 <div class="mb-3">
                     <label for="joinPass">패스워드</label>
@@ -116,6 +117,32 @@
             }, false);
         });
     }, false);
+
+    $(document).ready(function () {
+        $(".validation-form").keyup(function () {
+            $.ajax({
+                url : "/user/checkId.do",
+                type : "POST",
+                data : {
+                    joinId : $("#joinId").val()
+                },
+                success : function (result) {
+                    if(result == 1) {
+                        $("#id_check").attr("class","was-validated");
+                        $("#joinId").css("border","1px solid #dc3545");
+                        $("#id_check").css({"color":"#dc3545", "font-size" : "80%"});
+                        $("#id_check").html("중복된 아이디가 있습니다.");
+                        $(".btn").attr("disabled", "disabled");
+                    } else {
+                        $("#id_check").attr("class","invalid-feedback");
+                        $("#joinId").css("border","1px solid #ced4da");
+                        $("#id_check").html("아이디를 입력해주세요.");
+                        $(".btn").removeAttr("disabled");
+                    }
+                }
+            });
+        });
+    });
 </script>
 </body>
 </html>
