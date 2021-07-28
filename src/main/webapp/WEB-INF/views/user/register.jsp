@@ -71,7 +71,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="joinEmail">휴대폰번호</label>
-                    <input type="tel" class="form-control" name="joinPhone" id="joinPhone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="010-****-****" required>
+                    <input type="tel" class="form-control" name="joinPhone" id="joinPhone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="" required>
                     <div class="invalid-feedback"> 휴대폰번호를 입력해주세요. </div>
                 </div>
                 <div class="row">
@@ -127,6 +127,7 @@
                     joinId : $("#joinId").val()
                 },
                 success : function (result) {
+                    console.log(this.data.joinId);
                     if(result == 1) {
                         $("#id_check").attr("class","was-validated");
                         $("#joinId").css("border","1px solid #dc3545");
@@ -166,6 +167,23 @@
                 }
             });
         });
+
+        $("#joinPhone").blur(function () {
+            var num = $("#joinPhone").val();
+            blur(num);
+        });
+
+        function blur(num) {
+            num = num.replace(/[^0-9]/g, '');
+            var tmp = '';
+            tmp += num.substr(0, 3);
+            tmp += '-';
+            tmp += num.substr(3, 4);
+            tmp += '-';
+            tmp += num.substr(7);
+            $("#joinPhone").val(tmp);
+        }
+
     });
 </script>
 </body>
