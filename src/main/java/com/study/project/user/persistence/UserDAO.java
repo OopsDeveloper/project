@@ -12,4 +12,6 @@ public interface UserDAO {
 
     int check_id(String joinId) throws Exception;
 
+    int check_email(String joinEmail) throws Exception;
+
 }

@@ -67,7 +67,7 @@
                 <div class="mb-3">
                     <label for="joinEmail">이메일</label>
                     <input type="email" class="form-control" name="joinEmail" id="joinEmail" placeholder="you@example.com" required>
-                    <div class="invalid-feedback"> 이메일을 입력해주세요. </div>
+                    <div id="email_check" class="invalid-feedback"> 이메일을 입력해주세요. </div>
                 </div>
                 <div class="mb-3">
                     <label for="joinEmail">휴대폰번호</label>
@@ -119,7 +119,7 @@
     }, false);
 
     $(document).ready(function () {
-        $(".validation-form").keyup(function () {
+        $("#joinId").keyup(function () {
             $.ajax({
                 url : "/user/checkId.do",
                 type : "POST",
@@ -137,6 +137,30 @@
                         $("#id_check").attr("class","invalid-feedback");
                         $("#joinId").css("border","1px solid #dcdcdc");
                         $("#id_check").html("아이디를 입력해주세요.");
+                        $(".btn").removeAttr("disabled");
+                    }
+                }
+            });
+        });
+
+        $("#joinEmail").keyup(function () {
+            $.ajax({
+                url : "/user/checkEmail.do",
+                type : "POST",
+                data : {
+                    joinEmail : $("#joinEmail").val()
+                },
+                success: function (result) {
+                    if(result == 1) {
+                        $("#email_check").attr("class","was-validated");
+                        $("#joinEmail").css("border","1px solid #dc3545");
+                        $("#email_check").css({"color":"#dc3545", "font-size" : "80%"});
+                        $("#email_check").html("중복된 이메일이 있습니다.");
+                        $(".btn").attr("disabled", "disabled");
+                    } else {
+                        $("#email_check").attr("class","invalid-feedback");
+                        $("#joinEmail").css("border","1px solid #dcdcdc");
+                        $("#email_check").html("이메일을 입력해주세요.");
                         $(".btn").removeAttr("disabled");
                     }
                 }

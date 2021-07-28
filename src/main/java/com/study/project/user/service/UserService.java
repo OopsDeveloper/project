@@ -16,4 +16,7 @@ public interface UserService {
     // 아이디 중복 체크
     void check_id(String joinId, HttpServletResponse response) throws Exception;
 
+    // Email 중복 체크
+    void check_email(String joinEmail, HttpServletResponse response) throws Exception;
+
 }

@@ -35,4 +35,9 @@ public class UserDAOImpl implements UserDAO {
         return sqlSession.selectOne(NAMESPACE + ".check_id", joinId);
     }
 
+    @Override
+    public int check_email(String joinEmail) throws Exception {
+        return sqlSession.selectOne(NAMESPACE + ".check_email", joinEmail);
+    }
+
 }

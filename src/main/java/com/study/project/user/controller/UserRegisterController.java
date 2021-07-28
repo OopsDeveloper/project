@@ -54,6 +54,12 @@ public class UserRegisterController {
         userService.check_id(joinId, response);
     }
 
+    // 이메일 중복 검사(AJAX)
+    @RequestMapping(value = "/checkEmail.do", method = RequestMethod.POST)
+    public void checkEmail(@RequestParam("joinEmail") String joinEmail, HttpServletResponse response) throws Exception{
+        userService.check_email(joinEmail, response);
+    }
+
     // 로그인 GET
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String loginGet(@ModelAttribute("loginDTO") LoginDTO loginDTO) {

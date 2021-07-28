@@ -33,6 +33,13 @@ public class UserServiceImpl implements UserService {
             out.println("</script>");
             out.close();
             return 0;
+        } else if(userDAO.check_email(userVO.getJoinEmail()) == 1) {
+            out.println("<script>");
+            out.println("alert('동일한 이메일이 있습니다.');");
+            out.println("history.go(-1);");
+            out.println("</script>");
+            out.close();
+            return 0;
         }
         userDAO.register(userVO);
         return 1;
@@ -49,6 +56,14 @@ public class UserServiceImpl implements UserService {
     public void check_id(String joinId, HttpServletResponse response) throws Exception {
         PrintWriter out = response.getWriter();
         out.println(userDAO.check_id(joinId));
+        out.close();
+    }
+
+    // 이메일 중복 검사(AJAX)
+    @Override
+    public void check_email(String joinEmail, HttpServletResponse response) throws Exception {
+        PrintWriter out = response.getWriter();
+        out.println(userDAO.check_email(joinEmail));
         out.close();
     }
 

@@ -34,10 +34,14 @@
         WHERE join_id = #{joinId}
     </select>
 
-
     <!--아이디 중복 검사-->
     <select id="check_id" parameterType="String" resultType="int">
-        SELECT COUNT(*) FROM tbl_join where join_id = #{joinId}
+        SELECT COUNT(*) FROM study.tbl_join where join_id = #{joinId}
+    </select>
+
+    <!--Email 중복 검사-->
+    <select id="check_email" parameterType="String" resultType="int">
+        SElECT COUNT(*) FROM study.tbl_join where join_email = #{joinEmail}
     </select>
 
     <resultMap id="userVOResultMap" type="UserVO">
