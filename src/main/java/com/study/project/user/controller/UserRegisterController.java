@@ -80,7 +80,6 @@ public class UserRegisterController {
         if ( userVO == null || !BCrypt.checkpw(loginDTO.getJoinPass(), userVO.getJoinPass())) {
             return;
         }
-
         model.addAttribute("user", userVO);
     }
 
@@ -90,6 +89,18 @@ public class UserRegisterController {
         session.invalidate();
         logger.info("httpSession :" + session);
         return "redirect:/";
+    }
+
+    // 아이디 찾기
+    @RequestMapping(value = "/findId.do")
+    public String findId() throws Exception {
+        return "/user/findId";
+    }
+
+    // 아이디 찾기
+    @RequestMapping(value = "/findPw.do")
+    public String findPw() throws Exception {
+        return "/user/findPw";
     }
 
 

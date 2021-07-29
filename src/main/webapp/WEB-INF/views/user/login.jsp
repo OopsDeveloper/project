@@ -15,7 +15,7 @@
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- MetisMenu CSS -->  
+    <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -60,8 +60,11 @@
                             <button type="submit" class="btn btn-lg btn-success btn-block">
                                 <i class="fa fa-sign-in"></i> 로그인
                             </button>
-                            <button type="button" class="btn btn-lg btn-success btn-block">
+                            <button id="register" class="btn btn-lg btn-success btn-block">
                                 <i class="fa fa-sign-in"></i> 회원가입
+                            </button>
+                            <button id="findIdPw" class="btn btn-lg btn-success btn-block">
+                                <i class="fa fa-sign-in"></i> 아이디 / 패스워드 찾기
                             </button>
                         </fieldset>
                     </form>
@@ -108,11 +111,16 @@
         $("#loginForm").submit();
     })
 
-
-    $("button[type=button]").on("click",function (e) {
+    $("#register").on("click",function (e) {
         e.preventDefault();
         console.log("click");
         location.href="/user/register";
+    });
+
+    $("#findIdPw").on("click", function (e) {
+        e.preventDefault();
+        console.log("click");
+        location.href="/user/search";
     });
 </script>
 </body>
