@@ -41,8 +41,8 @@ public class ArticleController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
         logger.info("paging list ...");
-        model.addAttribute("articles", articleService.listAll(cri));
-        model.addAttribute("pageMaker", new PageDTO(cri, articleService.getTotal(cri)));
+//        model.addAttribute("articles", articleService.listAll(cri));
+//        model.addAttribute("pageMaker", new PageDTO(cri, articleService.getTotal(cri)));
         return "/article/list";
     }
 

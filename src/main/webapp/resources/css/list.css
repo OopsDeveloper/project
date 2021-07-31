@@ -1,0 +1,208 @@
+/* CSS */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* color = 바디 텍스트 */
+  /* font-size: 1.2em; */
+  /* font-family:"Poppins", sans-serif; */
+  font-family: 'Poppins', sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+  color: black;
+  background-color: #036a37;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjus: 100%;
+  /* iphone font size 변경 방지 */
+}
+
+#Information1 {
+  position: relative;
+  text-align: left;
+  height: 1px;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+h5,
+h6 {
+  font-size: 1.3em;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 100px 5px;
+  font-size: 1.5em;
+}
+
+h1 {
+  font-size: 2.9em;
+}
+
+#mainT {
+  font-size: 4em;
+}
+#sub {
+  font-size: 5em;
+}
+#sub2 {
+  font-size: 2.1em;
+}
+
+#wrap {
+  width: 100%;
+  /* margin-top = header height */
+  margin-top: 10px;
+}
+
+/* Navigation bar */
+header {
+  /* for sticky header */
+  position: fixed;
+  top: 0%;
+
+  width: 100%;
+  height: 80px;
+  z-index: 2000;
+  background-color: white;
+  box-shadow: 0 5px 5px rgba(129, 128, 128, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  float: left;
+  display: inline-flex;
+  margin-right: 20px;
+}
+
+nav {
+  float: right;
+}
+
+.nav-items {
+  /* margin-right: 20px; */
+}
+
+.nav-items > li {
+  /* display: inline-block; */
+  /* 가로정렬 */
+}
+
+.nav-items > li > a {
+  /* for Vertical Centering */
+  /* line-height: 60px;
+  padding: 0 30px;
+  color: rgba(0, 0, 0, 0.4); */
+}
+
+.nav-items > li > a:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* contents */
+/* clearfix */
+#content-wrap:after {
+  /* content: ''; */
+  display: block;
+  clear: both;
+}
+
+.aside {
+  position: fixed;
+  top: 0px;
+  bottom: 0;
+  width: 180px;
+
+  padding-top: 0px;
+  background-color: white;
+  /* #0066ff */
+}
+
+/* aside navigation */
+aside > ul {
+  width: 200px;
+}
+/* menu font */
+aside > ul > li > a {
+  display: block;
+  color: #0066ff;
+  padding: 10px 0 10px 20px;
+}
+
+aside > ul > li > a.active {
+  background-color: #4caf50;
+}
+
+/*메뉴버튼 hover 색  */
+aside > ul > li > a:hover:not(.active) {
+  background-color: #ffc000;
+}
+/* 메뉴바 글씨 font. */
+aside > h1 {
+  padding: 20px 0 20px 20px;
+  color: #0066ff;
+}
+
+/* Section */
+section {
+  float: right;
+  /* aside width */
+  margin-top: -250px;
+  margin-left: 100px;
+}
+/* 내용 배경 */
+article {
+  color: black;
+  margin: 90px;
+  padding: 110px;
+  background-color: #fff;
+}
+.hr1 {
+  size: 50%;
+  border: inset 10px black;
+}
+
+/* footer */
+footer {
+  /* footer를 aside위에 올리기 위해 사용(부유객체) */
+  position: absolute;
+  height: 60px;
+  width: 100%;
+  padding: 0 25px;
+  line-height: 60px;
+  color: #8a8c8f;
+  border-top: 1px solid #fff;
+  background-color: #fff;
+}
+
+.infoPhoto {
+  /* width: 70%;
+  height: 200px;
+  object-fit: cover; */
+  float: right;
+  z-index: 2001;
+}
+
+.grid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+#caro_img {
+  object-fit: cover;
+  max-width: 80%;
+  height: auto;
+}
