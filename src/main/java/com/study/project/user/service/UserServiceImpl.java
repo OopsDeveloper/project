@@ -3,6 +3,7 @@ package com.study.project.user.service;
 import com.study.project.user.domain.LoginDTO;
 import com.study.project.user.domain.UserVO;
 import com.study.project.user.persistence.UserDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
@@ -12,12 +13,8 @@ import java.io.PrintWriter;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserDAO userDAO;
-
-    @Inject
-    public UserServiceImpl(UserDAO userDAO) {
-        this.userDAO = userDAO;
-    }
+    @Autowired
+    private UserDAO userDAO;
 
     // 회원가입 처리
     @Override

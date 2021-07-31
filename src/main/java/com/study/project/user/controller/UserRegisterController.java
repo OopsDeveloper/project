@@ -6,6 +6,7 @@ import com.study.project.user.service.UserService;
 import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,14 +23,10 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/user")
 public class UserRegisterController {
 
-    private final UserService userService;
+    @Inject
+    private UserService userService;
 
     private static final Logger logger = LoggerFactory.getLogger(UserRegisterController.class);
-
-    @Inject
-    public UserRegisterController(UserService userService) {
-        this.userService = userService;
-    }
 
     // 회원가입 페이지
     @RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -91,13 +88,18 @@ public class UserRegisterController {
         return "redirect:/";
     }
 
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public String search() throws Exception {
+        return "/user/search";
+    }
+
     // 아이디 찾기
     @RequestMapping(value = "/findId.do")
     public String findId() throws Exception {
         return "/user/findId";
     }
 
-    // 아이디 찾기
+    // 비밀번호 찾기
     @RequestMapping(value = "/findPw.do")
     public String findPw() throws Exception {
         return "/user/findPw";
