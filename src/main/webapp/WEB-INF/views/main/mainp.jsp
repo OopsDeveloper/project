@@ -144,7 +144,7 @@
 <body>
 	<div class="top">
 		<div class="logo"> 
-			<img alt="logo" src="/resources/startpage/logo1.png">
+			<img alt="logo" src="${pageContext.request.contextPath}/resources/startpage/logo1.png">
 		</div>
 			<div class="menu_bar">
 				<div class="menu">공지사항</div>
@@ -156,16 +156,16 @@
 	<div class="slider" style="overflow: hidden;">
         <div class="container">
             <div class="inner">
-            	<img alt="" src="/resources/mainpage/mint.jpg">
+            	<img alt="" src="${pageContext.request.contextPath}/resources/mainpage/mint.jpg">
             </div>
             <div class="inner">
-            	<img alt="" src="/resources/mainpage/orange.jpg">
+            	<img alt="" src="${pageContext.request.contextPath}/resources/mainpage/orange.jpg">
             </div>
             <div class="inner">
-            	<img alt="" src="/resources/mainpage/pink.jpg">
+            	<img alt="" src="${pageContext.request.contextPath}/resources/mainpage/pink.jpg">
             </div>
             <div class="inner">
-            	<img alt="" src="/resources/mainpage/green.jpg">
+            	<img alt="" src="${pageContext.request.contextPath}/resources/mainpage/green.jpg">
             </div>
         </div>
     </div>
@@ -186,52 +186,52 @@
        </div>
        <div class="study_div">
 	       <div>
-	           <img class="best_study" src="/resources/mainpage/cabin.png" alt="..." />
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/cabin.png" alt="..." />
 	       </div>
        </div>
        <div class="study_div">
 	       <div>
-	           <img class="best_study" src="/resources/mainpage/cake.png" alt="..." />
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/cake.png" alt="..." />
 	       </div>
        </div>
         <div class="study_div">
 	       <div>
-	           <img class="best_study" src="/resources/mainpage/circus.png" alt="..." />
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/circus.png" alt="..." />
 	       </div>
        </div>
         <div class="study_div">
 	       <div>
-	           <img class="best_study" src="/resources/mainpage/game.png" alt="..." />
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/game.png" alt="..." />
 	       </div>
        </div>
        <div class="study_div">
 	       <div>
-	           <img class="best_study" src="/resources/mainpage/circus.png" alt="..." />
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/circus.png" alt="..." />
 	       </div>
        </div>
        <div class="study_div">
 	       <div>
-	           <img class="best_study" src="/resources/mainpage/safe.png" alt="..." />
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/safe.png" alt="..." />
 	       </div>
        </div>
        <div class="study_div">
 	       <div>
-	           <img class="best_study" src="/resources/mainpage/circus.png" alt="..." />
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/circus.png" alt="..." />
 	       </div>
        </div>
        <div class="study_div">
 	       <div>
-	           <img class="best_study" src="/resources/mainpage/game.png" alt="..." />
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/game.png" alt="..." />
 	       </div>
        </div>
        <div class="study_div">
 	       <div>
-	           <img class="best_study" src="/resources/mainpage/safe.png" alt="..." />
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/safe.png" alt="..." />
 	       </div>
        </div>
        <div class="study_div">
 	       <div>
-	           <img class="best_study" src="/resources/mainpage/cabin.png" alt="..." />
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/cabin.png" alt="..." />
 	       </div>
        </div>
 	</div>
