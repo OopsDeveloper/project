@@ -4,6 +4,7 @@
 <html>
 <head>
 <%@include file="/WEB-INF/views/includes/header.jsp"%>
+<link href="${pageContext.request.contextPath}/resources/css/mainp.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
 <title>StudyTab</title>
 </head>

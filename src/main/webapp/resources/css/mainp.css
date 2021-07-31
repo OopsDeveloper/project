@@ -1,132 +1,115 @@
 @charset "utf-8";
-	body{
-		padding: 0px;
-		margin: 0px;
-	}
-	.top{
-		background-color: white;
-		height: 100px;
-	}
-	.menu_bar button{
-		background-color:#ff7867;
-		width: 100px;
-		height: 50px;
-		font-size: 20px;
-		color: white;
-		border: #27D68C;
-		border-radius: 25px;
-	}
-	.slider{
-		height: 400px;
-	}
-	.sec_menu_bar{
-		background-color: white;
-		text-align: center;
-		height: 100px;
-	}
-	.pop_study{
-		/* background-color: blue; */ 
-		height: 600px;
-		font-size: 30px;
-	}
-	.today_people{
-		/* background-color: gray; */
-		margin-left: 80px;
-		width: 800px;
-		height: 500px;
-		float: left;
-		border: 1px solid;  
-	}
-	.recent_comment{
-		/* background-color: black; */
-		margin-left: 80px;
-		width: 870px;
-		height: 500px;
-		float: left;
-		border: 1px solid;  
-	}
-	.logo{
-		float: left;
-		margin-top: 8px;
-		margin-left: 30px;
-		margin-right: 20px;
-		font-size: 30px;
-	}
-	.logo img{
-		width: 83px;
-		height: 80px;
-	}
-	.menu{
-		float: left;
-		margin-top: 25px;
-		margin-left: 30px;
-		margin-right: 20px;
-		font-size: 30px;
-	}
-	.join{
-		float: right;
-		margin-top: 25px;
-		margin-right: 20px;
-		font-size: 30px;
-	}
-	.slider{
-		text-align: center;
-	}
-	.sec_menu{
-		display: inline-block;
-		margin-top: 15px;
-		margin-left: 80px;
-		margin-right: 80px;
-		font-size: 30px;
-	}
-	.sec_menu button{
-		background-color:#27D68C;
-		width: 220px;
-		height: 70px;
-		font-size: 30px;
-		color: white;
-		border: #27D68C;
-		border-radius: 25px;
-	}
-	.hover1:hover{ 
-		background-color: rgba(0,0,0,0.5);  
-	}
-	.container {
-        width: 400vw;
-        transition: transform 0.5s;
-    }
-	.inner {
-        width: 100vw;
-        float: left;
-    }
-    .inner img{
-    	width: 100vw;
-    }
-    .study_div{
-    	display: inline-block;
-		margin-top: 15px;
-		margin-left: 80px;
-		margin-right: 60px;
-    }
-    .best_study{
-    	width: 230px;
-    	height: 230px;
-    }
-    .icon{
-    	text-align: center;
-    	margin-top: 10px;
-    }
-    .visitor{
-    	text-align: center;
-    	font-size: 30px;
-    }
-    .visitor_count{
-    	text-align: center;
-    	margin-top: 30px;
-    }
-    .recent_comment{
-    }
-    .chat{
-    	text-align: center;
-    	font-size: 30px;
-    }
+.slider{
+	height: 400px;
+}
+.sec_menu_bar{
+	background-color: white;
+	text-align: center;
+	height: 100px;
+}
+.pop_study{
+	/* background-color: blue; */ 
+	height: 600px;
+	font-size: 30px;
+}
+.today_people{
+	/* background-color: gray; */
+	margin-left: 80px;
+	width: 800px;
+	height: 500px;
+	float: left;
+	border: 1px solid;  
+}
+.recent_comment{
+	/* background-color: black; */
+	margin-left: 80px;
+	width: 870px;
+	height: 500px;
+	float: left;
+	border: 1px solid;  
+}
+.logo{
+	float: left;
+	margin-top: 8px;
+	margin-left: 30px;
+	margin-right: 20px;
+	font-size: 30px;
+}
+.logo img{
+	width: 83px;
+	height: 80px;
+}
+.menu{
+	float: left;
+	margin-top: 25px;
+	margin-left: 30px;
+	margin-right: 20px;
+	font-size: 30px;
+}
+.join{
+	float: right;
+	margin-top: 25px;
+	margin-right: 20px;
+	font-size: 30px;
+}
+.slider{
+	text-align: center;
+}
+.sec_menu{
+	display: inline-block;
+	margin-top: 15px;
+	margin-left: 80px;
+	margin-right: 80px;
+	font-size: 30px;
+}
+.sec_menu button{
+	background-color:#27D68C;
+	width: 220px;
+	height: 70px;
+	font-size: 30px;
+	color: white;
+	border: #27D68C;
+	border-radius: 25px;
+}
+.hover1:hover{ 
+	background-color: rgba(0,0,0,0.5);  
+}
+.container {
+       width: 400vw;
+       transition: transform 0.5s;
+   }
+.inner {
+       width: 100vw;
+       float: left;
+   }
+   .inner img{
+   	width: 100vw;
+   }
+   .study_div{
+   	display: inline-block;
+	margin-top: 15px;
+	margin-left: 80px;
+	margin-right: 60px;
+   }
+   .best_study{
+   	width: 230px;
+   	height: 230px;
+   }
+   .icon{
+   	text-align: center;
+   	margin-top: 10px;
+   }
+   .visitor{
+   	text-align: center;
+   	font-size: 30px;
+   }
+   .visitor_count{
+   	text-align: center;
+   	margin-top: 30px;
+   }
+   .recent_comment{
+   }
+   .chat{
+   	text-align: center;
+   	font-size: 30px;
+   }
