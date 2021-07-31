@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!-- Font Awesome icons (free version)-->
+<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 <!DOCTYPE html>
-
 <style>
 	body{
 		padding: 0px;
@@ -21,7 +22,6 @@
 		border-radius: 25px;
 	}
 	.slider{
-		/* background-color: blue; */
 		height: 400px;
 	}
 	.sec_menu_bar{
@@ -30,20 +30,25 @@
 		height: 100px;
 	}
 	.pop_study{
-		background-color: yellow;
-		height: 300px;
+		/* background-color: blue; */ 
+		height: 600px;
+		font-size: 30px;
 	}
 	.today_people{
-		background-color: gray;
-		width: 50%;
-		height: 300px;
-		float: left;  
+		/* background-color: gray; */
+		margin-left: 80px;
+		width: 800px;
+		height: 500px;
+		float: left;
+		border: 1px solid;  
 	}
 	.recent_comment{
 		/* background-color: black; */
-		width: 50%;
-		height: 300px;
+		margin-left: 80px;
+		width: 870px;
+		height: 500px;
 		float: left;
+		border: 1px solid;  
 	}
 	.logo{
 		float: left;
@@ -102,10 +107,38 @@
     .inner img{
     	width: 100vw;
     }
+    .study_div{
+    	display: inline-block;
+		margin-top: 15px;
+		margin-left: 80px;
+		margin-right: 60px;
+    }
+    .best_study{
+    	width: 230px;
+    	height: 230px;
+    }
+    .icon{
+    	text-align: center;
+    	margin-top: 10px;
+    }
+    .visitor{
+    	text-align: center;
+    	font-size: 30px;
+    }
+    .visitor_count{
+    	text-align: center;
+    	margin-top: 30px;
+    }
+    .recent_comment{
+    }
+    .chat{
+    	text-align: center;
+    	font-size: 30px;
+    }
 </style>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>StudyTab</title>
 </head>
 <body>
@@ -114,10 +147,10 @@
 			<img alt="logo" src="/resources/startpage/logo1.png">
 		</div>
 			<div class="menu_bar">
-				<div class="menu">°øÁö»çÇ×</div>
-				<div class="menu">½ºÅÍµğ°Ô½ÃÆÇ</div>
-				<div class="menu">¿Ï·áµÈ½ºÅÍµğ</div>
-				<div class="join"><button class="hover1">·Î±×¾Æ¿ô</button></div>
+				<div class="menu">ê³µì§€ì‚¬í•­</div>
+				<div class="menu">ìŠ¤í„°ë””ê²Œì‹œíŒ</div>
+				<div class="menu">ì™„ë£ŒëœìŠ¤í„°ë””</div>
+				<div class="join"><button class="hover1">ë¡œê·¸ì•„ì›ƒ</button></div>
 			</div>
 	</div>
 	<div class="slider" style="overflow: hidden;">
@@ -137,19 +170,86 @@
         </div>
     </div>
 	<div class="sec_menu_bar">
-		<div class="sec_menu"><button class="hover1">¸ğÀÓ¸¸µé±â</button></div>
-		<div class="sec_menu"><button class="hover1">½ºÅÍµğ°Ô½ÃÆÇ</button></div>
-		<div class="sec_menu"><button class="hover1">½ºÅÍµğ °¡ÀÌµå</button></div>
-		<div class="sec_menu"><button class="hover1">³ªÀÇ ½ºÅÍµğ</button></div>
+		<div class="sec_menu"><button class="hover1">ëª¨ì„ë§Œë“¤ê¸°</button></div>
+		<div class="sec_menu"><button class="hover1">ìŠ¤í„°ë””ê²Œì‹œíŒ</button></div>
+		<div class="sec_menu"><button class="hover1">ìŠ¤í„°ë”” ê°€ì´ë“œ</button></div>
+		<div class="sec_menu"><button class="hover1">ë‚˜ì˜ ìŠ¤í„°ë””</button></div>
 	</div>
+	<!--ì•„ì§ ë°ì´í„°ê°€ ì—†ì–´ì„œ í•˜ë“œì½”ë”© í–ˆìŠµë‹ˆë‹¤.   -->
 	<div class="pop_study">
-		Á¶È¸¼ö ³ôÀº ½ºÅÍµğ °Ô½Ã¹° º¸ÀÌ´Â °÷
+		<div class="divider-custom">
+	        <div class="icon">
+		        <i class="fas fa-star"></i>
+		        	ê¸ˆì£¼ì˜ ìŠ¤í„°ë””
+		        <i class="fas fa-star"></i>
+	        </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="/resources/mainpage/cabin.png" alt="..." />
+	       </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="/resources/mainpage/cake.png" alt="..." />
+	       </div>
+       </div>
+        <div class="study_div">
+	       <div>
+	           <img class="best_study" src="/resources/mainpage/circus.png" alt="..." />
+	       </div>
+       </div>
+        <div class="study_div">
+	       <div>
+	           <img class="best_study" src="/resources/mainpage/game.png" alt="..." />
+	       </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="/resources/mainpage/circus.png" alt="..." />
+	       </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="/resources/mainpage/safe.png" alt="..." />
+	       </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="/resources/mainpage/circus.png" alt="..." />
+	       </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="/resources/mainpage/game.png" alt="..." />
+	       </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="/resources/mainpage/safe.png" alt="..." />
+	       </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="/resources/mainpage/cabin.png" alt="..." />
+	       </div>
+       </div>
 	</div>
 	<div class="today_people">
-		¿À´ÃÀº 200¸íÀÌ<br> ¹®À» µÎµé°å¾î¿ä~
+		<div class="visitor">
+        	<i class="fas fa-running"></i>
+	        	ê¸ˆì¼ ë°©ë¬¸ì
+        </div>
+        <div class="visitor_count">
+	        <i class="fas fa-user-check"></i>
+			3ëª… ë°©ë¬¸í–ˆìŠµë‹ˆë‹¤. 
+		</div>
 	</div>
 	<div class="recent_comment">
-		ÃÖ½Å ´ñ±Û º¸´Â°÷
+		<div class="chat">
+			<i class="far fa-comment-dots"></i>
+			ê¼¬ê¼¬ë¬´
+		</div>
 	</div>
 	<script>
 		var x = 0;
@@ -161,8 +261,7 @@
 			document.querySelector('.container').style.transform = 'translate('+ x +'vw)';
 			
 		}
-		setInterval(next_slider,3000);
-		
+		setInterval(next_slider,5000);		
 	</script>
 </body>
 </html>
