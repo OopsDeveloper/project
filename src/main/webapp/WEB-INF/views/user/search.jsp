@@ -111,7 +111,7 @@
                                 <input type="password" name="joinPass" class="form-control" placeholder="패스워드">
                             </div>
                             <button type="submit" class="btn btn-lg btn-success btn-block">
-                                <i class="fa fa-sign-in"></i> 로그인
+                                <i class="fa fa-sign-in"></i> 아이디 찾기
                             </button>
                             <button id="register" class="btn btn-lg btn-success btn-block">
                                 <i class="fa fa-sign-in"></i> 회원가입
