@@ -1,18 +1,155 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@include file="../includes/header2.jsp" %>
+<head>
+	 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+    <link
+    href="https://fonts.googleapis.com/css?family=Oswald:700|Poppins"
+    rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 
-<%@include file="../includes/header.jsp" %>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/list.css">
+</head>
 
-<div class="row">
+<title>스터디탭 게시판</title>
+<body>
+<!-- ${pageContext.request.contextPath} -->
+
+
+	<div class="aside"><h2></h2>
+      <img src="/test/image/jolraman1.png" alt="">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+
+    </div>
+
+
+<!-- START 위 게시판 -->
+    <div id="content-wrap">
+<article id="Information1">
+  <h6> 홈 > 게시판 > 자유게시판 </h6>
+  <hr class="hr1" width="30%">
+  <img src="image/freelogo.png" class="infoPhoto" alt="" >
+</article>   
+</div>  
+            <article id="Information">
+
+                <p id=sub2>게시판만드는중.... </p>
+                
+                <div class="panel panel-default"> 
+                	<div>
+                		<form name = "frm_search" action= "/aticle/list" method="get"
+                		class ="form-horizontal">
+                		
+                			<div class = "form-group">
+                				<label for = "id_searchType" class = "col-sm-2 cotrol-label">검색</label>
+                				<div class = "col-sm-2">
+             				<select id="id_searchType" name="searchType" class="form-control input-sm">
+								<option value="T" ${searchVO.searchType eq 'T' ? 'selected="selected"' : '' } >제목</option>
+								<option value="W" ${searchVO.searchType eq 'W' ? 'selected="selected"' : '' } >작성자</option>
+								<option value="C" ${searchVO.searchType eq 'C' ? 'selected="selected"' : '' } >내용</option>
+							</select>
+                				</div>
+                			
+                			</div>
+                		
+                		</form>
+                	</div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                   <!-- START : 목록건수 및 새글쓰기 버튼  -->
+            <div class="row mb-auto ">
+              
+              <div class="col-sm-1 form-inline">
+                <select id="id_rowSizePerPage" name="rowSizePerPage" class="form-control input-group-sm">
+                  <option value="10" ${searchVO.rowSizePerPage eq 10 ? 'selected="selected"' : ''}>게시글 수</option>
+                  <option value="10" ${searchVO.rowSizePerPage eq 10 ? 'selected="selected"' : ''}>10</option>
+                  <option value="20" ${searchVO.rowSizePerPage eq 20 ? 'selected="selected"' : ''}>20</option>
+                  <option value="30" ${searchVO.rowSizePerPage eq 30 ? 'selected="selected"' : ''}>30</option>
+                  <option value="50" ${searchVO.rowSizePerPage eq 50 ? 'selected="selected"' : ''}>50</option>
+                </select>
+              </div>
+            </div>
+                <table class="table table-bordered table-hover text-center fifth-gray">
+                  <colgroup>
+                    <col width="10%" />
+                    <col width="15%" />
+                    <col />
+                    <col width="10%" />
+                    <col width="15%" />
+                    <col width="10%" />
+                  </colgroup>
+                  <thead class="hear-text-center">
+                    <tr>
+                      <th>글번호</th>
+                      <th>분류</th>
+                      <th>제목</th>
+                      <th>작성자</th>
+                      <th>등록일</th>
+                      <th>조회수</th>
+                    </tr>
+                  </thead>
+            
+                  <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>대전</td>
+                        <td class="text-left"><a href="freeView.jsp?boNo=${board.boNo}"> 스터디탭 사랑해요 </a></td>
+                        <td>금메달999개</td>
+                        <td>2021.07.28</td>
+                        <td>10</td>
+                      </tr>
+                      
+                  </tbody>
+                </table>
+                <!--  //start .pagination-->
+                <!-- i -->
+
+              </div>
+        </div> 
+            </article>
+            
+            <article>
+                <h1 id=sub>뭘 넣어야하지</h1>
+                <div>
+                   
+                </div>
+            </article>
+ 
+        </section>
+
+        <!-- end of content-wrap -->
+    </div>
+
+
+
+<%-- <div class="row">
   <div class="col-lg-12">
     <h1 class="page-header">게시판</h1>
 
   </div>
   <!-- /.col-lg-12 -->
+
 </div>
 <!-- /.row -->
+
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
@@ -118,8 +255,11 @@
       </div>
     </div>
   </div>
-</div>
+</div> --%>
 
+</body>
+</html>
+ 
 <script type="text/javascript">
 
   $(document).ready(function() {
@@ -191,6 +331,7 @@
     });
 
   });
+
 </script>
 
 <%@include file="../includes/footer.jsp"%>

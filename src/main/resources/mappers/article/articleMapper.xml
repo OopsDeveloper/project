@@ -8,12 +8,15 @@
     <sql id="criteria">
         <trim prefix="(" suffix=") AND">
             <foreach collection="typeArr" item="type" separator="OR">
+            <!-- 제목 -->
                 <if test="type == 'T'.toString()">
                     title like '%'||#{keyword}||'%'
                 </if>
+            <!-- 내용 -->
                 <if test="type == 'C'.toString()">
                     content like '%'||#{keyword}||'%'
                 </if>
+            <!-- 작성자 -->
                 <if test="type == 'W'.toString()">
                     writer like '%'||#{keyword}||'%'
                 </if>

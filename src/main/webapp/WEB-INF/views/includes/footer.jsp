@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+푸터 시작부분
 </div>
 <!-- /#page-wrapper -->
 
@@ -32,7 +33,7 @@
             .attr("style","height:1px");
   });
 </script>
-
+나는 푸터
 </body>
 
 </html>
