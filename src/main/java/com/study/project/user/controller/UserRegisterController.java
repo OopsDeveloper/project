@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/user")
 public class UserRegisterController {
 
-    @Inject
+    @Autowired
     private UserService userService;
 
     private static final Logger logger = LoggerFactory.getLogger(UserRegisterController.class);
@@ -105,6 +105,10 @@ public class UserRegisterController {
         return "/user/findPw";
     }
 
-
+    // 회원 인증
+    @RequestMapping(value = "/approval_email.do", method = RequestMethod.POST)
+    public void approvalEmail(@ModelAttribute UserVO userVO, HttpServletResponse response) throws Exception{
+        userService.approval_email(userVO, response);
+    }
 
 }

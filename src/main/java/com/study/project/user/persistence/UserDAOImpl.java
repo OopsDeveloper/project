@@ -3,7 +3,9 @@ package com.study.project.user.persistence;
 import com.study.project.user.domain.LoginDTO;
 import com.study.project.user.domain.UserVO;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
 
@@ -12,12 +14,8 @@ public class UserDAOImpl implements UserDAO {
 
     private static final String NAMESPACE = "com.study.project.mappers.user.userMapper";
 
-    private final SqlSession sqlSession;
-
-    @Inject
-    public UserDAOImpl(SqlSession sqlSession) {
-        this.sqlSession = sqlSession;
-    }
+    @Autowired
+    private SqlSession sqlSession;
 
     // 회원가입처리
     @Override
@@ -38,6 +36,11 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public int check_email(String joinEmail) throws Exception {
         return sqlSession.selectOne(NAMESPACE + ".check_email", joinEmail);
+    }
+
+    @Transactional
+    public int approval_email(UserVO userVO) throws Exception {
+        return sqlSession.update(NAMESPACE + ".approval_email", userVO);
     }
 
 }

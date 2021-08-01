@@ -19,4 +19,10 @@ public interface UserService {
     // Email 중복 체크
     void check_email(String joinEmail, HttpServletResponse response) throws Exception;
 
+    String create_key() throws Exception;
+
+    void send_mail(UserVO userVO) throws Exception;
+
+    void approval_email(UserVO userVO, HttpServletResponse response) throws Exception;
+
 }

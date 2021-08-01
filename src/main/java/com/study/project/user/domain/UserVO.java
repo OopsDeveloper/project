@@ -13,6 +13,9 @@ public class UserVO {
     private String joinInterestsCode;
     private String joinGender;
     private String joinPhone;
+    private String joinApprovalStatus;
+    private String joinApprovalKey;
+
 
     // getter, setter, toString...
     @Override
@@ -22,12 +25,30 @@ public class UserVO {
                 ", joinPass='" + joinPass + '\'' +
                 ", joinName='" + joinName + '\'' +
                 ", joinEmail='" + joinEmail + '\'' +
-                ", joinBirth=" + joinBirth +
+                ", joinBirth='" + joinBirth + '\'' +
                 ", joinRegistrationDate=" + joinRegistrationDate +
                 ", joinInterestsCode='" + joinInterestsCode + '\'' +
                 ", joinGender='" + joinGender + '\'' +
                 ", joinPhone='" + joinPhone + '\'' +
+                ", joinApprovalStatus='" + joinApprovalStatus + '\'' +
+                ", joinApprovalKey='" + joinApprovalKey + '\'' +
                 '}';
+    }
+
+    public String getJoinApprovalStatus() {
+        return joinApprovalStatus;
+    }
+
+    public void setJoinApprovalStatus(String joinApprovalStatus) {
+        this.joinApprovalStatus = joinApprovalStatus;
+    }
+
+    public String getJoinApprovalKey() {
+        return joinApprovalKey;
+    }
+
+    public void setJoinApprovalKey(String joinApprovalKey) {
+        this.joinApprovalKey = joinApprovalKey;
     }
 
     public String getJoinId() {

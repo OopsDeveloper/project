@@ -14,4 +14,6 @@ public interface UserDAO {
 
     int check_email(String joinEmail) throws Exception;
 
+    int approval_email(UserVO userVO) throws Exception;
+
 }

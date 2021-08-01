@@ -15,6 +15,8 @@
                          , join_gender
                          , join_phone
                          , join_interests_code
+                         , join_approval_status
+                         , join_approval_key
         ) VALUES (
                 #{joinId}
                  , #{joinPass}
@@ -24,6 +26,8 @@
                  , #{joinGender}
                  , #{joinPhone}
                  , #{joinInterestsCode}
+                 , 'false'
+                 , #{joinApprovalKey}
                  )
     </insert>
 
@@ -44,6 +48,14 @@
         SElECT COUNT(*) FROM study.tbl_join where join_email = #{joinEmail}
     </select>
 
+    <!-- Email 인증 -->
+    <update id="approval_email" parameterType="UserVO">
+        update study.tbl_join
+           set join_approval_status = 'true'
+         where join_email = #{joinEmail}
+         and join_approval_key = #{joinApprovalKey}
+    </update>
+
     <resultMap id="userVOResultMap" type="UserVO">
         <result property="joinId" column="join_id"/>
         <result property="joinPass" column="join_pass"/>
@@ -54,6 +66,8 @@
         <result property="joinInterestsCode" column="join_interests_code"/>
         <result property="joinGender" column="join_gender"/>
         <result property="joinPhone" column="join_phone"/>
+        <result property="joinApprovalStatus" column="join_approval_status"/>
+        <result property="joinApprovalKey" column="join_approval_key"/>
     </resultMap>
 
 
