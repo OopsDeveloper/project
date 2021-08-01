@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/main")
 public class MainpController {
 	
-	@RequestMapping(value="mainp", method = RequestMethod.GET)
+	@RequestMapping(value="/mainp", method = RequestMethod.GET)
 //	@GetMapping("/mainp")
 	public void mainp() {
 		

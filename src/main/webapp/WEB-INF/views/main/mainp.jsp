@@ -1,155 +1,111 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
-<style>
-	body{
-		padding: 0px;
-		margin: 0px;
-	}
-	.top{
-		background-color: white;
-		height: 100px;
-	}
-	.menu_bar button{
-		background-color:#ff7867;
-		width: 100px;
-		height: 50px;
-		font-size: 20px;
-		color: white;
-		border: #27D68C;
-		border-radius: 25px;
-	}
-	.slider{
-		/* background-color: blue; */
-		height: 400px;
-	}
-	.sec_menu_bar{
-		background-color: white;
-		text-align: center;
-		height: 100px;
-	}
-	.pop_study{
-		background-color: yellow;
-		height: 300px;
-	}
-	.today_people{
-		background-color: gray;
-		width: 50%;
-		height: 300px;
-		float: left;  
-	}
-	.recent_comment{
-		/* background-color: black; */
-		width: 50%;
-		height: 300px;
-		float: left;
-	}
-	.logo{
-		float: left;
-		margin-top: 8px;
-		margin-left: 30px;
-		margin-right: 20px;
-		font-size: 30px;
-	}
-	.logo img{
-		width: 83px;
-		height: 80px;
-	}
-	.menu{
-		float: left;
-		margin-top: 25px;
-		margin-left: 30px;
-		margin-right: 20px;
-		font-size: 30px;
-	}
-	.join{
-		float: right;
-		margin-top: 25px;
-		margin-right: 20px;
-		font-size: 30px;
-	}
-	.slider{
-		text-align: center;
-	}
-	.sec_menu{
-		display: inline-block;
-		margin-top: 15px;
-		margin-left: 80px;
-		margin-right: 80px;
-		font-size: 30px;
-	}
-	.sec_menu button{
-		background-color:#27D68C;
-		width: 220px;
-		height: 70px;
-		font-size: 30px;
-		color: white;
-		border: #27D68C;
-		border-radius: 25px;
-	}
-	.hover1:hover{ 
-		background-color: rgba(0,0,0,0.5);  
-	}
-	.container {
-        width: 400vw;
-        transition: transform 0.5s;
-    }
-	.inner {
-        width: 100vw;
-        float: left;
-    }
-    .inner img{
-    	width: 100vw;
-    }
-</style>
 <html>
 <head>
-<meta charset="EUC-KR">
+<%@include file="/WEB-INF/views/includes/header.jsp"%>
+<link href="${pageContext.request.contextPath}/resources/css/mainp.css" rel="stylesheet" type="text/css">
+<meta charset="UTF-8">
 <title>StudyTab</title>
 </head>
 <body>
-	<div class="top">
-		<div class="logo"> 
-			<img alt="logo" src="/resources/startpage/logo1.png">
-		</div>
-			<div class="menu_bar">
-				<div class="menu">°øÁö»çÇ×</div>
-				<div class="menu">½ºÅÍµğ°Ô½ÃÆÇ</div>
-				<div class="menu">¿Ï·áµÈ½ºÅÍµğ</div>
-				<div class="join"><button class="hover1">·Î±×¾Æ¿ô</button></div>
-			</div>
-	</div>
 	<div class="slider" style="overflow: hidden;">
         <div class="container">
             <div class="inner">
-            	<img alt="" src="/resources/mainpage/mint.jpg">
+            	<img alt="" src="${pageContext.request.contextPath}/resources/mainpage/mint.jpg">
             </div>
             <div class="inner">
-            	<img alt="" src="/resources/mainpage/orange.jpg">
+            	<img alt="" src="${pageContext.request.contextPath}/resources/mainpage/orange.jpg">
             </div>
             <div class="inner">
-            	<img alt="" src="/resources/mainpage/pink.jpg">
+            	<img alt="" src="${pageContext.request.contextPath}/resources/mainpage/pink.jpg">
             </div>
             <div class="inner">
-            	<img alt="" src="/resources/mainpage/green.jpg">
+            	<img alt="" src="${pageContext.request.contextPath}/resources/mainpage/green.jpg">
             </div>
         </div>
     </div>
 	<div class="sec_menu_bar">
-		<div class="sec_menu"><button class="hover1">¸ğÀÓ¸¸µé±â</button></div>
-		<div class="sec_menu"><button class="hover1">½ºÅÍµğ°Ô½ÃÆÇ</button></div>
-		<div class="sec_menu"><button class="hover1">½ºÅÍµğ °¡ÀÌµå</button></div>
-		<div class="sec_menu"><button class="hover1">³ªÀÇ ½ºÅÍµğ</button></div>
+		<div class="sec_menu"><button class="hover1">ëª¨ì„ë§Œë“¤ê¸°</button></div>
+		<div class="sec_menu"><button class="hover1">ìŠ¤í„°ë””ê²Œì‹œíŒ</button></div>
+		<div class="sec_menu"><button class="hover1">ìŠ¤í„°ë”” ê°€ì´ë“œ</button></div>
+		<div class="sec_menu"><button class="hover1">ë‚˜ì˜ ìŠ¤í„°ë””</button></div>
 	</div>
+	<!--ì•„ì§ ë°ì´í„°ê°€ ì—†ì–´ì„œ í•˜ë“œì½”ë”© í–ˆìŠµë‹ˆë‹¤.   -->
 	<div class="pop_study">
-		Á¶È¸¼ö ³ôÀº ½ºÅÍµğ °Ô½Ã¹° º¸ÀÌ´Â °÷
+		<div class="divider-custom">
+	        <div class="icon">
+		        <i class="fas fa-star"></i>
+		        	ê¸ˆì£¼ì˜ ìŠ¤í„°ë””
+		        <i class="fas fa-star"></i>
+	        </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/cabin.png" alt="..." />
+	       </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/cake.png" alt="..." />
+	       </div>
+       </div>
+        <div class="study_div">
+	       <div>
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/circus.png" alt="..." />
+	       </div>
+       </div>
+        <div class="study_div">
+	       <div>
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/game.png" alt="..." />
+	       </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/circus.png" alt="..." />
+	       </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/safe.png" alt="..." />
+	       </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/circus.png" alt="..." />
+	       </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/game.png" alt="..." />
+	       </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/safe.png" alt="..." />
+	       </div>
+       </div>
+       <div class="study_div">
+	       <div>
+	           <img class="best_study" src="${pageContext.request.contextPath}/resources/mainpage/cabin.png" alt="..." />
+	       </div>
+       </div>
 	</div>
 	<div class="today_people">
-		¿À´ÃÀº 200¸íÀÌ<br> ¹®À» µÎµé°å¾î¿ä~
+		<div class="visitor">
+        	<i class="fas fa-running"></i>
+	        	ê¸ˆì¼ ë°©ë¬¸ì
+        </div>
+        <div class="visitor_count">
+	        <i class="fas fa-user-check"></i>
+			3ëª… ë°©ë¬¸í–ˆìŠµë‹ˆë‹¤. 
+		</div>
 	</div>
 	<div class="recent_comment">
-		ÃÖ½Å ´ñ±Û º¸´Â°÷
+		<div class="chat">
+			<i class="far fa-comment-dots"></i>
+			ê¼¬ê¼¬ë¬´
+		</div>
 	</div>
 	<script>
 		var x = 0;
@@ -161,8 +117,7 @@
 			document.querySelector('.container').style.transform = 'translate('+ x +'vw)';
 			
 		}
-		setInterval(next_slider,3000);
-		
+		setInterval(next_slider,5000);		
 	</script>
 </body>
 </html>

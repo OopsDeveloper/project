@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.project.mappers.meet.meetMapper">
+	<insert id="register">
+		INSERT INTO study.tbl_meet(
+							meet_category_code,
+							meet_count,
+							meet_detail,
+							meet_group_name,
+							meet_hit,
+							meet_level,
+							meet_name,
+							meet_phone,
+		) VALUES (
+				#{meetCategoryCode},
+				#{meetCount},
+				#{meetDetail},
+				#{meetGroupName},
+				#{meetHit},
+				#{meetLevel},
+				#{meetName},
+				#{meetPhone}
+		)
+	</insert>
+	
+	<resultMap id="meetVOResultMap" type="MeetVO">
+		<result property="meetCategoryCode" column="meet_category_code"/>
+		<result property="meetCount" column="meet_count"/>
+		<result property="meetDetail" column="meet_detail"/>
+		<result property="meetGroupName" column="meet_group_name"/>
+		<result property="meetHit" column="meet_hit"/>
+		<result property="meetLevel" column="meet_level"/>
+		<result property="meetName" column="meet_name"/>
+		<result property="meetPhone" column="meet_phone"/>
+	</resultMap>
+</mapper>
