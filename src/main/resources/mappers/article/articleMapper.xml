@@ -28,18 +28,16 @@
         <selectKey order="BEFORE" keyProperty="articleNo" resultType="Integer">
             select seq_article.nextval from dual
         </selectKey>
-        INSERT INTO tbl_article (
+        INSERT INTO study.tbl_article (
             article_no
             , title
             , content
             , writer
-            , viewcnt
         ) VALUES (
             #{articleNo}
              , #{title}
              , #{content}
              , #{writer}
-             , #{viewCnt}
         )
     </insert>
 
@@ -52,12 +50,12 @@
              , regdate
              , viewcnt
         FROM
-            tbl_article
+            study.tbl_article
         WHERE article_no = #{articleNo}
     </select>
 
     <update id="update">
-        UPDATE tbl_article
+        UPDATE study.tbl_article
         SET
             title = #{title}
           , content = #{content}
@@ -67,7 +65,7 @@
     </update>
 
     <delete id="delete">
-        DELETE FROM tbl_article
+        DELETE FROM study.tbl_article
         WHERE article_no = #{articleNo}
     </delete>
 
@@ -80,7 +78,7 @@
             writer,
             regdate,
             viewcnt
-        FROM tbl_article
+        FROM study.tbl_article
         WHERE article_no > 0
         ORDER BY article_no DESC, regdate DESC
         ]]>
@@ -97,7 +95,7 @@
             viewcnt
         FROM
             (
-                SELECT /*+ INDEX_DESC(TBL_ARTICLE (article_no)) */
+                SELECT /*+ INDEX_DESC(study.TBL_ARTICLE (article_no)) */
                        ROWNUM RN,
                        ARTICLE_NO,
                        TITLE,
@@ -105,7 +103,7 @@
                        WRITER,
                        REGDATE,
                        VIEWCNT
-                FROM tbl_article
+                FROM study.tbl_article
                 WHERE
         ]]>
                 <include refid="criteria"></include>
@@ -117,7 +115,7 @@
     </select>
 
     <select id="getTotalCount" resultType="int">
-        select count(ARTICLE_NO) from TBL_ARTICLE WHERE
+        select count(ARTICLE_NO) from study.TBL_ARTICLE WHERE
         <include refid="criteria"></include>
         ARTICLE_NO > 0
     </select>
@@ -129,6 +127,7 @@
         <result property="writer" column="writer" />
         <result property="regDate" column="regdate" />
         <result property="viewCnt" column="viewcnt" />
+        <!-- <result property="replyCnt" column="reply_cnt" /> -->
     </resultMap>
 
 </mapper>

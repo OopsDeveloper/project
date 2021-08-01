@@ -28,17 +28,6 @@
 <body>
 <!-- ${pageContext.request.contextPath} -->
 
-
-	<div class="aside"><h2></h2>
-      <img src="/test/image/jolraman1.png" alt="">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-
-    </div>
-
-
 <!-- START 위 게시판 -->
     <div id="content-wrap">
 <article id="Information1">
@@ -47,104 +36,23 @@
   <img src="image/freelogo.png" class="infoPhoto" alt="" >
 </article>   
 </div>  
-            <article id="Information">
 
-                <p id=sub2>게시판만드는중.... </p>
-                
-                <div class="panel panel-default"> 
-                	<div>
-                		<form name = "frm_search" action= "/aticle/list" method="get"
-                		class ="form-horizontal">
-                		
-                			<div class = "form-group">
-                				<label for = "id_searchType" class = "col-sm-2 cotrol-label">검색</label>
-                				<div class = "col-sm-2">
-             				<select id="id_searchType" name="searchType" class="form-control input-sm">
-								<option value="T" ${searchVO.searchType eq 'T' ? 'selected="selected"' : '' } >제목</option>
-								<option value="W" ${searchVO.searchType eq 'W' ? 'selected="selected"' : '' } >작성자</option>
-								<option value="C" ${searchVO.searchType eq 'C' ? 'selected="selected"' : '' } >내용</option>
-							</select>
-                				</div>
-                			
-                			</div>
-                		
-                		</form>
-                	</div>
-                </div>
+	 <div class="aside"><h2></h2>
+      <img src="/test/image/jolraman1.png" alt="">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
 
-                <div class="panel panel-default">
-                  <div class="panel-body">
-                   <!-- START : 목록건수 및 새글쓰기 버튼  -->
-            <div class="row mb-auto ">
-              
-              <div class="col-sm-1 form-inline">
-                <select id="id_rowSizePerPage" name="rowSizePerPage" class="form-control input-group-sm">
-                  <option value="10" ${searchVO.rowSizePerPage eq 10 ? 'selected="selected"' : ''}>게시글 수</option>
-                  <option value="10" ${searchVO.rowSizePerPage eq 10 ? 'selected="selected"' : ''}>10</option>
-                  <option value="20" ${searchVO.rowSizePerPage eq 20 ? 'selected="selected"' : ''}>20</option>
-                  <option value="30" ${searchVO.rowSizePerPage eq 30 ? 'selected="selected"' : ''}>30</option>
-                  <option value="50" ${searchVO.rowSizePerPage eq 50 ? 'selected="selected"' : ''}>50</option>
-                </select>
-              </div>
-            </div>
-                <table class="table table-bordered table-hover text-center fifth-gray">
-                  <colgroup>
-                    <col width="10%" />
-                    <col width="15%" />
-                    <col />
-                    <col width="10%" />
-                    <col width="15%" />
-                    <col width="10%" />
-                  </colgroup>
-                  <thead class="hear-text-center">
-                    <tr>
-                      <th>글번호</th>
-                      <th>분류</th>
-                      <th>제목</th>
-                      <th>작성자</th>
-                      <th>등록일</th>
-                      <th>조회수</th>
-                    </tr>
-                  </thead>
-            
-                  <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>대전</td>
-                        <td class="text-left"><a href="freeView.jsp?boNo=${board.boNo}"> 스터디탭 사랑해요 </a></td>
-                        <td>금메달999개</td>
-                        <td>2021.07.28</td>
-                        <td>10</td>
-                      </tr>
-                      
-                  </tbody>
-                </table>
-                <!--  //start .pagination-->
-                <!-- i -->
-
-              </div>
-        </div> 
-            </article>
-            
-            <article>
-                <h1 id=sub>뭘 넣어야하지</h1>
-                <div>
-                   
-                </div>
-            </article>
- 
-        </section>
-
-        <!-- end of content-wrap -->
     </div>
+<article id="Information">
 
-
-
-<%-- <div class="row">
+<!--  <div class="row">
   <div class="col-lg-12">
     <h1 class="page-header">게시판</h1>
 
-  </div>
+  </div> -->
+  <p id=sub2>게시판만드는중.... </p>
   <!-- /.col-lg-12 -->
 
 </div>
@@ -153,19 +61,22 @@
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
-      <div class="panel-heading">
-        DataTables Advanced Tables
-        <button id='regBtn' type="button" class="btn btn-xs pull-right">Register New Board</button>
+       <div class="panel-heading">
+       
+        <button id='regBtn' type="button" class="btn btn-xs pull-right">글 등록</button>
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
         <table width="100%" class="table table-striped table-bordered table-hover">
           <thead>
           <tr>
-            <th>ArticleNo</th>
-            <th>Title</th>
-            <th>Writer</th>
-            <th>RegDate</th>
+            <th>글번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>등록일</th>
+            <th>조회수</th>
+<!--             <th>수정일</th>
+            <th>조회수</th> -->
           </tr>
           </thead>
           <tbody>
@@ -175,6 +86,7 @@
               <td><a class='move' href='<c:out value="${board.articleNo}"/>'><c:out value="${board.title}"/></a></td>
               <td><c:out value="${board.writer}"/></td>
               <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regDate}"/></td>
+              <td><c:out value="${board.viewcnt}"/></td>
             </tr>
           </c:forEach>
           </tbody>
@@ -237,7 +149,7 @@
 </div>
 <!-- /.row -->
 
-<div id="myModal" class="modal" tabindex="-1" role="dialog">
+<!-- <div id="myModal" class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -255,7 +167,7 @@
       </div>
     </div>
   </div>
-</div> --%>
+</div> -->
 
 </body>
 </html>

@@ -50,7 +50,7 @@
       <header id="header" class="">
         <div class="container">
           <a class="navbar-brand" href="#">
-            <img src="image/logo2.png" alt="로고" width="5%" height="10%" class="logo">
+          <img alt="logo" width="5%" height="10%" class="logo" src="${pageContext.request.contextPath}/resources/startpage/logo1.png">
           </a>
         <!--  -->
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
