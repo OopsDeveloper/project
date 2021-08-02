@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -88,14 +87,22 @@ public class UserRegisterController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public String search() throws Exception {
-        return "/user/search";
-    }
-
     // 아이디 찾기
     @RequestMapping(value = "/findId.do")
     public String findId() throws Exception {
+        return "/user/findId";
+    }
+
+    // 아이디 찾기 POST
+    @RequestMapping(value = "/findId.do", method = RequestMethod.POST)
+    public String findId(HttpServletResponse response, @RequestParam("joinEmail") String joinEmail, Model model, RedirectAttributes redirectAttributes) throws Exception{
+        String user = userService.find_id(response, joinEmail);
+        if(user == null) {
+            model.addAttribute("check", 1);
+        } else {
+            model.addAttribute("check", 0);
+            model.addAttribute("joinId", userService.find_id(response, joinEmail));
+        }
         return "/user/findId";
     }
 

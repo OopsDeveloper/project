@@ -56,6 +56,11 @@
          and join_approval_key = #{joinApprovalKey}
     </update>
 
+    <!-- 아이디 찾기 -->
+    <select id="find_id" parameterType="String" resultType="String">
+        select join_id from study.tbl_join where join_email = #{joinEmail}
+    </select>
+
     <resultMap id="userVOResultMap" type="UserVO">
         <result property="joinId" column="join_id"/>
         <result property="joinPass" column="join_pass"/>

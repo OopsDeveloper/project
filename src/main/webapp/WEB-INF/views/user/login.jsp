@@ -36,6 +36,9 @@
         .btn {
             background : #017143;
         }
+        #searchTag {
+            color : dimgray;
+        }
     </style>
 
 </head>
@@ -63,9 +66,9 @@
                             <button id="register" class="btn btn-lg btn-success btn-block">
                                 <i class="fa fa-sign-in"></i> 회원가입
                             </button>
-                            <button id="findIdPw" class="btn btn-lg btn-success btn-block">
-                                <i class="fa fa-sign-in"></i> 아이디 / 패스워드 찾기
-                            </button>
+                            <div id="searchTag">
+                                <i class="fa fa-lock"></i><a href="/user/findId.do" class ="md-3" style="color:dimgray"> 아이디</a> • <a href="/user/findId.do" class ="md-3" style="color:dimgray">비밀번호</a> 찾기
+                            </div>
                         </fieldset>
                     </form>
                 </div>
@@ -92,8 +95,6 @@
     if (msg === "REGISTERED") {
         alert("회원가입이 완료되었습니다. 로그인해주세요~");
     }
-
-
 
     $("button[type=submit]").on("click", function (e) {
         e.preventDefault();

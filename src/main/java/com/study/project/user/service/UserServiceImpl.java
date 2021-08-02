@@ -117,13 +117,17 @@ public class UserServiceImpl implements UserService {
         String mail = userVO.getJoinEmail();
 
         try {
-            SimpleEmail email = new SimpleEmail();
+            HtmlEmail email = new HtmlEmail();
             email.setDebug(true);
-            email.setCharset(charSet);
             email.setHostName(hostSMTP);
             email.setSmtpPort(587); // SMTP 포트 번호 입력 587
+            email.setCharset(charSet);
+            email.setSslSmtpPort(email.getSmtpPort());
 
             email.setAuthentication(hostSMTPid, hostSMTPpwd);
+
+//            email.setSSLOnConnect(true); // SSL 접속 활성화
+//            email.setStartTLSEnabled(true); // TLS 접속 활성화
             email.setSSL(true);
             email.setTLS(true);
             email.addTo(mail, charSet);
@@ -131,6 +135,7 @@ public class UserServiceImpl implements UserService {
             email.setSubject(subject);
             email.setMsg(msg);
             email.send();
+
         } catch (Exception e) {
             System.out.println("메일발송 실패 : " + e);
         }
@@ -153,6 +158,25 @@ public class UserServiceImpl implements UserService {
             out.println("location.href='/';");
             out.println("</script>");
             out.close();
+        }
+    }
+
+    @Override
+    public String find_id(HttpServletResponse response, String joinEmail) throws Exception {
+        response.setContentType("text/html;charset=utf-8");
+        PrintWriter out = response.getWriter();
+        String findId = userDAO.find_id(joinEmail);
+
+        if (findId == null) {
+            out.println("<script>");
+            out.println("alert('가입된 아이디가 없습니다.');");
+            /*out.println("document.getElementById('caption').innerHTML='아이디 찾기'");*/
+            out.println("history.go(-1);");
+            out.println("</script>");
+            out.close();
+            return null;
+        } else {
+            return findId;
         }
     }
 

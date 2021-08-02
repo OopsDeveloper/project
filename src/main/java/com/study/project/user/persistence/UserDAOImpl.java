@@ -43,4 +43,9 @@ public class UserDAOImpl implements UserDAO {
         return sqlSession.update(NAMESPACE + ".approval_email", userVO);
     }
 
+    @Override
+    public String find_id(String joinEmail) throws Exception {
+        return sqlSession.selectOne(NAMESPACE + ".find_id", joinEmail);
+    }
+
 }

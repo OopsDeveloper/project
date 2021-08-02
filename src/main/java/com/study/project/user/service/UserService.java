@@ -25,4 +25,6 @@ public interface UserService {
 
     void approval_email(UserVO userVO, HttpServletResponse response) throws Exception;
 
+    String find_id(HttpServletResponse response, String joinEmail) throws Exception;
+
 }

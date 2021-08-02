@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +32,18 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- jQuery -->
+    <script src="/resources/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/resources/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/resources/dist/js/sb-admin-2.js"></script>
 
     <style>
         .btn {
@@ -72,11 +85,19 @@
             background-color: #017143;
         }
         #caption {
-            font-size: 50px;
-            border: 1px solid red;
+            font-size: 45px;
+            border: 1px solid #017143;
+            border-radius: 10px;
+            background-color: #017143;
+            color: white;
         }
         .login-panel {
             margin-top: 10%;
+        }
+
+        label {
+            font-size: 20px;
+            color:#f7ecb5;
         }
 
     </style>
@@ -102,22 +123,28 @@
                     아이디 찾기
                 </div>
                 <div class="panel-body">
-                        <form id="loginForm" action="${path}/user/loginPost" method="post" role="form">
+                        <form id="findIdForm" action="${path}/user/findId.do" method="post" role="form">
                         <fieldset>
                             <div class="form-group">
-                                <input type="text" name="joinId" class="form-control" placeholder="아이디" autofocus>
+                                <input type="text" name="joinEmail" class="form-control" placeholder="이메일" autofocus>
                             </div>
+                            <c:if test="${check == 0}">
+                                <script>
+                                    $("input[type=text]").val("찾으시는 아이디: ${joinId} ");
+                                    $("#caption").html("아이디 검색 결과");
+                                </script>
+                            </c:if>
+
+                            <%--
                             <div class="form-group">
                                 <input type="password" name="joinPass" class="form-control" placeholder="패스워드">
                             </div>
+                            --%>
                             <button type="submit" class="btn btn-lg btn-success btn-block">
                                 <i class="fa fa-sign-in"></i> 아이디 찾기
                             </button>
                             <button id="register" class="btn btn-lg btn-success btn-block">
                                 <i class="fa fa-sign-in"></i> 회원가입
-                            </button>
-                            <button id="findIdPw" class="btn btn-lg btn-success btn-block">
-                                <i class="fa fa-sign-in"></i> 아이디 / 패스워드 찾기
                             </button>
                         </fieldset>
                     </form>
@@ -126,16 +153,6 @@
         </div>
     </div>
 </div>
-<%--${path}/user/register --%>
 
-<!-- jQuery -->
-<script src="/resources/vendor/jquery/jquery.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="/resources/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-<!-- Metis Menu Plugin JavaScript -->
-<script src="/resources/vendor/metisMenu/metisMenu.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/resources/dist/js/sb-admin-2.js"></script>
