@@ -1,36 +1,38 @@
 package com.study.project.meetp.domain;
 
+import java.sql.Time;
 import java.util.Date;
 
 public class MeetVO {
-	private String meetCategoryCode;
-	private int meetCount;
-	private String meetDetail;
-	private String meetGroupName;
-	private int meetHit;
-	private char meetLevel;
 	private String meetName;
-	private String meetPhone;
+	private String meetDetail;
 	private Date meetRegistrationDate;
-		
+	private String meetCategoryCode;
+	private String meetGroupName;
+	private String meetPhone;
+	private char meetLevel;
+	private int meetCount;
+	private int meetHit;
+	private String meetDong;
+	private String meetGu;
+	private String meetStudyDate;
+	private Time meetStudyTime;
+	
+	
 	@Override
 	public String toString() {
-		return "MeetVO [meetCategoryCode=" + meetCategoryCode + ", meetCount=" + meetCount + ", meetDetail="
-				+ meetDetail + ", meetGroupName=" + meetGroupName + ", meetHit=" + meetHit + ", meetLevel=" + meetLevel
-				+ ", meetName=" + meetName + ", meetPhone=" + meetPhone + ", meetRegistrationDate="
-				+ meetRegistrationDate + "]";
+		return "MeetVO [meetName=" + meetName + ", meetDetail=" + meetDetail + ", meetRegistrationDate="
+				+ meetRegistrationDate + ", meetCategoryCode=" + meetCategoryCode + ", meetGroupName=" + meetGroupName
+				+ ", meetPhone=" + meetPhone + ", meetLevel=" + meetLevel + ", meetCount=" + meetCount + ", meetHit="
+				+ meetHit + ", meetDong=" + meetDong + ", meetGu=" + meetGu + ", meetStudyDate=" + meetStudyDate
+				+ ", meetStudyTime=" + meetStudyTime + "]";
 	}
-	public String getMeetCategoryCode() {
-		return meetCategoryCode;
+	
+	public String getMeetName() {
+		return meetName;
 	}
-	public void setMeetCategoryCode(String meetCategoryCode) {
-		this.meetCategoryCode = meetCategoryCode;
-	}
-	public int getMeetCount() {
-		return meetCount;
-	}
-	public void setMeetCount(int meetCount) {
-		this.meetCount = meetCount;
+	public void setMeetName(String meetName) {
+		this.meetName = meetName;
 	}
 	public String getMeetDetail() {
 		return meetDetail;
@@ -38,29 +40,23 @@ public class MeetVO {
 	public void setMeetDetail(String meetDetail) {
 		this.meetDetail = meetDetail;
 	}
+	public Date getMeetRegistrationDate() {
+		return meetRegistrationDate;
+	}
+	public void setMeetRegistrationDate(Date meetRegistrationDate) {
+		this.meetRegistrationDate = meetRegistrationDate;
+	}
+	public String getMeetCategoryCode() {
+		return meetCategoryCode;
+	}
+	public void setMeetCategoryCode(String meetCategoryCode) {
+		this.meetCategoryCode = meetCategoryCode;
+	}
 	public String getMeetGroupName() {
 		return meetGroupName;
 	}
 	public void setMeetGroupName(String meetGroupName) {
 		this.meetGroupName = meetGroupName;
-	}
-	public int getMeetHit() {
-		return meetHit;
-	}
-	public void setMeetHit(int meetHit) {
-		this.meetHit = meetHit;
-	}
-	public char getMeetLevel() {
-		return meetLevel;
-	}
-	public void setMeetLevel(char meetLevel) {
-		this.meetLevel = meetLevel;
-	}
-	public String getMeetName() {
-		return meetName;
-	}
-	public void setMeetName(String meetName) {
-		this.meetName = meetName;
 	}
 	public String getMeetPhone() {
 		return meetPhone;
@@ -68,10 +64,48 @@ public class MeetVO {
 	public void setMeetPhone(String meetPhone) {
 		this.meetPhone = meetPhone;
 	}
-	public Date getMeetRegistrationDate() {
-		return meetRegistrationDate;
+	public char getMeetLevel() {
+		return meetLevel;
 	}
-	public void setMeetRegistrationDate(Date meetRegistrationDate) {
-		this.meetRegistrationDate = meetRegistrationDate;
+	public void setMeetLevel(char meetLevel) {
+		this.meetLevel = meetLevel;
 	}
+	public int getMeetCount() {
+		return meetCount;
+	}
+	public void setMeetCount(int meetCount) {
+		this.meetCount = meetCount;
+	}
+	public int getMeetHit() {
+		return meetHit;
+	}
+	public void setMeetHit(int meetHit) {
+		this.meetHit = meetHit;
+	}
+	public String getMeetDong() {
+		return meetDong;
+	}
+	public void setMeetDong(String meetDong) {
+		this.meetDong = meetDong;
+	}
+	public String getMeetGu() {
+		return meetGu;
+	}
+	public void setMeetGu(String meetGu) {
+		this.meetGu = meetGu;
+	}
+	public String getMeetStudyDate() {
+		return meetStudyDate;
+	}
+	public void setMeetStudyDate(String meetStudyDate) {
+		this.meetStudyDate = meetStudyDate;
+	}
+	public Time getMeetStudyTime() {
+		return meetStudyTime;
+	}
+	public void setMeetStudyTime(Time meetStudyTime) {
+		this.meetStudyTime = meetStudyTime;
+	}
+	
+	
 }

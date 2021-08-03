@@ -9,20 +9,20 @@
 		border: 1px solid;
 		font-size: 20px;
 	}
-	input{
-		
-	}
 	.study{
-		width:100%;
-    	height:100%;
+		width:600px;
+    	height:600px;
+    	margin:0 auto;
+    	background-color: #fff;
 	}
 	.study .studyContent{
 		width:400px;
 	    margin:0 auto;
 	    margin-top: 60px;
+	    /* background-color: white; */
 	}
 </style>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>StudyTab</title>
 </head>
 <body>
@@ -31,42 +31,45 @@
 	<div class="studyContent">
 		<table>
 			<tr>
-				<td>스터디 이름</td><td><input type="text" name="meetGroupName"></td>
+				<td>스터디 이름</td><td><input type="text" name="meetName"></td>
+			</tr>
+			<tr>
+				<td>스터디장</td><td><input type="text" name="meetGroupName"></td>
 			</tr>
 			<tr>
 				<td>스터디 종류</td>
 				<td>
 					<select name="meetCategoryCode">
 						<option value="">--카테고리--</option>
-						<option value="it">IT</option>
-						<option value="eng">영어</option>
+						<option value="CB01">IT</option>
+						<option value="CB02">영어</option>
 						<option></option>
 					</select>
 				</td>
 			</tr>
-			<!-- <tr>
+			<tr>
 				<td>스터디 위치</td>
 				<td>
-					<select name="gu">
+					<select name="meetGu">
 						<option value="">--지역구--</option>
-						<option value="it">유성구</option>
-						<option value="eng">서구</option>
+						<option value="GB01">유성구</option>
+						<option value="GB02">서구</option>
 						<option></option>
 					</select>
-					<select name="dong">
+					<select name="meetDong">
 						<option value="">--동--</option>
-						<option value="it">도룡동</option>
-						<option value="eng">신성동</option>
+						<option value="DB01">도룡동</option>
+						<option value="DB02">신성동</option>
 						<option></option>
 					</select>
 				</td>
-			</tr> -->
+			</tr>
 			<tr>
 				<td>스터디 난이도</td>
 				<td>
-					상<input type="radio" name="meetLevel" value="top">
-					중<input type="radio" name="meetLevel" value="middle">
-					하<input type="radio" name="meetLevel" value="bottom">
+					상<input type="radio" name="meetLevel" value="t">
+					중<input type="radio" name="meetLevel" value="m">
+					하<input type="radio" name="meetLevel" value="b">
 				</td>
 			</tr>
 			<tr>
@@ -84,14 +87,14 @@
 			<tr>
 				<td>스터디 날짜</td>
 				<td>
-					<select name="studyDate">
+					<select name="meetStudyDate">
 						<option value="">--선택하세요--</option>
 						<option value="every">매일</option>
 						<option value="week">매주</option>
 						<option value="month">매달</option>
 						<option value="year">매년</option>
 					</select>
-					<input type="time" name="studyTime" min="09:00" max="22:00">
+					<!-- <input type="time" name="meetStudyTime" min="09:00" max="22:00"> -->
 				</td>
 			</tr>
 			<tr>

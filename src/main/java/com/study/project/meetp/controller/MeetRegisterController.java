@@ -16,8 +16,13 @@ import com.study.project.meetp.service.MeetService;
 @Controller
 @RequestMapping("/meet")
 public class MeetRegisterController {
-	@Autowired
+	
 	private MeetService meetService;
+	
+	@Autowired
+	public MeetRegisterController(MeetService meetService) {
+		this.meetService = meetService;
+	}
 	
 	private static final Logger logger = LoggerFactory.getLogger(MeetRegisterController.class);
 	
@@ -28,8 +33,10 @@ public class MeetRegisterController {
 	
 	@RequestMapping(value="/meetRegister", method = RequestMethod.POST)
 	public String meetRegisterPOST(MeetVO meetVO,RedirectAttributes redirectAttributes,HttpServletResponse response) throws Exception {
+		logger.debug("meetVO="+meetVO.toString());
+		
 		meetService.register(meetVO, response);
 		
-		return "redirect:/user/login";
+		return "redirect:/main/mainp";
 	}
 }
