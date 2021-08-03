@@ -101,7 +101,7 @@ public class UserRegisterController {
             model.addAttribute("check", 1);
         } else {
             model.addAttribute("check", 0);
-            model.addAttribute("joinId", userService.find_id(response, joinEmail));
+            model.addAttribute("joinId", user);
         }
         return "/user/findId";
     }
@@ -111,6 +111,30 @@ public class UserRegisterController {
     public String findPw() throws Exception {
         return "/user/findPw";
     }
+
+    // 비밀번호 찾기 POST
+    @RequestMapping(value="findPw.do", method=RequestMethod.POST)
+    public String findPw(HttpServletResponse response, UserVO userVO, Model model) throws Exception {
+        UserVO user = userService.find_pw(response, userVO);
+
+        if(user == null) {
+            model.addAttribute("check", 1);
+        } else {
+            model.addAttribute("check", 0);
+            model.addAttribute("joinPw", user.getJoinPass());
+        }
+        return "/user/findPw";
+    }
+
+    // 비밀번호 바꾸기 실행
+    @RequestMapping(value="updatePw.do", method=RequestMethod.POST)
+    public String updatePw(HttpServletResponse response, @RequestParam(value="updateId", defaultValue="", required=false) String joinId, UserVO userVO) throws Exception {
+        userVO.setJoinId(joinId);
+        System.out.println(userVO);
+        userService.update_pw(response, userVO);
+        return "/user/findPwConfirm";
+    }
+
 
     // 회원 인증
     @RequestMapping(value = "/approval_email.do", method = RequestMethod.POST)

@@ -67,7 +67,7 @@
                                 <i class="fa fa-sign-in"></i> 회원가입
                             </button>
                             <div id="searchTag">
-                                <i class="fa fa-lock"></i><a href="/user/findId.do" class ="md-3" style="color:dimgray"> 아이디</a> • <a href="/user/findId.do" class ="md-3" style="color:dimgray">비밀번호</a> 찾기
+                                <i class="fa fa-lock"></i><a href="/user/findId.do" class ="md-3" style="color:dimgray"> 아이디</a> • <a href="/user/findPw.do" class ="md-3" style="color:dimgray">비밀번호</a> 찾기
                             </div>
                         </fieldset>
                     </form>

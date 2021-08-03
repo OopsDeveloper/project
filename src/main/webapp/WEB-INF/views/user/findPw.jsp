@@ -120,29 +120,22 @@
         <div class="col-md-4 col-md-offset-4">
             <div class="login-panel">
                 <div id="caption" class="text-center">
-                    아이디 찾기
+                    비밀번호 찾기
                 </div>
                 <div class="panel-body">
-                        <form id="findIdForm" action="${path}/user/findId.do" method="post" role="form">
+                    <form id="findIdForm" action="${path}/user/findPw.do" method="post" role="form">
                         <fieldset>
                             <div class="form-group">
-                                <input type="text" name="joinEmail" class="form-control" placeholder="이메일" autofocus>
+                                <input type="text" name="joinId" class="form-control" placeholder="아이디" autofocus>
                             </div>
-                            <c:if test="${check == 0}">
-                                <script>
-                                    alert("찾으시는 아이디: ${joinId}")
-                                    <%--$("input[type=text]").val("찾으시는 아이디: ${joinId} ");--%>
-                                    $("#caption").html("아이디 검색 결과");
-                                </script>
-                            </c:if>
-
-                            <%--
                             <div class="form-group">
-                                <input type="password" name="joinPass" class="form-control" placeholder="패스워드">
+                                <input type="text" name="joinName" class="form-control" placeholder="이름" autofocus>
                             </div>
-                            --%>
+                            <div class="form-group">
+                                <input type="text" id="joinPhone" name="joinPhone" class="form-control" placeholder="휴대폰 번호" autofocus>
+                            </div>
                             <button type="submit" class="btn btn-lg btn-success btn-block">
-                                <i class="fa fa-sign-in"></i> 아이디 찾기
+                                <i class="fa fa-sign-in"></i> 비밀번호 찾기
                             </button>
                             <button id="register" class="btn btn-lg btn-success btn-block">
                                 <i class="fa fa-sign-in"></i> 회원가입
@@ -152,6 +145,28 @@
                             </button>
                         </fieldset>
                     </form>
+                    <c:if test="${check == 0}">
+                        <script>
+                            $("#findIdForm").html("");
+                            $("#caption").html("비밀번호 변경");
+                        </script>
+                        <form id="findIdForm" action="${path}/user/updatePw.do" method="post" role="form">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input type="text" name="joinId" class="form-control" placeholder="아이디" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="joinPw" name="joinPw" class="form-control" placeholder="새로운 비밀번호" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="confirmPw" name="confirmPw" class="form-control" placeholder="새로운 비밀번호 확인" autofocus>
+                                </div>
+                                <button type="submit" class="btn btn-lg btn-success btn-block">
+                                    <i class="fa fa-sign-in"></i> 비밀번호 변경
+                                </button>
+                            </fieldset>
+                        </form>
+                    </c:if>
                 </div>
             </div>
         </div>
@@ -159,6 +174,22 @@
 </div>
 </body>
 <script>
+    $("#joinPhone").blur(function () {
+        var num = $("#joinPhone").val();
+        blur(num);
+    });
+
+    function blur(num) {
+        num = num.replace(/[^0-9]/g, '');
+        var tmp = '';
+        tmp += num.substr(0, 3);
+        tmp += '-';
+        tmp += num.substr(3, 4);
+        tmp += '-';
+        tmp += num.substr(7);
+        $("#joinPhone").val(tmp);
+    }
+
     function idBtn() {
         location.href="/user/findId.do"
     }
@@ -168,7 +199,4 @@
     }
 </script>
 </html>
-
-
-
 

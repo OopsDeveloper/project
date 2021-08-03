@@ -48,4 +48,14 @@ public class UserDAOImpl implements UserDAO {
         return sqlSession.selectOne(NAMESPACE + ".find_id", joinEmail);
     }
 
+    @Override
+    public UserVO find_pw(UserVO userVO) throws Exception {
+        return sqlSession.selectOne(NAMESPACE + ".find_pw", userVO);
+    }
+
+    @Override
+    public void update_pw(UserVO userVO) throws Exception {
+        sqlSession.update(NAMESPACE + ".update_pw", userVO);
+    }
+
 }

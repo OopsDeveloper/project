@@ -180,5 +180,27 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Override
+    public UserVO find_pw(HttpServletResponse response, UserVO userVO) throws Exception {
+        response.setContentType("text/html;charset=utf-8");
+        PrintWriter out = response.getWriter();
+        UserVO findPw = userDAO.find_pw(userVO);
+        if (findPw == null) {
+            out.println("<script>");
+            out.println("alert('일치하는 정보가 존재하지 않습니다.');");
+            out.println("history.go(-1);");
+            out.println("</script>");
+            out.close();
+            return null;
+        } else {
+            return userDAO.find_pw(userVO);
+        }
+    }
+
+    @Override
+    public void update_pw(HttpServletResponse response, UserVO userVO) throws Exception {
+        userDAO.update_pw(userVO);
+    }
+
 
 }

@@ -61,6 +61,16 @@
         select join_id from study.tbl_join where join_email = #{joinEmail}
     </select>
 
+    <!-- 비밀번호 찾기 -->
+    <select id="find_pw"  resultMap="userVOResultMap">
+        select * from study.tbl_join where join_id = #{joinId} and join_name= #{joinName} and join_phone= #{joinPhone}
+    </select>
+
+    <!-- 비밀번호 변경 -->
+    <update id="update_pw" parameterType="UserVO">
+        update study.tbl_join set join_pass = #{joinPass} where join_id = #{joinId}
+    </update>
+
     <resultMap id="userVOResultMap" type="UserVO">
         <result property="joinId" column="join_id"/>
         <result property="joinPass" column="join_pass"/>

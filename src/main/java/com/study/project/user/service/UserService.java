@@ -27,4 +27,8 @@ public interface UserService {
 
     String find_id(HttpServletResponse response, String joinEmail) throws Exception;
 
+    UserVO find_pw(HttpServletResponse response, UserVO userVO) throws Exception;
+
+    void update_pw(HttpServletResponse response, UserVO userVO) throws Exception;
+
 }

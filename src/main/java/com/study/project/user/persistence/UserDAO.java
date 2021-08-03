@@ -18,4 +18,8 @@ public interface UserDAO {
 
     String find_id(String joinEmail) throws Exception;
 
+    UserVO find_pw(UserVO userVO) throws Exception;
+
+    void update_pw(UserVO userVO) throws Exception;
+
 }
