@@ -52,8 +52,8 @@
           <input type="hidden" name="keyword" value="${cri.keyword}">
         </form>
 
-        <button type="button" class="btn btn-default listBtn"><a href='/article/list'/>List</button>
-        <button type="button" class="btn btn-default modBtn"><a href='/article/modify?articleNo=<c:out value="${article.articleNo}"/>'>Modify</a></button>
+        <button type="button" class="btn btn-default listBtn"><a href='${pageContext.request.contextPath}/article/list' />List</button>
+        <button type="button" class="btn btn-default modBtn"><a href='${pageContext.request.contextPath}/article/modify?articleNo=<c:out value="${article.articleNo}"/>'>Modify</a></button>
         <script type="text/javascript">
 
           var actionForm = $("#actionForm");

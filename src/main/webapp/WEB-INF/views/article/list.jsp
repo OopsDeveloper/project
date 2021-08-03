@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
+pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@include file="../includes/header2.jsp" %>
+<%@include file="../includes/header.jsp" %>
 <head>
 	 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -33,12 +34,11 @@
 <article id="Information1">
   <h6> 홈 > 게시판 > 자유게시판 </h6>
   <hr class="hr1" width="30%">
-  <img src="image/freelogo.png" class="infoPhoto" alt="" >
+
 </article>   
 </div>  
 
 	 <div class="aside"><h2></h2>
-      <img src="/test/image/jolraman1.png" alt="">
       <div></div>
       <div></div>
       <div></div>
@@ -52,18 +52,43 @@
     <h1 class="page-header">게시판</h1>
 
   </div> -->
-  <p id=sub2>게시판만드는중.... </p>
+  <p id=sub2>게시판</p>
   <!-- /.col-lg-12 -->
 
-</div>
+  	 <div class='row'>
+          <div class='col-lg-12' style="border: 1px solid gold; float: right; ">>
+            <form id='searchForm' action="/article/list" method="get">
+              <select name='type' class="form-select form-select-sm mb-1" aria-label=".form-select-lg example" style="width:300px;height:40px;">
+                <option value="" <c:out value="${pageMaker.cri.type == null ? 'selected' : ''}"/>>--</option>
+                <option value="T" <c:out value="${pageMaker.cri.type eq 'T' ? 'selected' : ''}"/>>제목</option>
+                <option value="C" <c:out value="${pageMaker.cri.type eq 'C' ? 'selected' : ''}"/>>내용</option>
+                <option value="W" <c:out value="${pageMaker.cri.type eq 'W' ? 'selected' : ''}"/>>작성자</option>
+                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC' ? 'selected' : ''}"/>>제목 or 내용</option>
+                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW' ? 'selected' : ''}"/>>제목 or 작성자</option>
+                <option value="TWC" <c:out value="${pageMaker.cri.type eq 'TWC' ? 'selected' : ''}"/>>제목 or 내용 or 작성자</option>
+              </select>
+          		<div style="border: 1px solid gold; float: right;">
+              <input type="text" name="keyword" value='<c:out value="${pageMaker.cri.keyword}"/>'/>
+              <input type="hidden" name="pageNum" value='<c:out value="${pageMaker.cri.pageNum}"/>'>
+              <input type="hidden" name="amount" value='<c:out value="${pageMaker.cri.amount}"/>'>
+              <button class='btn btn-default'>Search</button>
+              </div>
+            </form>
+          </div>
+        </div>  	
+  	
+</form>
+<hr>
 <!-- /.row -->
+
+
 
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
        <div class="panel-heading">
        
-        <button id='regBtn' type="button" class="btn btn-xs pull-right">글 등록</button>
+<!--         <button id='regBtn' type="button" class="btn btn-xs pull-right">글 등록</button> -->
       </div>
       <!-- /.panel-heading -->
       <div class="panel-body">
@@ -75,8 +100,6 @@
             <th>작성자</th>
             <th>등록일</th>
             <th>조회수</th>
-<!--             <th>수정일</th>
-            <th>조회수</th> -->
           </tr>
           </thead>
           <tbody>
@@ -92,25 +115,7 @@
           </tbody>
         </table>
         <!-- /.table-responsive -->
-        <div class='row'>
-          <div class='col-lg-12'>
-            <form id='searchForm' action="/article/list" method="get">
-              <select name='type'>
-                <option value="" <c:out value="${pageMaker.cri.type == null ? 'selected' : ''}"/>>--</option>
-                <option value="T" <c:out value="${pageMaker.cri.type eq 'T' ? 'selected' : ''}"/>>제목</option>
-                <option value="C" <c:out value="${pageMaker.cri.type eq 'C' ? 'selected' : ''}"/>>내용</option>
-                <option value="W" <c:out value="${pageMaker.cri.type eq 'W' ? 'selected' : ''}"/>>작성자</option>
-                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC' ? 'selected' : ''}"/>>제목 or 내용</option>
-                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW' ? 'selected' : ''}"/>>제목 or 작성자</option>
-                <option value="TWC" <c:out value="${pageMaker.cri.type eq 'TWC' ? 'selected' : ''}"/>>제목 or 내용 or 작성자</option>
-              </select>
-              <input type="text" name="keyword" value='<c:out value="${pageMaker.cri.keyword}"/>'/>
-              <input type="hidden" name="pageNum" value='<c:out value="${pageMaker.cri.pageNum}"/>'>
-              <input type="hidden" name="amount" value='<c:out value="${pageMaker.cri.amount}"/>'>
-              <button class='btn btn-default'>Search</button>
-            </form>
-          </div>
-        </div>
+       
 
         <div class='pull-right'>
           <ul class="pagination">
@@ -149,7 +154,7 @@
 </div>
 <!-- /.row -->
 
-<!-- <div id="myModal" class="modal" tabindex="-1" role="dialog">
+<!--  <div id="myModal" class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -167,7 +172,7 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>  -->
 
 </body>
 </html>

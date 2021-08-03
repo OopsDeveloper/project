@@ -41,7 +41,7 @@
         )
     </insert>
 
-    <select id="read" resultMap="ArticleResultMap">
+    <select id="read" resultMap="ArticleResultMap" parameterType="int">
         SELECT
             article_no
              , title
@@ -84,7 +84,7 @@
         ]]>
     </select>
 
-    <select id="listPaging" resultMap="ArticleResultMap">
+     <select id="listPaging" resultMap="ArticleResultMap">
         <![CDATA[
         SELECT
             article_no,
@@ -95,29 +95,31 @@
             viewcnt
         FROM
             (
-                SELECT /*+ INDEX_DESC(study.TBL_ARTICLE (article_no)) */
+                SELECT /*+ INDEX_DESC(study.tbl_article(article_no))*/
                        ROWNUM RN,
-                       ARTICLE_NO,
-                       TITLE,
-                       CONTENT,
-                       WRITER,
-                       REGDATE,
-                       VIEWCNT
+                       article_no,
+                       title,
+                       content,
+                       writer,
+                       regdate,
+                       viewcnt
                 FROM study.tbl_article
                 WHERE
         ]]>
                 <include refid="criteria"></include>
         <![CDATA[
-                        ARTICLE_NO > 0 AND ROWNUM > 0 AND ROWNUM <= (#{pageNum} * #{amount})
+                        article_no > 0 AND ROWNUM > 0 AND ROWNUM <= (#{pageNum} * #{amount})
             )
         WHERE RN > (#{pageNum} - 1) * #{amount}
         ]]>
     </select>
 
     <select id="getTotalCount" resultType="int">
-        select count(ARTICLE_NO) from study.TBL_ARTICLE WHERE
+        select count(article_no) from study.tbl_article WHERE
         <include refid="criteria"></include>
-        ARTICLE_NO > 0
+        <![CDATA[
+        article_no > 0
+        ]]>
     </select>
 
     <resultMap id="ArticleResultMap" type="ArticleVO">
