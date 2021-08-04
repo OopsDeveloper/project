@@ -16,7 +16,7 @@
 							,meet_dong
 							,meet_gu
 							,meet_study_date
-							,meet_study_time
+							<!-- ,meet_study_time -->
 		) VALUES (
 				#{meetName},
 				#{meetDetail},
@@ -28,8 +28,8 @@
 				0,
 				#{meetDong},
 				#{meetGu},
-				#{meetStudyDate},
-				#{meetStudyTime}
+				#{meetStudyDate}
+				<!-- #{meetStudyTime} -->
 		)
 	</insert>
 	

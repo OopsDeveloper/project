@@ -16,7 +16,7 @@ public class MeetVO {
 	private String meetDong;
 	private String meetGu;
 	private String meetStudyDate;
-	private String meetStudyTime;
+	private Time meetStudyTime;
 	
 	
 	@Override
@@ -100,10 +100,10 @@ public class MeetVO {
 	public void setMeetStudyDate(String meetStudyDate) {
 		this.meetStudyDate = meetStudyDate;
 	}
-	public String getMeetStudyTime() {
+	public Time getMeetStudyTime() {
 		return meetStudyTime;
 	}
-	public void setMeetStudyTime(String meetStudyTime) {
+	public void setMeetStudyTime(Time meetStudyTime) {
 		this.meetStudyTime = meetStudyTime;
 	}
 	
