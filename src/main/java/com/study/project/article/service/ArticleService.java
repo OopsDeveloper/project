@@ -16,7 +16,7 @@ public interface ArticleService {
     int delete(Integer articleNo) throws Exception;
 
     List<ArticleVO> listAll() throws Exception;
-
+    
     List<ArticleVO> listAll(Criteria cri) throws Exception;
 
     int getTotal(Criteria cri) throws Exception;

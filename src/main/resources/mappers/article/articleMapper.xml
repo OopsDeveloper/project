@@ -25,23 +25,25 @@
     </sql>
 
     <insert id="create">
-        <selectKey order="BEFORE" keyProperty="articleNo" resultType="Integer">
-            select seq_article.nextval from dual
+        <selectKey order="AFTER" keyProperty="articleNo" resultType="Integer">
+            SELECT LAST_INSERT_ID()
         </selectKey>
         INSERT INTO study.tbl_article (
-            article_no
-            , title
+            
+              title
             , content
             , writer
+            , regdate
+            , viewcnt
         ) VALUES (
-            #{articleNo}
-             , #{title}
+            	
+               #{title}
              , #{content}
              , #{writer}
         )
     </insert>
 
-    <select id="read" resultMap="ArticleResultMap" parameterType="int">
+    <select id="read" resultMap="ArticleResultMap" parameterType="Integer">
         SELECT
             article_no
              , title
@@ -60,6 +62,8 @@
             title = #{title}
           , content = #{content}
           , writer = #{writer}
+          , regdate = SYSDATE
+          
         WHERE
             article_no = #{articleNo}
     </update>
@@ -84,7 +88,7 @@
         ]]>
     </select>
 
-     <select id="listPaging" resultMap="ArticleResultMap">
+   <!--   <select id="listPaging" resultMap="ArticleResultMap">
         <![CDATA[
         SELECT
             article_no,
@@ -112,7 +116,7 @@
             )
         WHERE RN > (#{pageNum} - 1) * #{amount}
         ]]>
-    </select>
+    </select> -->
 
     <select id="getTotalCount" resultType="int">
         select count(article_no) from study.tbl_article WHERE

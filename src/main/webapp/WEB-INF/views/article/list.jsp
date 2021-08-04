@@ -109,7 +109,7 @@ pageEncoding="UTF-8"%>
               <td><a class='move' href='<c:out value="${board.articleNo}"/>'><c:out value="${board.title}"/></a></td>
               <td><c:out value="${board.writer}"/></td>
               <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regDate}"/></td>
-              <td><c:out value="${board.viewcnt}"/></td>
+               <%-- <td><c:out value="${board.viewcnt}"/></td> --%>
             </tr>
           </c:forEach>
           </tbody>
