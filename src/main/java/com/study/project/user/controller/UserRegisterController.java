@@ -128,10 +128,15 @@ public class UserRegisterController {
 
     // 비밀번호 바꾸기 실행
     @RequestMapping(value="updatePw.do", method=RequestMethod.POST)
-    public String updatePw(HttpServletResponse response, @RequestParam(value="updateId", defaultValue="", required=false) String joinId, UserVO userVO) throws Exception {
-        userVO.setJoinId(joinId);
-        System.out.println(userVO);
-        userService.update_pw(response, userVO);
+    public String updatePw(HttpServletResponse response, @RequestParam("joinId") String joinId, @RequestParam(value="joinPw") String joinPw, @RequestParam(value="confirmPw") String confirmPw,UserVO userVO) throws Exception {
+
+        if (joinPw != null || joinPw.equals(confirmPw)) {
+            userVO.setJoinPass(joinPw);
+            userVO.setJoinId(joinId);
+            String hashedPw = BCrypt.hashpw(userVO.getJoinPass(), BCrypt.gensalt());
+            userVO.setJoinPass(hashedPw);
+            userService.update_pw(response, userVO);
+        }
         return "/user/findPwConfirm";
     }
 
