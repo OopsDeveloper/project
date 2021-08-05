@@ -13,8 +13,10 @@ public class MeetVO {
 	private char meetLevel;
 	private int meetCount;
 	private int meetHit;
-	private String meetDong;
-	private String meetGu;
+	private String meetPostcode;
+	private String meetRoadAddress;
+	private String meetJibunAddress;
+	private String meetDetailAddress;
 	private String meetStudyDate;
 	private String meetStudyTime;
 	
@@ -24,8 +26,9 @@ public class MeetVO {
 		return "MeetVO [meetName=" + meetName + ", meetDetail=" + meetDetail + ", meetRegistrationDate="
 				+ meetRegistrationDate + ", meetCategoryCode=" + meetCategoryCode + ", meetGroupName=" + meetGroupName
 				+ ", meetPhone=" + meetPhone + ", meetLevel=" + meetLevel + ", meetCount=" + meetCount + ", meetHit="
-				+ meetHit + ", meetDong=" + meetDong + ", meetGu=" + meetGu + ", meetStudyDate=" + meetStudyDate
-				+ ", meetStudyTime=" + meetStudyTime + "]";
+				+ meetHit + ", meetPostcode=" + meetPostcode + ", meetRoadAddress=" + meetRoadAddress
+				+ ", meetJibunAddress=" + meetJibunAddress + ", meetDetailAddress=" + meetDetailAddress
+				+ ", meetStudyDate=" + meetStudyDate + ", meetStudyTime=" + meetStudyTime + "]";
 	}
 	
 	public String getMeetName() {
@@ -82,17 +85,29 @@ public class MeetVO {
 	public void setMeetHit(int meetHit) {
 		this.meetHit = meetHit;
 	}
-	public String getMeetDong() {
-		return meetDong;
+	public String getMeetPostcode() {
+		return meetPostcode;
 	}
-	public void setMeetDong(String meetDong) {
-		this.meetDong = meetDong;
+	public void setMeetPostcode(String meetPostcode) {
+		this.meetPostcode = meetPostcode;
 	}
-	public String getMeetGu() {
-		return meetGu;
+	public String getMeetRoadAddress() {
+		return meetRoadAddress;
 	}
-	public void setMeetGu(String meetGu) {
-		this.meetGu = meetGu;
+	public void setMeetRoadAddress(String meetRoadAddress) {
+		this.meetRoadAddress = meetRoadAddress;
+	}
+	public String getMeetJibunAddress() {
+		return meetJibunAddress;
+	}
+	public void setMeetJibunAddress(String meetJibunAddress) {
+		this.meetJibunAddress = meetJibunAddress;
+	}
+	public String getMeetDetailAddress() {
+		return meetDetailAddress;
+	}
+	public void setMeetDetailAddress(String meetDetailAddress) {
+		this.meetDetailAddress = meetDetailAddress;
 	}
 	public String getMeetStudyDate() {
 		return meetStudyDate;
@@ -106,6 +121,5 @@ public class MeetVO {
 	public void setMeetStudyTime(String meetStudyTime) {
 		this.meetStudyTime = meetStudyTime;
 	}
-	
 	
 }

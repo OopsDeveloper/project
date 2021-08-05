@@ -13,8 +13,10 @@
 							,meet_level
 							,meet_count
 							,meet_hit
-							,meet_dong
-							,meet_gu
+							,meet_postcode
+							,meet_roadaddress
+							,meet_jibunaddress
+							,meet_detailaddress
 							,meet_study_date
 							,meet_study_time
 		) VALUES (
@@ -26,8 +28,10 @@
 				#{meetLevel},
 				#{meetCount},
 				0,
-				#{meetDong},
-				#{meetGu},
+				#{meetPostcode},
+				#{meetRoadAddress},
+				#{meetJibunAddress},
+				#{meetDetailAddress},
 				#{meetStudyDate},
 				#{meetStudyTime}
 		)
@@ -42,8 +46,10 @@
 		<result property="meetLevel" column="meet_level"/>
 		<result property="meetCount" column="meet_count"/>
 		<result property="meetHit" column="meet_hit"/>
-		<result property="meetDong" column="meet_dong"/>
-		<result property="meetGu" column="meet_gu"/>
+		<result property="meetPostcode" column="meet_postcode"/>
+		<result property="meetRoadAddress" column="meet_roadaddress"/>
+		<result property="meetJibunAddress" column="meet_jibunaddress"/>
+		<result property="meetDetailAddress" column="meet_detailaddress"/>
 		<result property="meetStudyDate" column="meet_study_date"/>
 		<result property="meetStudyTime" column="meet_study_time"/>
 	</resultMap>
