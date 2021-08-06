@@ -45,15 +45,13 @@
 		<table class="table">
 			<tr>
 				<td>스터디 이름</td><td><input class="form-control" type="text" name="meetName" placeholder="스터디 이름"></td>
-			</tr>
-			<tr>
-				<td>스터디장</td><td><input class="form-control" type="text" name="meetGroupName" placeholder="당신의 이름"></td>
+				<input type="hidden" name="meetGroupName" value="${user.joinId}">
 			</tr>
 			<tr>
 				<td>스터디 종류</td>
 				<td>
 					<select class="form-control" name="meetCategoryCode">
-						<option value="">스터디 종류</option>
+						<option value="">--스터디 종류--</option>
 						<option value="CB01">IT</option>
 						<option value="CB02">영어</option>
 						<option></option>
@@ -98,15 +96,8 @@
 				</td>
 			</tr>
 			<tr>
-				<td>스터디 날짜</td>
+				<td>스터디 시간대</td>
 				<td>
-					<select class="form-control" name="meetStudyDate">
-						<option value="">스터디 주기</option>
-						<option value="every">매일</option>
-						<option value="week">매주</option>
-						<option value="month">매달</option>
-						<option value="year">매년</option>
-					</select>
 					<input class="form-control" type="time" name="meetStudyTime">
 				</td>
 			</tr>
