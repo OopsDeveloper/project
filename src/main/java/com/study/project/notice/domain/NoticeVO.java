@@ -2,7 +2,7 @@ package com.study.project.notice.domain;
 
 import java.util.Date;
 
-public class noticeVO {
+public class NoticeVO {
 	
 	private String noticeCommentContent;
 	private Date noticeCommentDate;
@@ -10,13 +10,22 @@ public class noticeVO {
 	private Date noticeDate;
 	private int noticeHit;
 	private String noticeName;
+	private int noticeNo;
 	
 	
 	@Override
 	public String toString() {
-		return "noticeVO [noticeCommentContent=" + noticeCommentContent + ", noticeCommentDate=" + noticeCommentDate
+		return "NoticeVO [noticeCommentContent=" + noticeCommentContent + ", noticeCommentDate=" + noticeCommentDate
 				+ ", noticeCommentWriter=" + noticeCommentWriter + ", noticeDate=" + noticeDate + ", noticeHit="
-				+ noticeHit + ", noticeName=" + noticeName + "]";
+				+ noticeHit + ", noticeName=" + noticeName + ", noticeNo=" + noticeNo + "]";
+	}
+
+	public int getNoticeNo() {
+		return noticeNo;
+	}
+
+	public void setNoticeNo(int noticeNo) {
+		this.noticeNo = noticeNo;
 	}
 	
 	public String getNoticeCommentContent() {

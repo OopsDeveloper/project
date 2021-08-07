@@ -12,7 +12,7 @@
                 <if test="type == 'T'.toString()">
                     title like '%'||#{keyword}||'%'
                 </if>
-            <!-- 내용 -->
+            <!-- 내용(모집중) -->
                 <if test="type == 'C'.toString()">
                     content like '%'||#{keyword}||'%'
                 </if>
@@ -20,6 +20,11 @@
                 <if test="type == 'W'.toString()">
                     writer like '%'||#{keyword}||'%'
                 </if>
+            <!-- 지역구 
+                <if test="type == 'A'.toString()">
+                    writer like '%'||#{keyword}||'%'
+                </if> -->   
+                
             </foreach>
         </trim>
     </sql>
@@ -73,7 +78,31 @@
         WHERE article_no = #{articleNo}
     </delete>
 
-    <select id="listAll" resultMap="ArticleResultMap">
+<!-- meet테이블  -->
+	<!-- <select id ="listAll" resultMap = "ArticleResultMap">
+		<![CDATA[
+		SELECT
+			 meet_name
+			,meet_detail
+			,meet_category_code
+			,meet_group_name
+			,meet_phone
+			,meet_level
+			,meet_count
+			,meet_hit
+			,meet_postcode
+			,meet_roadaddress
+			,meet_jibunaddress
+			,meet_detailaddress
+			,meet_study_date
+			,meet_study_time
+		FROM study.tbl_meet
+		WHERE meet_no > 0
+		ORDER BY meet_no DESC
+		]]>
+	</select> -->
+
+     <select id="listAll" resultMap="ArticleResultMap">
         <![CDATA[
         SELECT
             article_no,
@@ -86,7 +115,7 @@
         WHERE article_no > 0
         ORDER BY article_no DESC, regdate DESC
         ]]>
-    </select>
+    </select> 
 
    <!--   <select id="listPaging" resultMap="ArticleResultMap">
         <![CDATA[

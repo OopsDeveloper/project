@@ -20,7 +20,6 @@ public class MeetVO {
 	private String meetStudyDate;
 	private String meetStudyTime;
 	
-	
 	@Override
 	public String toString() {
 		return "MeetVO [meetName=" + meetName + ", meetDetail=" + meetDetail + ", meetRegistrationDate="

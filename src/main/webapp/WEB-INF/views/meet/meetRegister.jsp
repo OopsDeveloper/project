@@ -44,8 +44,8 @@
 	<div class="studyContent">
 		<table class="table">
 			<tr>
-				<td>스터디 이름</td><td><input class="form-control" type="text" name="meetName" placeholder="스터디 이름"></td>
-				<input type="hidden" name="meetGroupName" value="${user.joinId}">
+				<td>스터디 이름</td><td><input class="form-control" type="text" name="meetGroupName" placeholder="스터디 이름"></td>
+				<input type="hidden" name="meetName" value="${user.joinId}">
 			</tr>
 			<tr>
 				<td>스터디 종류</td>
