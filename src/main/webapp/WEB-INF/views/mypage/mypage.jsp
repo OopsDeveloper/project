@@ -35,9 +35,10 @@
   <body>
 
 	<div id="colorlib-page">
+		${user}
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-			<h1 id="colorlib-logo"><a href="index.html"><span class="img" style="background-image: url(${pageContext.request.contextPath}/resources/images/author.jpg);"></span>Louie Smith</a></h1>
+			<h1 id="colorlib-logo"><a href="/mypage/mypage"><span class="img" style="background-image: url(${pageContext.request.contextPath}/resources/images/author.jpg);"></span>${user.joinName}</a></h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
 					<li><a href="/main/mainp">Home</a></li>
