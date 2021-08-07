@@ -1,7 +1,5 @@
 package com.study.project.article.controller;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -40,6 +38,7 @@ public class ArticleController {
 //    }
    
     // 목록 페이지 이동(페이징 처리)
+    
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(@ModelAttribute("cri") Criteria cri, Model model) throws Exception {
         logger.info("paging list ...");

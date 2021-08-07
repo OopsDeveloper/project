@@ -32,7 +32,7 @@ pageEncoding="UTF-8"%>
 <!-- START 위 게시판 -->
     <div id="content-wrap">
 <article id="Information1">
-  <h6> 홈 > 게시판 > 자유게시판 </h6>
+  <h6> 홈 > 게시판 > 스터디게시판 </h6>
   <hr class="hr1" width="30%">
 
 </article>   
@@ -54,16 +54,16 @@ pageEncoding="UTF-8"%>
   </div> -->
   <p id=sub2>게시판</p>
   <!-- /.col-lg-12 -->
-
+<!-- 제목 검색, 모집중, 지역구-->
   	 <div class='row'>
           <div class='col-lg-12' style="border: 1px solid gold; float: right; ">>
             <form id='searchForm' action="/article/list" method="get">
               <select name='type' class="form-select form-select-sm mb-1" aria-label=".form-select-lg example" style="width:300px;height:40px;">
                 <option value="" <c:out value="${pageMaker.cri.type == null ? 'selected' : ''}"/>>--</option>
-                <option value="T" <c:out value="${pageMaker.cri.type eq 'T' ? 'selected' : ''}"/>>제목</option>
-                <option value="C" <c:out value="${pageMaker.cri.type eq 'C' ? 'selected' : ''}"/>>내용</option>
-                <option value="W" <c:out value="${pageMaker.cri.type eq 'W' ? 'selected' : ''}"/>>작성자</option>
-                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC' ? 'selected' : ''}"/>>제목 or 내용</option>
+                <option value="T" <c:out value="${pageMaker.cri.type eq 'T' ? 'selected' : ''}"/>>제목</option> <!-- 제목 -->
+                <option value="C" <c:out value="${pageMaker.cri.type eq 'C' ? 'selected' : ''}"/>>내용</option> <!-- 모집중 -->
+                <option value="W" <c:out value="${pageMaker.cri.type eq 'W' ? 'selected' : ''}"/>>작성자</option> <!-- 글쓴이 -->
+                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC' ? 'selected' : ''}"/>>제목 or 내용</option> <!-- 지역구 -->
                 <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW' ? 'selected' : ''}"/>>제목 or 작성자</option>
                 <option value="TWC" <c:out value="${pageMaker.cri.type eq 'TWC' ? 'selected' : ''}"/>>제목 or 내용 or 작성자</option>
               </select>
@@ -76,12 +76,9 @@ pageEncoding="UTF-8"%>
             </form>
           </div>
         </div>  	
-  	
 </form>
 <hr>
 <!-- /.row -->
-
-
 
 <div class="row">
   <div class="col-lg-12">
@@ -91,6 +88,17 @@ pageEncoding="UTF-8"%>
 <!--         <button id='regBtn' type="button" class="btn btn-xs pull-right">글 등록</button> -->
       </div>
       <!-- /.panel-heading -->
+      <div >
+      	<div class ="tabletest">
+ 			모집중
+      	</div>
+      	<span class ="tabletest2">초급</span>
+      	<div class = "tabletest">
+      	<!-- <span class ="tabletest2">초급</span> -->
+      	</div>
+      	<div class = "tabletest11"></div>
+      </div>
+      
       <div class="panel-body">
         <table width="100%" class="table table-striped table-bordered table-hover">
           <thead>
@@ -117,7 +125,7 @@ pageEncoding="UTF-8"%>
         <!-- /.table-responsive -->
        
 
-        <div class='pull-right'>
+        <%-- <div class='pull-right'>
           <ul class="pagination">
             <c:if test="${pageMaker.prev}">
               <li class="page-item">
@@ -136,7 +144,7 @@ pageEncoding="UTF-8"%>
               </li>
             </c:if>
           </ul>
-        </div>
+        </div> --%>
 
         <form id='actionForm' action="/article/list" method="get">
           <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
