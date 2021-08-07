@@ -1,0 +1,9 @@
+package com.study.project.notice.persistence;
+
+import java.util.List;
+
+import com.study.project.notice.domain.NoticeVO;
+
+public interface NoticeDAO {
+	List<NoticeVO> getList() throws Exception;
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.project.mappers.notice.noticeMapper">
+	<select id="getList" resultMap="noticeResultMap">
+		<![CDATA[
+			SELECT   notice_no
+					,notice_name
+					,notice_hit
+					,notice_date
+					,notice_comment_writer
+					,notice_comment_date
+					,notice_comment_content
+			  FROM study.tbl_notice
+			 WHERE notice_no > 0
+			 ORDER BY notice_no DESC
+		]]>
+	</select>
+	
+	<resultMap type="NoticeVO" id="noticeResultMap">
+		<result property="noticeCommentContent" column="notice_comment_content"/>
+		<result property="noticeCommentDate" column="notice_comment_date"/>
+		<result property="noticeCommentWriter" column="notice_comment_writer"/>
+		<result property="noticeDate" column="notice_date"/>
+		<result property="noticeHit" column="notice_hit"/>
+		<result property="noticeName" column="notice_name"/>
+		<result property="noticeNo" column="notice_no"/>
+	</resultMap>
+	
+</mapper>
