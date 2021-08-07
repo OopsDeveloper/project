@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,8 +45,12 @@
 	<div class="studyContent">
 		<table class="table">
 			<tr>
-				<td>스터디 이름</td><td><input class="form-control" type="text" name="meetGroupName" placeholder="스터디 이름"></td>
-				<input type="hidden" name="meetName" value="${user.joinId}">
+				<td>스터디 이름</td>
+				<td>
+					<input class="form-control" type="text" name="meetGroupName" placeholder="스터디 이름">
+					<form:errors path="meetVO.meetGroupName"/>
+					<input type="hidden" name="meetName" value="${user.joinId}">
+				</td>
 			</tr>
 			<tr>
 				<td>스터디 종류</td>
@@ -87,6 +92,7 @@
 				<td>스터디 인원</td>
 				<td>
 					<input class="form-control" type="number" min="2" max="10" name="meetCount" value="">
+					<form:errors path="meetVO.meetCount"/>
 				</td>
 			</tr>
 			<tr>

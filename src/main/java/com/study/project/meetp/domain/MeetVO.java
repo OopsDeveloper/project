@@ -1,14 +1,18 @@
 package com.study.project.meetp.domain;
 
-import java.sql.Time;
 import java.util.Date;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 public class MeetVO {
-	private String meetName;
+	@NotBlank(message = "제목은 필수입니다.")
+	private String meetGroupName;
+	
+	private String meetName;	
 	private String meetDetail;
 	private Date meetRegistrationDate;
 	private String meetCategoryCode;
-	private String meetGroupName;
 	private String meetPhone;
 	private char meetLevel;
 	private int meetCount;
