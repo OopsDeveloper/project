@@ -4,24 +4,42 @@ import java.util.Date;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 public class MeetVO {
 	@NotBlank(message = "제목은 필수입니다.")
 	private String meetGroupName;
 	
 	private String meetName;	
+	@NotBlank(message = "상세내용을 기재해주세요.")
 	private String meetDetail;
 	private Date meetRegistrationDate;
+	@NotBlank(message = "카테고리를 선택해주세요.")
 	private String meetCategoryCode;
+	
+	@NotBlank(message = "핸드폰번호를 적어주세요.")
+	@Pattern(regexp = "01[0|1|6|7|8|9]-([0-9]{3,4})-([0-9]{4})", message = "010-xxxx-xxxx로 입력해주세요")
 	private String meetPhone;
+	
 	private char meetLevel;
+	
+	@Min(value = 2,message = "최소2명이상 입니다.")
 	private int meetCount;
+	
 	private int meetHit;
+	@NotBlank(message = "우편번호는 필수입니다.")
 	private String meetPostcode;
+	@NotBlank(message = "도로명주소는 필수입니다.")
 	private String meetRoadAddress;
+	@NotBlank(message = "지번은 필수입니다.")
 	private String meetJibunAddress;
+	@NotBlank(message = "상세주소는 필수입니다.")
 	private String meetDetailAddress;
+	
 	private String meetStudyDate;
+	
+	@NotBlank(message = "시간대는 필수입니다.")
 	private String meetStudyTime;
 	
 	@Override

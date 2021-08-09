@@ -35,21 +35,25 @@
 	    margin-top: 60px;
 	    /* background-color: white; */
 	}
+	.eMsg{
+		font-size: 15px;
+		color:red;
+	}
 </style>
 <meta charset="UTF-8">
 <title>StudyTab</title>
 </head>
 <body>
 <div class="study">
-<form action="/meet/meetRegister" method="post">
+<form:form action="/meet/meetRegister" modelAttribute="meetVO">
 	<div class="studyContent">
 		<table class="table">
 			<tr>
 				<td>스터디 이름</td>
 				<td>
-					<input class="form-control" type="text" name="meetGroupName" placeholder="스터디 이름">
-					<form:errors path="meetVO.meetGroupName"/>
-					<input type="hidden" name="meetName" value="${user.joinId}">
+					<form:input path="meetGroupName" cssClass="form-control"/>
+					<form:errors path="meetGroupName" cssClass="eMsg"/>
+					<form:hidden path="meetName"/>
 				</td>
 			</tr>
 			<tr>
@@ -61,15 +65,24 @@
 						<option value="CB02">영어</option>
 						<option></option>
 					</select>
+					<form:errors path="meetCategoryCode" cssClass="eMsg"/>
 				</td>
 			</tr>
 			<tr>
 				<td>스터디 위치</td>
 				<td>
-					<input class="form-control" type="text" name="meetPostcode" placeholder="우편번호"><br>
-					<input class="form-control" type="text" name="meetRoadAddress" placeholder="도로명주소"><br>
-					<input class="form-control" type="text" name="meetJibunAddress" placeholder="지번주소"><br>
-					<input class="form-control" type="text" name="meetDetailAddress" placeholder="상세주소"><br>
+					<form:input path="meetPostcode" cssClass="form-control"/>
+					<form:errors path="meetPostcode" cssClass="eMsg"/><br>
+					
+					<form:input path="meetRoadAddress" cssClass="form-control"/>
+					<form:errors path="meetRoadAddress" cssClass="eMsg"/><br>
+					
+					<form:input path="meetJibunAddress" cssClass="form-control"/>
+					<form:errors path="meetJibunAddress" cssClass="eMsg"/><br>
+					
+					<form:input path="meetDetailAddress" cssClass="form-control"/>
+					<form:errors path="meetDetailAddress" cssClass="eMsg"/><br>
+					
 					<input class="form-control btn-success" type="button" onclick="korea_address()" value="우편번호 찾기"><br>
 				</td>
 				
@@ -91,26 +104,29 @@
 			<tr>
 				<td>스터디 인원</td>
 				<td>
-					<input class="form-control" type="number" min="2" max="10" name="meetCount" value="">
-					<form:errors path="meetVO.meetCount"/>
+					<form:input type="number" path="meetCount" cssClass="form-control"/>
+					<form:errors path="meetCount" cssClass="eMsg"/>
 				</td>
 			</tr>
 			<tr>
 				<td>연락처</td>
 				<td>
-					<input class="form-control" type="text" name="meetPhone" value="">
+					<form:input path="meetPhone" cssClass="form-control"/>
+					<form:errors path="meetPhone" cssClass="eMsg"/>
 				</td>
 			</tr>
 			<tr>
 				<td>스터디 시간대</td>
 				<td>
-					<input class="form-control" type="time" name="meetStudyTime">
+					<form:input type="time" path="meetStudyTime" cssClass="form-control"/>
+					<form:errors path="meetStudyTime" cssClass="eMsg"/>
 				</td>
 			</tr>
 			<tr>
 				<td>상세내용</td>
 				<td>
-					<textarea class="form-control" id="content" name="meetDetail" rows="10" cols="30"></textarea>
+					<form:textarea path="meetDetail" rows="10" cols="30" cssClass="form-control"/>
+					<form:errors path="meetDetail" cssClass="eMsg"/>
 				</td>
 			</tr>
 			<tr>
@@ -118,7 +134,7 @@
 			</tr>
 		</table><!--table마지막  -->
 	</div>
-</form><!--form마지막  -->
+</form:form><!--form마지막  -->
 </div><!--study 마지막  -->
 <script src="http://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>

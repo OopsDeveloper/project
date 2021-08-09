@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,39 +17,36 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-<style>
-	.list{
+<style type="text/css">
+	.content{
 		width:700px;
     	height:600px;
     	margin:0 auto;
     	background-color: #fff; 
-    	margin-top: 100px;
+    	margin-top: 10px;
+	}
+	.noticContent{
+		height: 500px;
 	}
 </style>
-<%@include file="/WEB-INF/views/includes/header.jsp"%>
 <meta charset="UTF-8">
+<%@include file="/WEB-INF/views/includes/header.jsp"%>
 <title>Insert title here</title>
 </head>
 <body>
-<div class="list">
-	<table class="table table-hover">
-		<tr style="background-color: green">
-			<td>번호</td>
-			<td>구분</td>
-			<td>제목</td>
-			<td>작성일</td>
-			<td>조회수</td>
+<div class="content">
+	<table class="table table-bordered">
+		<tr>
+			<td class="col-sm-1">제목</td>
+			<td class="col-sm-5">${user.noticeName}</td>
 		</tr>
-		<c:forEach items="${notice}" var="vo">
-			<tr>
-				<td>${vo.noticeNo}</td>
-				<td><a href="view?bno=${vo.noticeNo}">${vo.noticeCommentWriter}</a></td>
-				<td>${vo.noticeName}</td>
-				<td>${vo.noticeDate}</td>
-				<td>${vo.noticeHit}</td>
-			</tr>
-		</c:forEach>
+		<tr>
+			<td>등록일</td>
+			<td>${user.noticeDate}</td>
+		</tr>
+		<tr>
+			<td colspan=2 class="noticContent">${user.noticeCommentContent}</td>
+		</tr>
 	</table>
 </div>
 </body>
