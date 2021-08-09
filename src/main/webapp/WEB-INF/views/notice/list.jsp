@@ -36,7 +36,7 @@
 	<table class="table table-hover">
 		<tr style="background-color: green">
 			<td>번호</td>
-			<td>구분</td>
+			<td>작성자</td>
 			<td>제목</td>
 			<td>작성일</td>
 			<td>조회수</td>
@@ -44,7 +44,7 @@
 		<c:forEach items="${notice}" var="vo">
 			<tr>
 				<td>${vo.noticeNo}</td>
-				<td><a href="view?bno=${vo.noticeNo}">${vo.noticeCommentWriter}</a></td>
+				<td><a href="view.jsp?bno=${vo.noticeNo}">${vo.noticeCommentWriter}</a></td>
 				<td>${vo.noticeName}</td>
 				<td>${vo.noticeDate}</td>
 				<td>${vo.noticeHit}</td>

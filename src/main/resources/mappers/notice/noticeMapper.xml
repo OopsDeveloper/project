@@ -18,21 +18,6 @@
 		]]>
 	</select>
 	
-	<select id="get" resultMap="noticeResultMap">
-		<![CDATA[
-		SELECT   notice_no
-					,notice_name
-					,notice_hit
-					,DATE_FORMAT(notice_date, '%Y-%m-%d') as notice_date
-					,notice_comment_writer
-					,notice_comment_date
-					,notice_comment_content
-			  FROM study.tbl_notice
-		]]>
-			 WHERE notice_no = #{noticeNo}
-		
-	</select>
-	
 	<resultMap type="NoticeVO" id="noticeResultMap">
 		<result property="noticeCommentContent" column="notice_comment_content"/>
 		<result property="noticeCommentDate" column="notice_comment_date"/>

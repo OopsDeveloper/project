@@ -24,8 +24,4 @@ public class NoticeDAOImpl implements NoticeDAO{
 		return sqlSession.selectList(NAMESPACE+".getList");
 	}
 
-	@Override
-	public NoticeVO get(int bno) throws Exception {
-		return sqlSession.selectOne(NAMESPACE+".get",bno);
-	}
 }

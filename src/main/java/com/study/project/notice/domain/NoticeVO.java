@@ -1,6 +1,5 @@
 package com.study.project.notice.domain;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class NoticeVO {
@@ -8,7 +7,7 @@ public class NoticeVO {
 	private String noticeCommentContent;
 	private Date noticeCommentDate;
 	private String noticeCommentWriter;
-	private String noticeDate;
+	private Date noticeDate;
 	private int noticeHit;
 	private String noticeName;
 	private int noticeNo;
@@ -47,10 +46,10 @@ public class NoticeVO {
 	public void setNoticeCommentWriter(String noticeCommentWriter) {
 		this.noticeCommentWriter = noticeCommentWriter;
 	}
-	public String getNoticeDate() {
+	public Date getNoticeDate() {
 		return noticeDate;
 	}
-	public void setNoticeDate(String noticeDate) {
+	public void setNoticeDate(Date noticeDate) {
 		this.noticeDate = noticeDate;
 	}
 	public int getNoticeHit() {
@@ -65,5 +64,7 @@ public class NoticeVO {
 	public void setNoticeName(String noticeName) {
 		this.noticeName = noticeName;
 	}
+	
+	
 	
 }
