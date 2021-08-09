@@ -23,7 +23,7 @@
     	height:600px;
     	margin:0 auto;
     	background-color: #fff; 
-    	margin-top: 10px;
+    	margin-top: 60px;
 	}
 	.noticContent{
 		height: 500px;
