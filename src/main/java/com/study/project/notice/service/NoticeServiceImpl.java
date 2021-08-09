@@ -19,4 +19,10 @@ public class NoticeServiceImpl implements NoticeService{
 		return noticeDAO.getList();
 	}
 
+	@Override
+	public NoticeVO get(int bno) throws Exception {
+		return noticeDAO.get(bno);
+	}
+
+	
 }
