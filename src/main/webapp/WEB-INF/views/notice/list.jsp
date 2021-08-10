@@ -16,15 +16,67 @@
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <style>
 	.list{
 		width:700px;
-    	height:600px;
+    	margin:0 auto;
+    	background-color: #fff;
+	}
+	.notice_fx{
+		width:700px;
+    	height:65px;
     	margin:0 auto;
     	background-color: #fff; 
     	margin-top: 100px;
+    	border-top: 2px solid;
+    	border-bottom: 2px solid;
+	}
+	.notice_list_total{
+		height: 30px;
+		margin:0 auto;
+		margin-top: 20px;
+	} 
+	ul{
+		list-style:none;
+		padding-left: 0;
+		width: 700px;
+	}
+	li {
+		border-bottom: 1px solid;
+	}
+	.nt_num{
+		width: 50px;
+    	text-align: center;
+    	margin-right: 5px;
+	}
+	.nt_name{
+		font-weight: bold;
+	}
+	.nt_other{
+		width: 100%;
+    	display: block;
+    	padding-top: 5px;
+	}
+	.nt_wrap{
+		display: inline-block;
+    	position: relative;
+    	font-weight: normal;
+	}
+	a{
+		text-decoration: none;
+	}
+	a:visited {
+		color: black;
+	}
+	.bt_more{
+		margin-top: 10px;
+	}
+	.sicon{
+		float: right;
+		cursor: pointer;
 	}
 </style>
 <%@include file="/WEB-INF/views/includes/header.jsp"%>
@@ -32,25 +84,25 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="notice_fx">
+	<div class="notice_list_total">
+		<span>Total 3건 1페이지 </span>
+		<span onclick="location.href='/notice/regist'" class="sicon"><i class="fas fa-plus-circle fa-2x"></i></span>
+	</div>
+</div>
 <div class="list">
-	<table class="table table-hover">
-		<tr style="background-color: green">
-			<td>번호</td>
-			<td>구분</td>
-			<td>제목</td>
-			<td>작성일</td>
-			<td>조회수</td>
-		</tr>
+	<ul>
 		<c:forEach items="${notice}" var="vo">
-			<tr>
-				<td>${vo.noticeNo}</td>
-				<td><a href="view?bno=${vo.noticeNo}">${vo.noticeCommentWriter}</a></td>
-				<td>${vo.noticeName}</td>
-				<td>${vo.noticeDate}</td>
-				<td>${vo.noticeHit}</td>
-			</tr>
+			<li>
+				<span class="nt_num">${vo.noticeNo}</span>
+				<span class="nt_name"><a href="view?bno=${vo.noticeNo}">${vo.noticeName}</a></span>
+				<span class="nt_other">작성자 : 
+					<span class="nt_wrap">${vo.noticeCommentWriter} | 작성일 : ${vo.noticeDate} | 조회수 : ${vo.noticeHit}</span>
+				</span>
+			</li>
 		</c:forEach>
-	</table>
+		<button class="bt_more form-control btn-success">더보기</button>
+	</ul>
 </div>
 </body>
 </html>

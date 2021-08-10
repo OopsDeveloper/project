@@ -28,6 +28,20 @@
 	.noticContent{
 		height: 500px;
 	}
+	table{
+		border: 4px solid;
+	}
+	tr{
+		border: 2px solid;
+	}
+	.bt-motify{
+		width: 100px;
+		float: right;
+	}
+	.bt-list{
+		width: 100px;
+		float: right;
+	}
 </style>
 <meta charset="UTF-8">
 <%@include file="/WEB-INF/views/includes/header.jsp"%>
@@ -37,17 +51,17 @@
 <div class="content">
 	<table class="table table-bordered">
 		<tr>
-			<td class="col-sm-1">제목</td>
-			<td class="col-sm-5">${user.noticeName}</td>
+			<td colspan="2" class="col-sm-1">${user.noticeName}</td>
 		</tr>
 		<tr>
-			<td>글쓴이</td>
-			<td>${user.noticeDate}</td>
+			<td colspan="2" class="col-sm-1">작성자: ${user.noticeCommentWriter} 등록일: ${user.noticeDate} 조회: ${user.noticeHit}</td>
 		</tr>
 		<tr>
 			<td colspan=2 class="noticContent">${user.noticeCommentContent}</td>
 		</tr>
 	</table>
+	<button class="bt-motify form-control btn-success">수정</button>
+	<button onclick="location.href='/notice/list'" class="bt-list form-control btn-primary">목록</button>
 </div>
 </body>
 </html>

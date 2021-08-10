@@ -24,5 +24,12 @@ public class NoticeServiceImpl implements NoticeService{
 		return noticeDAO.get(bno);
 	}
 
+	@Override
+	public int regist(NoticeVO vo) throws Exception {
+		noticeDAO.insert(vo);
+		return 0;
+	}
+
+
 	
 }

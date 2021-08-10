@@ -33,6 +33,20 @@
 		
 	</select>
 	
+	<insert id="insert">
+		INSERT INTO study.tbl_notice (
+			notice_name,
+			notice_comment_writer,
+			notice_comment_content,
+			notice_hit
+		)VALUES(
+			#{noticeName},
+			#{noticeCommentWriter},
+			#{noticeCommentContent},
+			0
+		) 
+	</insert>
+	
 	<resultMap type="NoticeVO" id="noticeResultMap">
 		<result property="noticeCommentContent" column="notice_comment_content"/>
 		<result property="noticeCommentDate" column="notice_comment_date"/>

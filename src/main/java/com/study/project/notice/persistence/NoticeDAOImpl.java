@@ -28,4 +28,9 @@ public class NoticeDAOImpl implements NoticeDAO{
 	public NoticeVO get(int bno) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+".get",bno);
 	}
+
+	@Override
+	public void insert(NoticeVO vo) throws Exception {
+		sqlSession.insert(NAMESPACE+".insert",vo);
+	}
 }
