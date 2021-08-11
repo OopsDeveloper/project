@@ -47,6 +47,18 @@
 		) 
 	</insert>
 	
+	<update id="update">
+		UPDATE study.tbl_notice
+		   SET  notice_name = #{noticeName}
+		       ,notice_comment_writer = #{noticeCommentWriter}
+		       ,notice_comment_content = #{noticeCommentContent}
+		 WHERE notice_no = #{noticeNo}
+	</update>
+	<delete id="delete">
+		DELETE FROM study.tbl_notice
+		       WHERE notice_no = #{noticeNo}
+	</delete>
+	
 	<resultMap type="NoticeVO" id="noticeResultMap">
 		<result property="noticeCommentContent" column="notice_comment_content"/>
 		<result property="noticeCommentDate" column="notice_comment_date"/>

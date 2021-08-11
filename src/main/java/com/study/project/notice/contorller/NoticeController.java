@@ -49,9 +49,30 @@ public class NoticeController {
 	
 	@RequestMapping(value = "/regist", method = RequestMethod.POST)
 	public String registPost(@ModelAttribute("vo") NoticeVO vo) throws Exception {
+		System.out.println("공지사항등록:"+vo);
 		noticeService.regist(vo);
 		
 		return "redirect:/notice/list";
 	}
 	
+	@RequestMapping(value = "/modify", method = RequestMethod.GET)
+	public String modifyGet(@RequestParam("bno")int bno, NoticeVO vo, Model model) throws Exception {
+		NoticeVO user= noticeService.get(bno);
+		model.addAttribute("user",user);
+		
+		return "/notice/modify";
+	}
+	
+	@RequestMapping(value="/modify", method = RequestMethod.POST)
+	public String modifyPost(@ModelAttribute("vo") NoticeVO vo) throws Exception {
+		noticeService.update(vo);
+		
+		return "redirect:/notice/list";
+	}
+	
+	@RequestMapping(value="/delete", method = RequestMethod.GET)
+	public String delete(@RequestParam("bno")int bno) throws Exception {
+		noticeService.remove(bno);
+		return "redirect:/notice/list";
+	}
 }

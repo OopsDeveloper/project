@@ -71,6 +71,9 @@
 	a:visited {
 		color: black;
 	}
+	a:link{
+		color: black;
+	}
 	.bt_more{
 		margin-top: 10px;
 	}

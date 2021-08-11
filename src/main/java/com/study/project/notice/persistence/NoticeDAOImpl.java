@@ -33,4 +33,14 @@ public class NoticeDAOImpl implements NoticeDAO{
 	public void insert(NoticeVO vo) throws Exception {
 		sqlSession.insert(NAMESPACE+".insert",vo);
 	}
+
+	@Override
+	public void update(NoticeVO vo) throws Exception {
+		sqlSession.update(NAMESPACE+".update",vo);
+	}
+
+	@Override
+	public void delete(int bno) throws Exception {
+		sqlSession.delete(NAMESPACE+".delete",bno);
+	}
 }

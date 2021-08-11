@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-<%@include file="/WEB-INF/views/includes/header.jsp"%>
 <style type="text/css">
 	.nregist{
 		width:700px;
@@ -25,17 +24,27 @@
     	margin-top: 100px;
     	background-color: #fff;
 	}
+	.bt-motify{
+		width: 100px;
+		float: right;
+	}
+	.bt-delete{
+		width: 100px;
+		float: right;
+	}
 </style>
 <meta charset="UTF-8">
-<title>공지사항 글쓰기</title>
+<%@include file="/WEB-INF/views/includes/header.jsp"%>
+<title>수정하기</title>
 </head>
 <body>
 <div class="nregist">
-	<form action="/notice/regist" method="post">
+	<form action="/notice/modify" method="post">
+		<input type="hidden" name="noticeNo" value="${user.noticeNo}">
 		<table class="table table-bordered">
 			<tr>
 				<td>제목</td>
-				<td><input class="form-control" type="text" name="noticeName"></td>
+				<td><input class="form-control" type="text" name="noticeName" value="${user.noticeName}"></td>
 			</tr>
 			<tr>
 				<td>작성자</td>
@@ -46,11 +55,12 @@
 			</tr>
 			<tr>
 				<td colspan="2">
-				<textarea  class="form-control" name="noticeCommentContent" rows="30" ></textarea>
+				<textarea  class="form-control" name="noticeCommentContent" rows="30" >${user.noticeCommentContent}</textarea>
 				</td>
 			</tr>
 		</table>
-		<button type="submit" class="bt_more form-control btn-success">제출하기</button>
+		<button class="bt-motify form-control btn-success">수정</button>
+		<button onclick="location.href='delete?bno=${user.noticeNo}'" class="bt-delete form-control btn-danger">삭제</button>
 	</form>
 </div>
 </body>

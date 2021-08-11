@@ -60,8 +60,8 @@
 			<td colspan=2 class="noticContent">${user.noticeCommentContent}</td>
 		</tr>
 	</table>
-	<button class="bt-motify form-control btn-success">수정</button>
-	<button onclick="location.href='/notice/list'" class="bt-list form-control btn-primary">목록</button>
+	<button onclick="location.href='modify?bno=${user.noticeNo}'" class="bt-motify form-control btn-success">수정</button>
+	<button onclick="location.href='list'" class="bt-list form-control btn-primary">목록</button>
 </div>
 </body>
 </html>
