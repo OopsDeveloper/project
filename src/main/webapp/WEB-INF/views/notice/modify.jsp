@@ -60,7 +60,7 @@
 			</tr>
 		</table>
 		<button class="bt-motify form-control btn-success">수정</button>
-		<button onclick="location.href='/notice/delete?bno=${user.noticeNo}'" class="bt-delete form-control btn-danger">삭제</button>
+		<button type="button" onclick="location.href='/notice/delete?bno=${user.noticeNo}'" class="bt-delete form-control btn-danger">삭제</button>
 	</form>
 </div>
 </body>
