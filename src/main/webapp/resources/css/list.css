@@ -7,23 +7,37 @@
 }
 /* Table test */
 .tabletest {
-	float:left;
-	width:25%;
+	table-layout:auto;
+	width:100%;
 	height:60px;
 	text-align:center;
 	line-height:60px;
-	background:green;
-	font-size:15px;
+	background:white;
+	font-size:20px;
+	border-radius:5px;
+	border-color: pink;
+	border-bottom-style: solid;
+	border-collapse: collapse;
 }
-
+tr { 
+border-top: 1px solid black; 
+border-bottom: 1px solid black; 
+}
+.ddd {
+  border: 1px solid #ffebb5; 
+  background-color: #ffebb5; 
+  border-radius: 16px;
+  box-shadow: inset 0 0 8px #deb13a;
+  width: 160px; height: 160px;
+}
 .tabletest11{
+	position:
 	float:left;
-	width:40%;
-	height:20px;
+	width:10%;
+	height:50%;
 	text-align:center;
-	line-height:60px;
+	line-height:19px;
 	background:pink;
-	font-size:35px;
 }
 .tabletest2{
 	position:absolute; 
@@ -41,16 +55,14 @@
 }
 
 body {
-  /* color = 바디 텍스트 */
   /* font-size: 1.2em; */
   /* font-family:"Poppins", sans-serif; */
-  font-family: 'Poppins', sans-serif;
   /* font-family: "Poppins", sans-serif; */
+  font-family: 'Poppins', sans-serif;
   color: black;
   background-color: #036a37;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjus: 100%;
-  /* iphone font size 변경 방지 */
 }
 
 #Information1 {
@@ -77,7 +89,7 @@ h2,
 h3,
 h4,
 p {
-  margin: 100px 5px;
+  margin: 25px 5px;
   font-size: 1.5em;
 }
 
@@ -114,43 +126,6 @@ header {
   box-shadow: 0 5px 5px rgba(129, 128, 128, 0.05), 0 1px 0 rgba(0, 0, 0, 0.05);
 }
 
-.logo {
-  float: left;
-  display: inline-flex;
-  margin-right: 20px;
-}
-
-nav {
-  float: right;
-}
-
-.nav-items {
-  /* margin-right: 20px; */
-}
-
-.nav-items > li {
-  /* display: inline-block; */
-  /* 가로정렬 */
-}
-
-.nav-items > li > a {
-  /* for Vertical Centering */
-  /* line-height: 60px;
-  padding: 0 30px;
-  color: rgba(0, 0, 0, 0.4); */
-}
-
-.nav-items > li > a:hover {
-  color: rgba(0, 0, 0, 0.8);
-}
-
-/* contents */
-/* clearfix */
-#content-wrap:after {
-  /* content: ''; */
-  display: block;
-  clear: both;
-}
 
 .aside {
   position: fixed;
@@ -163,29 +138,12 @@ nav {
   /* #0066ff */
 }
 
-/* aside navigation */
-aside > ul {
-  width: 200px;
-}
+
 /* menu font */
 aside > ul > li > a {
   display: block;
   color: #0066ff;
   padding: 10px 0 10px 20px;
-}
-
-aside > ul > li > a.active {
-  background-color: #4caf50;
-}
-
-/*메뉴버튼 hover 색  */
-aside > ul > li > a:hover:not(.active) {
-  background-color: #ffc000;
-}
-/* 메뉴바 글씨 font. */
-aside > h1 {
-  padding: 20px 0 20px 20px;
-  color: #0066ff;
 }
 
 /* Section */
@@ -195,7 +153,6 @@ section {
   margin-top: -250px;
   margin-left: 100px;
 }
-/* 내용 배경 */
 article {
   color: black;
   margin: 90px;
@@ -206,10 +163,13 @@ article {
   size: 50%;
   border: inset 10px black;
 }
+.hr2 {
+  size: 50%;
+  border: inset 2px pink;
+}
 
 /* footer */
 footer {
-  /* footer를 aside위에 올리기 위해 사용(부유객체) */
   position: absolute;
   height: 60px;
   width: 100%;
@@ -218,25 +178,4 @@ footer {
   color: #8a8c8f;
   border-top: 1px solid #fff;
   background-color: #fff;
-}
-
-.infoPhoto {
-  /* width: 70%;
-  height: 200px;
-  object-fit: cover; */
-  float: right;
-  z-index: 2001;
-}
-
-.grid {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-items: flex-start;
-}
-#caro_img {
-  object-fit: cover;
-  max-width: 80%;
-  height: auto;
 }

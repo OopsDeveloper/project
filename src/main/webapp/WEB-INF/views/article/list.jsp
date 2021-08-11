@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" 
-pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@include file="../includes/header.jsp" %>
@@ -27,47 +26,32 @@ pageEncoding="UTF-8"%>
 
 <title>스터디탭 게시판</title>
 <body>
-<!-- ${pageContext.request.contextPath} -->
-
 <!-- START 위 게시판 -->
     <div id="content-wrap">
 <article id="Information1">
   <h6> 홈 > 게시판 > 스터디게시판 </h6>
   <hr class="hr1" width="30%">
-
 </article>   
 </div>  
 
-	 <div class="aside"><h2></h2>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-
-    </div>
 <article id="Information">
 
-<!--  <div class="row">
-  <div class="col-lg-12">
-    <h1 class="page-header">게시판</h1>
-
-  </div> -->
-  <p id=sub2>게시판</p>
-  <!-- /.col-lg-12 -->
-<!-- 제목 검색, 모집중, 지역구-->
-  	 <div class='row'>
-          <div class='col-lg-12' style="border: 1px solid gold; float: right; ">>
+  <p id=sub2>모집게시판</p>
+<hr class="hr2" width="100%">
+	<!-- start 검색-->
+	<div class='row'>
+          <div class='col-lg-12'>
             <form id='searchForm' action="/article/list" method="get">
               <select name='type' class="form-select form-select-sm mb-1" aria-label=".form-select-lg example" style="width:300px;height:40px;">
                 <option value="" <c:out value="${pageMaker.cri.type == null ? 'selected' : ''}"/>>--</option>
                 <option value="T" <c:out value="${pageMaker.cri.type eq 'T' ? 'selected' : ''}"/>>제목</option> <!-- 제목 -->
-                <option value="C" <c:out value="${pageMaker.cri.type eq 'C' ? 'selected' : ''}"/>>내용</option> <!-- 모집중 -->
-                <option value="W" <c:out value="${pageMaker.cri.type eq 'W' ? 'selected' : ''}"/>>작성자</option> <!-- 글쓴이 -->
-                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC' ? 'selected' : ''}"/>>제목 or 내용</option> <!-- 지역구 -->
-                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW' ? 'selected' : ''}"/>>제목 or 작성자</option>
+                <option value="C" <c:out value="${pageMaker.cri.type eq 'C' ? 'selected' : ''}"/>>모집중</option> <!-- 모집중 -->
+                <option value="W" <c:out value="${pageMaker.cri.type eq 'W' ? 'selected' : ''}"/>>글쓴이</option> <!-- 글쓴이 -->
+                <%-- <option value="TC" <c:out value="${pageMaker.cri.type eq 'A' ? 'selected' : ''}"/>>지역구</option> --%>
+                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW' ? 'selected' : ''}"/>>제목 or 내용</option> 
                 <option value="TWC" <c:out value="${pageMaker.cri.type eq 'TWC' ? 'selected' : ''}"/>>제목 or 내용 or 작성자</option>
               </select>
-          		<div style="border: 1px solid gold; float: right;">
+          		<div style=" float: right;">
               <input type="text" name="keyword" value='<c:out value="${pageMaker.cri.keyword}"/>'/>
               <input type="hidden" name="pageNum" value='<c:out value="${pageMaker.cri.pageNum}"/>'>
               <input type="hidden" name="amount" value='<c:out value="${pageMaker.cri.amount}"/>'>
@@ -75,32 +59,19 @@ pageEncoding="UTF-8"%>
               </div>
             </form>
           </div>
-        </div>  	
-</form>
-<hr>
-<!-- /.row -->
+        </div>  
+	<!-- end 검색    -->	
+
 
 <div class="row">
   <div class="col-lg-12">
     <div class="panel panel-default">
        <div class="panel-heading">
        
-<!--         <button id='regBtn' type="button" class="btn btn-xs pull-right">글 등록</button> -->
       </div>
-      <!-- /.panel-heading -->
-      <div >
-      	<div class ="tabletest">
- 			모집중
-      	</div>
-      	<span class ="tabletest2">초급</span>
-      	<div class = "tabletest">
-      	<!-- <span class ="tabletest2">초급</span> -->
-      	</div>
-      	<div class = "tabletest11"></div>
-      </div>
-      
+
       <div class="panel-body">
-        <table width="100%" class="table table-striped table-bordered table-hover">
+        <table class="tabletest" border="1">
           <thead>
           <tr>
             <th>글번호</th>
@@ -110,6 +81,7 @@ pageEncoding="UTF-8"%>
             <th>조회수</th>
           </tr>
           </thead>
+          
           <tbody>
           <c:forEach items="${articles}" var="board">
             <tr class="odd gradeX">
@@ -122,6 +94,7 @@ pageEncoding="UTF-8"%>
           </c:forEach>
           </tbody>
         </table>
+
         <!-- /.table-responsive -->
        
 
@@ -161,6 +134,7 @@ pageEncoding="UTF-8"%>
   <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
+</article>
 
 <!--  <div id="myModal" class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
