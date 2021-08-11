@@ -1,7 +1,5 @@
 package com.study.project.notice.contorller;
 
-import java.text.SimpleDateFormat;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.study.project.article.controller.ArticleController;
 import com.study.project.notice.domain.NoticeVO;
 import com.study.project.notice.service.NoticeService;
-
-import oracle.jdbc.proxy.annotation.Methods;
 
 @Controller
 @RequestMapping("/notice")
@@ -72,6 +68,7 @@ public class NoticeController {
 	
 	@RequestMapping(value="/delete", method = RequestMethod.GET)
 	public String delete(@RequestParam("bno")int bno) throws Exception {
+		System.out.println("bno="+bno);
 		noticeService.remove(bno);
 		return "redirect:/notice/list";
 	}
