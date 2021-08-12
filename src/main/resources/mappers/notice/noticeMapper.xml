@@ -59,6 +59,11 @@
 		       WHERE notice_no = #{noticeNo}
 	</delete>
 	
+	<select id="getListCount" resultType="int">
+		SELECT count(notice_no) 
+		  FROM study.tbl_notice
+	</select>
+	
 	<resultMap type="NoticeVO" id="noticeResultMap">
 		<result property="noticeCommentContent" column="notice_comment_content"/>
 		<result property="noticeCommentDate" column="notice_comment_date"/>

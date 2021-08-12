@@ -28,6 +28,7 @@ public class NoticeController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void list(Model model) throws Exception{
 		model.addAttribute("notice", noticeService.getList());
+		model.addAttribute("count", noticeService.count());
 	}
 	
 	@RequestMapping(value = "/view", method = RequestMethod.GET)
@@ -45,7 +46,6 @@ public class NoticeController {
 	
 	@RequestMapping(value = "/regist", method = RequestMethod.POST)
 	public String registPost(@ModelAttribute("vo") NoticeVO vo) throws Exception {
-		System.out.println("공지사항등록:"+vo);
 		noticeService.regist(vo);
 		
 		return "redirect:/notice/list";

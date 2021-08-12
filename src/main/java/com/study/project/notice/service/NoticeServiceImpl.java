@@ -42,6 +42,10 @@ public class NoticeServiceImpl implements NoticeService{
 		return 0;
 	}
 
+	@Override
+	public int count() throws Exception {
+		return noticeDAO.getListCount();
+	}
 
 	
 }

@@ -10,4 +10,5 @@ public interface NoticeService {
 	int regist(NoticeVO vo) throws Exception;
 	int update(NoticeVO vo) throws Exception;
 	int remove(int bno) throws Exception;
+	int count() throws Exception;
 }

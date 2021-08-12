@@ -43,4 +43,10 @@ public class NoticeDAOImpl implements NoticeDAO{
 	public void delete(int bno) throws Exception {
 		sqlSession.delete(NAMESPACE+".delete",bno);
 	}
+
+	@Override
+	public int getListCount() throws Exception {
+		int count = sqlSession.selectOne(NAMESPACE+".getListCount");
+		return count;
+	}
 }

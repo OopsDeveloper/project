@@ -10,4 +10,5 @@ public interface NoticeDAO {
 	void insert(NoticeVO vo) throws Exception;
 	void update(NoticeVO vo) throws Exception;
 	void delete(int bno) throws Exception;
+	int getListCount() throws Exception;
 }

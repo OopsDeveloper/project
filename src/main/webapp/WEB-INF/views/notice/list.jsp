@@ -89,7 +89,7 @@
 <body>
 <div class="notice_fx">
 	<div class="notice_list_total">
-		<span>Total 3건 1페이지 </span>
+		<span>Total ${count}건 1페이지 </span>
 		<span onclick="location.href='/notice/regist'" class="sicon"><i class="fas fa-plus-circle fa-2x"></i></span>
 	</div>
 </div>
@@ -104,7 +104,9 @@
 				</span>
 			</li>
 		</c:forEach>
-		<button class="bt_more form-control btn-success">더보기</button>
+		<c:if test="${count >=10}">
+			<button class="bt_more form-control btn-success">더보기</button>
+		</c:if>
 	</ul>
 </div>
 </body>
