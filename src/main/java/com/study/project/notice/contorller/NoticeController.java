@@ -33,11 +33,15 @@ public class NoticeController {
 		System.out.println("total:"+total);
 		model.addAttribute("notice", noticeService.getList(page));
 		model.addAttribute("count", count);
+		if(count>=10){			
+			page *= 2;
+		}
+		
 		if(page>(total*10)) {
 			page = 10;
-		}else {			
-			page *= 10;
-		}
+		} 
+		
+		System.out.println("page"+page);
 	}
 	
 	@RequestMapping(value = "/view", method = RequestMethod.GET)
