@@ -1,11 +1,14 @@
 package com.study.project.meetp.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.study.project.meetp.domain.CategoryVO;
 import com.study.project.meetp.domain.MeetVO;
 
 @Repository
@@ -23,5 +26,12 @@ public class MeetDAOImpl implements MeetDAO{
 	public void register(MeetVO meetvo) throws Exception {
 		sqlSession.insert(NAMESPAE+".register", meetvo);
 	}
+
+	@Override
+	public List<CategoryVO> category() throws Exception {
+		return sqlSession.selectList(NAMESPAE+".category");
+	}
+
+	
 
 }

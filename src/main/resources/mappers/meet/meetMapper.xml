@@ -37,6 +37,17 @@
 		)
 	</insert>
 	
+	<select id="category" resultMap="categoryMap">
+		SELECT category_code
+		      ,category_name
+		  FROM tbl_category
+	</select>
+	
+	<resultMap id="categoryMap" type="CategoryVO">
+		<result property="categoryCode" column="category_code"/>
+		<result property="categoryName" column="category_name"/>
+	</resultMap>
+	
 	<resultMap id="meetVOResultMap" type="MeetVO">
 		<result property="meetName" column="meet_name"/>
 		<result property="meetDetail" column="meet_detail"/>

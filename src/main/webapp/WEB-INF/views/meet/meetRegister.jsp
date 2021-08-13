@@ -51,20 +51,18 @@
 			<tr>
 				<td>스터디 이름</td>
 				<td>
+					<form:hidden path="meetName" value="${user.joinId}"/>
 					<form:input path="meetGroupName" cssClass="form-control"/>
 					<form:errors path="meetGroupName" cssClass="eMsg"/>
-					<form:hidden path="meetName"/>
 				</td>
 			</tr>
 			<tr>
 				<td>스터디 종류</td>
 				<td>
-					<select class="form-control" name="meetCategoryCode">
-						<option value="">--스터디 종류--</option>
-						<option value="CB01">IT</option>
-						<option value="CB02">영어</option>
-						<option></option>
-					</select>
+					<form:select path="meetCategoryCode" cssClass="form-control">
+						<form:option value="">--스터디 종류--</form:option>
+						<form:options items="${category}" itemValue="categoryCode" itemLabel="categoryName"/>
+					</form:select>
 					<form:errors path="meetCategoryCode" cssClass="eMsg"/>
 				</td>
 			</tr>

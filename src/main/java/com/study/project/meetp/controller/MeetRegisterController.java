@@ -37,9 +37,11 @@ public class MeetRegisterController {
 	public void meetRegisterGET(
 					@ModelAttribute("meetVO") MeetVO meetVO
 					,HttpServletRequest request
-					, Model model ) {
+					, Model model ) throws Exception {
+		
 		HttpSession httpSession = request.getSession();
 		model.addAttribute("user",httpSession.getAttribute(LOGIN));
+		model.addAttribute("category", meetService.category());
 	}
 	
 	@RequestMapping(value="/meetRegister", method = RequestMethod.POST)
