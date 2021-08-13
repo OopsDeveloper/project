@@ -105,7 +105,7 @@
 			</li>
 		</c:forEach>
 		<c:if test="${count >=10}">
-			<button class="bt_more form-control btn-success">더보기</button>
+			<button onclick="location.href='/notice/list'" class="bt_more form-control btn-success">더보기</button>
 		</c:if>
 	</ul>
 </div>

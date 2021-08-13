@@ -19,6 +19,7 @@ import com.study.project.notice.service.NoticeService;
 public class NoticeController {
 	private static final Logger user = LoggerFactory.getLogger(ArticleController.class);
 	private final NoticeService noticeService;
+	private int page=10;
 	
 	@Autowired
 	public NoticeController(NoticeService noticeService) {
@@ -27,8 +28,16 @@ public class NoticeController {
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void list(Model model) throws Exception{
-		model.addAttribute("notice", noticeService.getList());
-		model.addAttribute("count", noticeService.count());
+		int count = noticeService.count();
+		int total = (int)(Math.ceil(((count*1.0)/10)));
+		System.out.println("total:"+total);
+		model.addAttribute("notice", noticeService.getList(page));
+		model.addAttribute("count", count);
+		if(page>(total*10)) {
+			page = 10;
+		}else {			
+			page *= 10;
+		}
 	}
 	
 	@RequestMapping(value = "/view", method = RequestMethod.GET)

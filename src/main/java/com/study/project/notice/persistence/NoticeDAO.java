@@ -6,6 +6,7 @@ import com.study.project.notice.domain.NoticeVO;
 
 public interface NoticeDAO {
 	List<NoticeVO> getList() throws Exception;
+	List<NoticeVO> getList(int page) throws Exception;
 	NoticeVO get(int bno) throws Exception;
 	void insert(NoticeVO vo) throws Exception;
 	void update(NoticeVO vo) throws Exception;

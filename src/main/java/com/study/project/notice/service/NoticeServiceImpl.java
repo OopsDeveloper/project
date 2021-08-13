@@ -18,6 +18,11 @@ public class NoticeServiceImpl implements NoticeService{
 	public List<NoticeVO> getList() throws Exception {
 		return noticeDAO.getList();
 	}
+	
+	@Override
+	public List<NoticeVO> getList(int page) throws Exception {
+		return noticeDAO.getList(page);
+	}
 
 	@Override
 	public NoticeVO get(int bno) throws Exception {
@@ -46,6 +51,5 @@ public class NoticeServiceImpl implements NoticeService{
 	public int count() throws Exception {
 		return noticeDAO.getListCount();
 	}
-
 	
 }

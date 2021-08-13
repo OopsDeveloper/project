@@ -23,6 +23,11 @@ public class NoticeDAOImpl implements NoticeDAO{
 	public List<NoticeVO> getList() throws Exception{
 		return sqlSession.selectList(NAMESPACE+".getList");
 	}
+	
+	@Override
+	public List<NoticeVO> getList(int page) throws Exception {
+		return sqlSession.selectList(NAMESPACE+".getPaging",page);
+	}
 
 	@Override
 	public NoticeVO get(int bno) throws Exception {
