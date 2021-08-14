@@ -16,6 +16,8 @@ public class UserVO {
     private String joinApprovalStatus;
     private String joinApprovalKey;
 
+    private String joinThumbImg;
+
 
     // getter, setter, toString...
     @Override
@@ -33,6 +35,14 @@ public class UserVO {
                 ", joinApprovalStatus='" + joinApprovalStatus + '\'' +
                 ", joinApprovalKey='" + joinApprovalKey + '\'' +
                 '}';
+    }
+
+    public String getJoinThumbImg() {
+        return joinThumbImg;
+    }
+
+    public void setJoinThumbImg(String joinThumbImg) {
+        this.joinThumbImg = joinThumbImg;
     }
 
     public String getJoinApprovalStatus() {
