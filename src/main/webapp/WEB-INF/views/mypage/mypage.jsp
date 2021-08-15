@@ -31,14 +31,47 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/flaticon.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/icomoon.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+
+	  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+	  <script>
+		  $(document).ready(function() {
+			  //이미지 클릭시 업로드창 실행
+			  $('#profile_file_add').click(function () {
+				  console.log('fileadd');
+				  $("input[name='fileProfile']").click();
+			  })
+
+			  $("input[name='fileProfile']").change(function (e) {
+				  console.log($("input[name='fileProfile']").val());
+				  let formData = new FormData();
+				  let fileInput = $('input[name="fileProfile"]');
+				  let fileList = fileInput[0].files;
+				  let fileObj = fileList[0];
+
+				  formData.append("uploadFile", fileObj);
+
+				  $.ajax({
+					  url: '/mypage/uploadAjaxAction',
+					  processData : false,
+					  contentType : false,
+					  data : formData,
+					  type : 'POST',
+					  dataType : 'json'
+				  });
+			  });
+		  })
+	  </script>
   </head>
   <body>
 
 	<div id="colorlib-page">
 		${user}
+		<form name="fileForm" method="POST" ENCTYPE="multipart/form-data">
+			<input type="file" id="fileProfile" name="fileProfile" style="display:none;">
+		</form>
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-			<h1 id="colorlib-logo"><a href="/mypage/mypage"><span class="img" style="background-image: url(${pageContext.request.contextPath}/resources/images/author.jpg);"></span>${user.joinName}</a></h1>
+			<h1 id="colorlib-logo"><span class="img" id="profile_file_add" style="background-image: url(${pageContext.request.contextPath}/resources/images/author.jpg);"></span>${user.joinName}</h1>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
 					<li><a href="/main/mainp">Home</a></li>
