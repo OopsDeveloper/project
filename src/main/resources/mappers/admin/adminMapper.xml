@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.project.mappers.admin.adminMapper">
+
+	<select id="getStudy" resultMap="studyVOResultMap">
+		<![CDATA[
+			SELECT   meet_no
+					,meet_name
+					,meet_detail
+					,meet_group_name
+					,meet_phone
+					,meet_study_time
+					,meet_del
+					,meet_registration_date
+			  FROM study.tbl_meet
+			 WHERE meet_no > 0
+			 ORDER BY meet_no DESC
+		]]>
+	</select>
+	
+
+	<resultMap id="studyVOResultMap" type="StudyVO">
+		<result property="meetNo" column="meet_no"/>
+		<result property="meetName" column="meet_name"/>
+		<result property="meetDetail" column="meet_detail"/>
+		<result property="meetGroupName" column="meet_group_name"/>
+		<result property="meetPhone" column="meet_phone"/>
+		<result property="meetStudyTime" column="meet_study_time"/>
+		<result property="meetDel" column="meet_del"/>
+		<result property="meetRegisterDate" column="meet_registration_date"/>
+	</resultMap>
+	
+	<resultMap id="userVOResultMap" type="UserVO">
+			<result property="joinId" column="join_id"/>
+			<result property="joinPass" column="join_pass"/>
+			<result property="joinName" column="join_name"/>
+			<result property="joinEmail" column="join_email"/>
+			<result property="joinBirth" column="join_birth"/>
+			<result property="joinRegistrationDate" column="join_registration_date"/>
+			<result property="joinInterestsCode" column="join_interests_code"/>
+			<result property="joinGender" column="join_gender"/>
+			<result property="joinPhone" column="join_phone"/>
+			<result property="joinApprovalStatus" column="join_approval_status"/>
+			<result property="joinApprovalKey" column="join_approval_key"/>
+	</resultMap>
+</mapper>

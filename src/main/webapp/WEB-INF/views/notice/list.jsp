@@ -100,7 +100,7 @@
 <body>
 <div class="notice_fx">
 	<div class="notice_list_total">
-		<span>Total ${count}건 1페이지 </span>
+		<span>Total ${count}건 총${total}페이지 </span>
 		<span onclick="location.href='/notice/regist'" class="sicon"><i class="fas fa-plus-circle fa-2x"></i></span>
 	</div>
 </div>

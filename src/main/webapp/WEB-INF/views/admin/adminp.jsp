@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,14 +49,16 @@
 				</tr>
 			</thead>
 			<tbody>
+				<c:forEach items="${study}" var="list">
 				<tr>
-					<td>1</td>
-					<td>스프링은 봄</td>
-					<td>윤여천</td>
-					<th>2021.11.22</th>
+					<td>${list.meetNo}</td>
+					<td>${list.meetGroupName}</td>
+					<td>${list.meetName}</td>
+					<td>${list.meetRegisterDate}</td>
 					<td><button class="btn btn-danger">삭제하기</button></td>
-					<td>N</td>
+					<td>${list.meetDel}</td>
 				</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>

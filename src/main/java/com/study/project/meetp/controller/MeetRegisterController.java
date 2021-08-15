@@ -49,12 +49,13 @@ public class MeetRegisterController {
 					@Valid @ModelAttribute("meetVO") MeetVO meetVO
 					,BindingResult errors
 					,RedirectAttributes redirectAttributes
-					,HttpServletResponse response) throws Exception {
+					,HttpServletResponse response
+					,Model model) throws Exception {
 		logger.debug("meetVO="+meetVO.toString());
-		
+		model.addAttribute("category", meetService.category());
 		if(errors.hasErrors()){
 			System.out.println("들어왔다"+errors);
-			return "meet/meetRegister";
+			return "/meet/meetRegister";
 		}
 		
 		meetService.register(meetVO, response);
