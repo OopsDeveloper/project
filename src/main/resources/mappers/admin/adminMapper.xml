@@ -20,6 +20,18 @@
 		]]>
 	</select>
 	
+	<select id="getJoin" resultMap="joinVOResultMap">
+		SELECT join_id
+			  ,join_email
+			  ,join_name
+			  ,join_del
+			  ,join_phone
+			  ,join_birth
+			  ,join_gender
+			  ,join_temp
+		 FROM study.tbl_join
+	</select>
+	
 
 	<resultMap id="studyVOResultMap" type="StudyVO">
 		<result property="meetNo" column="meet_no"/>
@@ -32,17 +44,14 @@
 		<result property="meetRegisterDate" column="meet_registration_date"/>
 	</resultMap>
 	
-	<resultMap id="userVOResultMap" type="UserVO">
+	<resultMap id="joinVOResultMap" type="JoinVO">
 			<result property="joinId" column="join_id"/>
-			<result property="joinPass" column="join_pass"/>
-			<result property="joinName" column="join_name"/>
 			<result property="joinEmail" column="join_email"/>
-			<result property="joinBirth" column="join_birth"/>
-			<result property="joinRegistrationDate" column="join_registration_date"/>
-			<result property="joinInterestsCode" column="join_interests_code"/>
-			<result property="joinGender" column="join_gender"/>
+			<result property="joinName" column="join_name"/>
+			<result property="joinDel" column="join_del"/>
 			<result property="joinPhone" column="join_phone"/>
-			<result property="joinApprovalStatus" column="join_approval_status"/>
-			<result property="joinApprovalKey" column="join_approval_key"/>
+			<result property="joinBirth" column="join_birth"/>
+			<result property="joinGender" column="join_gender"/>
+			<result property="joinTemp" column="join_temp"/>
 	</resultMap>
 </mapper>

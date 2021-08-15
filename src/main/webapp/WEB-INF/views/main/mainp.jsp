@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,8 +29,14 @@
 	<div class="sec_menu_bar">
 		<div class="sec_menu"><button class="hover1" onclick="location.href='/meet/meetRegister'">모임만들기</button></div>
 		<div class="sec_menu"><button class="hover1">스터디 가이드</button></div>
-		<div class="sec_menu"><button class="hover1">나의 스터디</button></div>
+		<c:if test="${user.joinAdmin=='N'}">
+			<div class="sec_menu"><button class="hover1">나의 스터디</button></div>
+		</c:if>
+		<c:if test="${user.joinAdmin=='Y'}">
+			<div class="sec_menu"><button class="hover1" onclick="location.href='/admin/adminp'">관리페이지</button></div>
+		</c:if>
 		<div class="sec_menu"><button class="hover1" onclick="location.href='/mypage/mypage'">마이페이지</button></div>
+
 	</div>
 	<!--아직 데이터가 없어서 하드코딩 했습니다.   -->
 	<div class="pop_study">

@@ -68,8 +68,9 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>no</th>
+					<th>회원아이디</th>
 					<th>회원이름</th>
+					<th>성별</th>
 					<th>온도</th>
 					<th>메일</th>
 					<th>탈퇴하기</th>
@@ -77,14 +78,17 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>윤여천</td>
-					<td>20</td>
-					<td>ducjs0220@naver.com</td>
-					<td><button class="btn btn-danger">삭제하기</button></td>
-					<td>N</td>
-				</tr>
+				<c:forEach items="${join}" var="user">
+					<tr>
+						<td>${user.joinId}</td>
+						<td>${user.joinName}</td>
+						<td>${user.joinGender}</td>
+						<td>${user.joinTemp}</td>
+						<td>${user.joinEmail}</td>
+						<td><button class="btn btn-danger">탈퇴하기</button></td>
+						<td>${user.joinDel}</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 	</div>

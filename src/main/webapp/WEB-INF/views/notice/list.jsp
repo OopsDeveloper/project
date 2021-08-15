@@ -30,7 +30,7 @@
     	height:65px;
     	margin:0 auto;
     	background-color: #fff; 
-    	margin-top: 100px;
+    	/* margin-top: 100px; */
     	border-top: 2px solid;
     	border-bottom: 2px solid;
 	}
@@ -81,6 +81,11 @@
 		float: right;
 		cursor: pointer;
 	}
+	.all{
+		width: 700px;
+		margin: 0 auto;
+		margin-top: 80px;
+	}
 </style>
 <%@include file="/WEB-INF/views/includes/header.jsp"%>
 <meta charset="UTF-8">
@@ -98,27 +103,30 @@
 
 </head>
 <body>
-<div class="notice_fx">
-	<div class="notice_list_total">
-		<span>Total ${count}건 총${total}페이지 </span>
-		<span onclick="location.href='/notice/regist'" class="sicon"><i class="fas fa-plus-circle fa-2x"></i></span>
+<div class="all">
+	<h1>공지사항</h1>
+	<div class="notice_fx">
+		<div class="notice_list_total">
+			<span>Total ${count}건</span>
+			<span onclick="location.href='/notice/regist'" class="sicon"><i class="fas fa-plus-circle fa-2x"></i></span>
+		</div>
 	</div>
-</div>
-<div class="list">
-	<ul>
-		<c:forEach items="${notice}" var="vo">
-			<li>
-				<span class="nt_num">${vo.noticeNo}</span>
-				<span class="nt_name"><a href="view?bno=${vo.noticeNo}">${vo.noticeName}</a></span>
-				<span class="nt_other">작성자 : 
-					<span class="nt_wrap">${vo.noticeCommentWriter} | 작성일 : ${vo.noticeDate} | 조회수 : ${vo.noticeHit}</span>
-				</span>
-			</li>
-		</c:forEach>
-		<c:if test="${count >=10}">
-			<button onclick="plus()" class="bt_more form-control btn-success">더보기</button>
-		</c:if>
-	</ul>
+	<div class="list">
+		<ul>
+			<c:forEach items="${notice}" var="vo">
+				<li>
+					<span class="nt_num">${vo.noticeNo}</span>
+					<span class="nt_name"><a href="view?bno=${vo.noticeNo}">${vo.noticeName}</a></span>
+					<span class="nt_other">작성자 : 
+						<span class="nt_wrap">${vo.noticeCommentWriter} | 작성일 : ${vo.noticeDate} | 조회수 : ${vo.noticeHit}</span>
+					</span>
+				</li>
+			</c:forEach>
+			<c:if test="${count >=10}">
+				<button onclick="plus()" class="bt_more form-control btn-success">더보기</button>
+			</c:if>
+		</ul>
+	</div>
 </div>
 </body>
 </html>

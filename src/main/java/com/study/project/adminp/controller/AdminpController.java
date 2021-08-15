@@ -18,5 +18,6 @@ public class AdminpController {
 	@RequestMapping(value = "/adminp", method = RequestMethod.GET)
 	public void adminp(Model model) throws Exception {
 		model.addAttribute("study", adminService.getStudy());
+		model.addAttribute("join", adminService.getJoin());
 	}
 }
