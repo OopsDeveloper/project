@@ -85,6 +85,17 @@
 <%@include file="/WEB-INF/views/includes/header.jsp"%>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<script>
+		function plus() {
+			if (${page} > ${total*10} ) {
+				// page >= (total*10)
+				alert("더보기 끝");
+				return;
+			}
+			location.href='/notice/list';
+		}
+	</script>
+
 </head>
 <body>
 <div class="notice_fx">
@@ -105,7 +116,7 @@
 			</li>
 		</c:forEach>
 		<c:if test="${count >=10}">
-			<button onclick="location.href='/notice/list'" class="bt_more form-control btn-success">더보기</button>
+			<button onclick="plus()" class="bt_more form-control btn-success">더보기</button>
 		</c:if>
 	</ul>
 </div>

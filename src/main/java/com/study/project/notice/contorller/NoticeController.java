@@ -34,12 +34,17 @@ public class NoticeController {
 		model.addAttribute("notice", noticeService.getList(page));
 		model.addAttribute("count", count);
 		if(count>=10){			
-			page *= 2;
+			page += 10;
 		}
-		
-		if(page>(total*10)) {
-			page = 10;
-		} 
+
+		//page : 10,20,30개
+		//total : 페이징숫자(1,2,3...)
+		//count : 게시물 갯수(11,17,21..)
+//		if(page > (total*10)) {
+//			page = 10;
+//		}
+		model.addAttribute("total",total);
+		model.addAttribute("page",page);
 		
 		System.out.println("page"+page);
 	}
