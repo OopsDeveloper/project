@@ -17,6 +17,7 @@
                          , join_interests_code
                          , join_approval_status
                          , join_approval_key
+
         ) VALUES (
                 #{joinId}
                  , #{joinPass}
@@ -83,6 +84,11 @@
         <result property="joinPhone" column="join_phone"/>
         <result property="joinApprovalStatus" column="join_approval_status"/>
         <result property="joinApprovalKey" column="join_approval_key"/>
+        <result property="joinLeader" column="join_leader"/>
+        <result property="joinAdmin" column="join_admin"/>
+        <result property="joinTemp" column="join_temp"/>
+        <result property="joinDel" column="join_del"/>
+
     </resultMap>
 
 

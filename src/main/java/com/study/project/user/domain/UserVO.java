@@ -17,6 +17,11 @@ public class UserVO {
     private String joinApprovalKey;
 
     private String joinThumbImg;
+    private String joinLeader;
+    private String joinAdmin;
+    private int joinTemp;
+    private String joinDel;
+
 
 
     // getter, setter, toString...
@@ -34,7 +39,44 @@ public class UserVO {
                 ", joinPhone='" + joinPhone + '\'' +
                 ", joinApprovalStatus='" + joinApprovalStatus + '\'' +
                 ", joinApprovalKey='" + joinApprovalKey + '\'' +
+                ", joinThumbImg='" + joinThumbImg + '\'' +
+                ", joinLeader='" + joinLeader + '\'' +
+                ", joinAdmin='" + joinAdmin + '\'' +
+                ", joinTemp=" + joinTemp +
+                ", joinDel='" + joinDel + '\'' +
                 '}';
+    }
+
+    public String getJoinLeader() {
+        return joinLeader;
+    }
+
+    public void setJoinLeader(String joinLeader) {
+        this.joinLeader = joinLeader;
+    }
+
+    public String getJoinAdmin() {
+        return joinAdmin;
+    }
+
+    public void setJoinAdmin(String joinAdmin) {
+        this.joinAdmin = joinAdmin;
+    }
+
+    public int getJoinTemp() {
+        return joinTemp;
+    }
+
+    public void setJoinTemp(int joinTemp) {
+        this.joinTemp = joinTemp;
+    }
+
+    public String getJoinDel() {
+        return joinDel;
+    }
+
+    public void setJoinDel(String joinDel) {
+        this.joinDel = joinDel;
     }
 
     public String getJoinThumbImg() {
