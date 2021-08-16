@@ -34,7 +34,7 @@
 </div>  
 
 	<article id="Information">
-<!-- /.panel-heading -->
+<!-- /.panel-headingg -->
 <div class="container">
 
 
