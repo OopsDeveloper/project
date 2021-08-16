@@ -40,7 +40,7 @@ public class ArticleController {
       //  model.addAttribute("pageMaker", new PageDTO(cri, articleService.getTotal(cri)));
         return "/article/list";
     }
-
+// 이동
     // 등록 페이지 이동
 //    @RequestMapping(value = "/write", method = RequestMethod.GET)
 //    public String writeGET() {

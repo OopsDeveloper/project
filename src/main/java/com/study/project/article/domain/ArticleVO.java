@@ -122,7 +122,7 @@ public class ArticleVO {
 		this.meetStudyTime = meetStudyTime;
 	} 
 	
-	
+	//end
 //  private Date regDate;
 //
 //  private int viewCnt;

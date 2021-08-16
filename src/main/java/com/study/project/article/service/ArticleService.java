@@ -18,7 +18,7 @@ public interface ArticleService {
     List<ArticleVO> listAll() throws Exception;
     
     List<CategoryVO> category() throws Exception;
-    
+    //카테고리
 //    List<ArticleVO> listAll(Criteria cri) throws Exception;
 //
 //    int getTotal(Criteria cri) throws Exception;

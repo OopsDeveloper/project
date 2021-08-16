@@ -20,7 +20,7 @@ public class ArticleServiceImpl implements ArticleService {
     public ArticleServiceImpl(ArticleDAO articleDAO) {
         this.articleDAO = articleDAO;
     }
-
+//tt
 	/*
 	 * @Override public int create(ArticleVO articleVO) throws Exception {
 	 * articleDAO.create(articleVO); return articleVO.getArticleNo(); }

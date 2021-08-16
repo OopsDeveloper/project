@@ -46,7 +46,7 @@
              , #{content}
              , #{writer}
         )
-    </insert> -->
+    </insert> --><!--  -->
 
     <select id="read" resultMap="ArticleResultMap">
     <![CDATA[

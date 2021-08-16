@@ -22,7 +22,7 @@ public class ArticleDAOImpl implements ArticleDAO {
     public ArticleDAOImpl(SqlSession sqlSession) {
         this.sqlSession = sqlSession;
     }
-
+//tt
 //    @Override
 //    public void create(ArticleVO articleVO) throws Exception {
 //        sqlSession.insert(NAMESPACE + ".create", articleVO);
