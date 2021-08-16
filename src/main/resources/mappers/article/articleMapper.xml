@@ -5,31 +5,31 @@
 
 <mapper namespace="com.study.project.mappers.article.articleMapper">
 
-    <sql id="criteria">
+<!--     <sql id="criteria">
         <trim prefix="(" suffix=") AND">
             <foreach collection="typeArr" item="type" separator="OR">
-            <!-- 제목 -->
+            제목
                 <if test="type == 'T'.toString()">
                     title like '%'||#{keyword}||'%'
                 </if>
-            <!-- 내용(모집중) -->
+            내용(모집중)
                 <if test="type == 'C'.toString()">
                     content like '%'||#{keyword}||'%'
                 </if>
-            <!-- 작성자 -->
+            작성자
                 <if test="type == 'W'.toString()">
                     writer like '%'||#{keyword}||'%'
                 </if>
-            <!-- 지역구 
+            지역구 
                 <if test="type == 'A'.toString()">
                     writer like '%'||#{keyword}||'%'
-                </if> -->   
+                </if>   
                 
             </foreach>
         </trim>
-    </sql>
+    </sql> -->
 
-    <insert id="create">
+<!--     <insert id="create">
         <selectKey order="AFTER" keyProperty="articleNo" resultType="Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
@@ -46,22 +46,29 @@
              , #{content}
              , #{writer}
         )
-    </insert>
+    </insert> -->
 
-    <select id="read" resultMap="ArticleResultMap" parameterType="Integer">
+    <select id="read" resultMap="ArticleResultMap">
+    <![CDATA[
         SELECT
-            article_no
-             , title
-             , content
-             , writer
-             , regdate
-             , viewcnt
+            meet_no,
+            meet_group_name,
+            DATE_FORMAT(meet_registration_date, '%Y-%m-%d') as meet_registration_date,
+            meet_jibunaddress,
+            meet_category_code,
+            meet_study_time,
+            meet_level,
+            meet_count,
+            meet_phone,
+            meet_detail
+            
         FROM
-            study.tbl_article
-        WHERE article_no = #{articleNo}
+            study.tbl_meet
+        ]]>
+        WHERE meet_no = #{meetNo}
     </select>
 
-    <update id="update">
+<!--     <update id="update">
         UPDATE study.tbl_article
         SET
             title = #{title}
@@ -76,7 +83,7 @@
     <delete id="delete">
         DELETE FROM study.tbl_article
         WHERE article_no = #{articleNo}
-    </delete>
+    </delete> -->
 
 <!-- meet테이블  -->
 	<!-- <select id ="listAll" resultMap = "ArticleResultMap">
@@ -105,15 +112,16 @@
      <select id="listAll" resultMap="ArticleResultMap">
         <![CDATA[
         SELECT
-            article_no,
-            title,
-            content,
-            writer,
-            regdate,
-            viewcnt
-        FROM study.tbl_article
-        WHERE article_no > 0
-        ORDER BY article_no DESC, regdate DESC
+            meet_no,
+            SUBSTRING_INDEX(meet_jibunaddress,' ',3) as meet_jibunaddress,
+            meet_name,
+            meet_group_name,
+            DATE_FORMAT(meet_registration_date, '%Y-%m-%d') as meet_registration_date
+            
+
+        FROM study.tbl_meet
+        WHERE meet_no > 0
+        ORDER BY meet_no DESC
         ]]>
     </select> 
 
@@ -147,22 +155,43 @@
         ]]>
     </select> -->
 
-    <select id="getTotalCount" resultType="int">
+<!--     <select id="getTotalCount" resultType="int">
         select count(article_no) from study.tbl_article WHERE
         <include refid="criteria"></include>
         <![CDATA[
         article_no > 0
         ]]>
-    </select>
+    </select> -->
+    
+	<select id="category" resultMap="categoryMap">
+		SELECT category_code
+		      ,category_name
+		  FROM tbl_category
+	</select>
+	
+	<resultMap id="categoryMap" type="CategoryVO">
+		<result property="categoryCode" column="category_code"/>
+		<result property="categoryName" column="category_name"/>
+	</resultMap>
+
 
     <resultMap id="ArticleResultMap" type="ArticleVO">
-        <result property="articleNo" column="article_no"/>
-        <result property="title" column="title" />
-        <result property="content" column="content" />
-        <result property="writer" column="writer" />
-        <result property="regDate" column="regdate" />
-        <result property="viewCnt" column="viewcnt" />
+        <result property="meetNo" column="meet_no"/>
+        <result property="meetName" column="meet_name" />
+        <result property="meetGroupName" column="meet_group_name" />
+        <result property="meetRegistrationDate" column="meet_registration_date" />
+        <result property="meetJibunAddress" column="meet_jibunaddress"/>
+        <result property="meetCategoryCode" column="meet_category_code"/>
+        <result property="meetStudyTime" column="meet_study_time"/>
+        <result property="meetLevel" column="meet_level"/>
+        <result property="meetCount" column="meet_count"/>
+        <result property="meetDetail" column="meet_detail"/>
+        <result property="meetPhone" column="meet_phone"/>
+<!--         <result property="regDate" column="regdate" />
+        <result property="viewCnt" column="viewcnt" /> -->
         <!-- <result property="replyCnt" column="reply_cnt" /> -->
     </resultMap>
+    
+    
 
 </mapper>

@@ -36,30 +36,29 @@
 
 <article id="Information">
 
-  <p id=sub2>모집게시판</p>
+  <p id=sub2>스터디 게시판</p>
 <hr class="hr2" width="100%">
 	<!-- start 검색-->
-	<div class='row'>
+	  <div class='row'>
           <div class='col-lg-12'>
             <form id='searchForm' action="/article/list" method="get">
               <select name='type' class="form-select form-select-sm mb-1" aria-label=".form-select-lg example" style="width:300px;height:40px;">
-                <option value="" <c:out value="${pageMaker.cri.type == null ? 'selected' : ''}"/>>--</option>
-                <option value="T" <c:out value="${pageMaker.cri.type eq 'T' ? 'selected' : ''}"/>>제목</option> <!-- 제목 -->
-                <option value="C" <c:out value="${pageMaker.cri.type eq 'C' ? 'selected' : ''}"/>>모집중</option> <!-- 모집중 -->
-                <option value="W" <c:out value="${pageMaker.cri.type eq 'W' ? 'selected' : ''}"/>>글쓴이</option> <!-- 글쓴이 -->
-                <%-- <option value="TC" <c:out value="${pageMaker.cri.type eq 'A' ? 'selected' : ''}"/>>지역구</option> --%>
+                <option value="" <c:out value="${pageMaker.cri.type == null ? 'selected' : ''}"/>>---카테고리---</option>
+                <option value="T" <c:out value="${pageMaker.cri.type eq 'T' ? 'selected' : ''}"/>>스터디명</option> <!-- 제목 -->
+                <option value="W" <c:out value="${pageMaker.cri.type eq 'W' ? 'selected' : ''}"/>>스터디장</option> <!-- 글쓴이 -->
+                <option value="TC" <c:out value="${pageMaker.cri.type eq 'A' ? 'selected' : ''}"/>>지역구</option>
                 <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW' ? 'selected' : ''}"/>>제목 or 내용</option> 
                 <option value="TWC" <c:out value="${pageMaker.cri.type eq 'TWC' ? 'selected' : ''}"/>>제목 or 내용 or 작성자</option>
               </select>
-          		<div style=" float: right;">
-              <input type="text" name="keyword" value='<c:out value="${pageMaker.cri.keyword}"/>'/>
-              <input type="hidden" name="pageNum" value='<c:out value="${pageMaker.cri.pageNum}"/>'>
-              <input type="hidden" name="amount" value='<c:out value="${pageMaker.cri.amount}"/>'>
-              <button class='btn btn-default'>Search</button>
-              </div>
+          		 <div style=" float: right;">
+	              <input type="text" name="keyword" value='<c:out value="${pageMaker.cri.keyword}"/>'/>
+	              <input type="hidden" name="pageNum" value='<c:out value="${pageMaker.cri.pageNum}"/>'>
+	              <input type="hidden" name="amount" value='<c:out value="${pageMaker.cri.amount}"/>'>
+	              <button class='btn btn-default'>Search</button>
+	             </div> 
             </form>
           </div>
-        </div>  
+        </div> 
 	<!-- end 검색    -->	
 
 
@@ -74,22 +73,22 @@
         <table class="tabletest" border="1">
           <thead>
           <tr>
-            <th>글번호</th>
-            <th>제목</th>
-            <th>작성자</th>
+            <th>번호</th>
+            <th>지역구</th>
+            <th>스터디명</th>
+            <th>스터디장</th>
             <th>등록일</th>
-            <th>조회수</th>
           </tr>
           </thead>
           
           <tbody>
           <c:forEach items="${articles}" var="board">
             <tr class="odd gradeX">
-              <td><c:out value="${board.articleNo}"/></td>
-              <td><a class='move' href='<c:out value="${board.articleNo}"/>'><c:out value="${board.title}"/></a></td>
-              <td><c:out value="${board.writer}"/></td>
-              <td><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regDate}"/></td>
-               <%-- <td><c:out value="${board.viewcnt}"/></td> --%>
+              <td><c:out value="${board.meetNo}"/></td>
+              <td><c:out value="${board.meetJibunAddress}"/></td>
+              <td><a href="get?articleNo=${board.meetNo}">${board.meetGroupName}</a></td>
+              <td><c:out value="${board.meetName}"/></td>
+              <td><c:out value="${board.meetRegistrationDate}"/></td>
             </tr>
           </c:forEach>
           </tbody>
@@ -98,7 +97,7 @@
         <!-- /.table-responsive -->
        
 
-        <%-- <div class='pull-right'>
+        <%--  <div class='pull-right'>
           <ul class="pagination">
             <c:if test="${pageMaker.prev}">
               <li class="page-item">
@@ -119,12 +118,12 @@
           </ul>
         </div> --%>
 
-        <form id='actionForm' action="/article/list" method="get">
+        <%-- <form id='actionForm' action="/article/list" method="get">
           <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
           <input type="hidden" name="amount" value="${pageMaker.cri.amount}">
           <input type="hidden" name="type" value='<c:out value="${pageMaker.cri.type}"/>'>
           <input type="hidden" name="keyword" value='<c:out value="${pageMaker.cri.keyword}"/>'>
-        </form>
+        </form> --%>
 
       </div>
       <!-- /.panel-body -->
@@ -198,7 +197,7 @@
       actionForm.submit();
     });
 
-    $(".move").on("click" , function(e) {
+    /* $(".move").on("click" , function(e) {
       e.preventDefault();
 
       var targetAno = $(this).attr("href");
@@ -209,7 +208,7 @@
       actionForm.attr("action" , "/article/get");
       actionForm.submit();
 
-    })
+    }) */
 
     var searchForm = $("#searchForm");
     $("#searchForm button").on("click", function(e) {

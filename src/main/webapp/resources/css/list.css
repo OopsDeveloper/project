@@ -68,7 +68,7 @@ body {
 #Information1 {
   position: relative;
   text-align: left;
-  height: 1px;
+  height: 0px;
   margin: 0;
 }
 
@@ -155,7 +155,7 @@ section {
 }
 article {
   color: black;
-  margin: 90px;
+  margin: 70px;
   padding: 110px;
   background-color: #fff;
 }
