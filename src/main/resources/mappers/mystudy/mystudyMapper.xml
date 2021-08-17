@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.project.mappers.mystudy.mystudyMapper">
+	<select id="joinStudy" resultMap="joinStudyVOResultMap">
+		select b.*
+          from (select my_join_no 
+                  from study.tbl_mypage 
+	             where my_id = 'test') a , study.tbl_meet b
+         where a.my_join_no = b.meet_no
+	</select>
+	
+	<resultMap id="joinStudyVOResultMap" type="JoinStudyVO">
+		<result property="meetName" column="meet_name"/>
+		<result property="meetDetail" column="meet_detail"/>
+		<result property="meetRegistrationDate" column="meet_registration_date"/>
+		<result property="meetCategoryCode" column="meet_category_code"/>
+		<result property="meetGroupName" column="meet_group_name"/>
+		<result property="meetPhone" column="meet_phone"/>
+		<result property="meetLevel" column="meet_level"/>
+		<result property="meetCount" column="meet_count"/>
+		<result property="meetHit" column="meet_hit"/>
+		<result property="meetStudyTime" column="meet_study_time"/>
+		<result property="meetPostcode" column="meet_postcode"/>
+		<result property="meetRoadAddress" column="meet_roadaddress"/>
+		<result property="meetJibunAddress" column="meet_jibunaddress"/>
+		<result property="meetDetailAddress" column="meet_detailaddress"/>
+		<result property="meetNo" column="meet_no"/>
+		<result property="meetDel" column="meet_del"/>
+	</resultMap>
+</mapper>

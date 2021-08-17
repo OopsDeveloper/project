@@ -22,6 +22,7 @@
 <style>
 	.admin{
 		width: 1000px;
+		height: 1000px;
 		margin: 0 auto;
 		margin-top: 100px;
 	}

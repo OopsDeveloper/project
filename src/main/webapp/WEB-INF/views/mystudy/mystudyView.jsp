@@ -1,0 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<%@include file="/WEB-INF/views/includes/header.jsp"%>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="mystudy">
+	<h1></h1>
+</div>
+</body>
+</html>
