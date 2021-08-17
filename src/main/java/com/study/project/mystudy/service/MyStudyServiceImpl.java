@@ -16,8 +16,8 @@ public class MyStudyServiceImpl implements MyStudyService{
 	private MyStudyDAO myStudyDao;
 	
 	@Override
-	public List<JoinStudyVO> getJoinStduyList() throws Exception {
-		return myStudyDao.getJoinStduyList();
+	public List<JoinStudyVO> getJoinStduyList(String userId) throws Exception {
+		return myStudyDao.getJoinStduyList(userId);
 	}
 	
 }

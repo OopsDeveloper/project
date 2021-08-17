@@ -5,11 +5,13 @@
 
 <mapper namespace="com.study.project.mappers.mystudy.mystudyMapper">
 	<select id="joinStudy" resultMap="joinStudyVOResultMap">
+		<![CDATA[
 		select b.*
           from (select my_join_no 
                   from study.tbl_mypage 
-	             where my_id = 'test') a , study.tbl_meet b
+	             where my_id = #{userId}) a , study.tbl_meet b
          where a.my_join_no = b.meet_no
+         ]]>
 	</select>
 	
 	<resultMap id="joinStudyVOResultMap" type="JoinStudyVO">

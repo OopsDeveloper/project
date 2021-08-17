@@ -24,9 +24,10 @@ public class MystudyController {
 	private MyStudyService myStudyService;
 	
 	@RequestMapping(value = "/mystudyList", method = RequestMethod.GET)
-	public void mystudyList(Model model,HttpServletRequest request) {
+	public void mystudyList(Model model,HttpServletRequest request) throws Exception {
 		HttpSession httpSession = request.getSession();
-		List<UserVO> user = (List<UserVO>)httpSession.getAttribute(LOGIN);
-		System.out.println(user);
+		
+		UserVO uservo = (UserVO)httpSession.getAttribute(LOGIN);
+		model.addAttribute("join", myStudyService.getJoinStduyList(uservo.getJoinId()));
 	}
 }

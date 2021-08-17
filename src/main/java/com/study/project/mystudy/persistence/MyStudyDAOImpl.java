@@ -20,8 +20,8 @@ public class MyStudyDAOImpl implements MyStudyDAO{
 	}
 	
 	@Override
-	public List<JoinStudyVO> getJoinStduyList() throws Exception{
-		return sqlSession.selectList(NAMESPACE+".joinStudy");
+	public List<JoinStudyVO> getJoinStduyList(String userId) throws Exception{
+		return sqlSession.selectList(NAMESPACE+".joinStudy",userId);
 	}
 
 }
