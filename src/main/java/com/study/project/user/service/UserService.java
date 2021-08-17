@@ -1,5 +1,6 @@
 package com.study.project.user.service;
 
+import com.study.project.commons.attachimage.AttachImageVO;
 import com.study.project.user.domain.LoginDTO;
 import com.study.project.user.domain.UserVO;
 
@@ -30,5 +31,6 @@ public interface UserService {
     UserVO find_pw(HttpServletResponse response, UserVO userVO) throws Exception;
 
     void update_pw(HttpServletResponse response, UserVO userVO) throws Exception;
+    
 
 }

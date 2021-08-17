@@ -56,10 +56,44 @@
 					  contentType : false,
 					  data : formData,
 					  type : 'POST',
-					  dataType : 'json'
+					  dataType : 'json',
+					  success : function (result) {
+					  	console.log(result);
+					  	showUploadImage(result);
+					  },
+					  error : function(result){
+					  	alert("이미지 파일이 아닙니다.");
+					  }
 				  });
 			  });
+
+
+
 		  })
+
+		  /* 이미지 출력 */
+		  function showUploadImage(uploadResultArr){
+			  /* 전달받은 데이터 검증 */
+			  if(!uploadResultArr || uploadResultArr.length == 0){
+				  return;
+			  }
+
+			  let uploadResult = $("#result_card");
+			  let obj = uploadResultArr[0];
+			  console.log(obj)
+			  console.log("uploadPath : "+obj.uploadPath)
+			  let fileCallPath = obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName;
+			  console.log(fileCallPath)
+
+			  $("#profile_file_add").css("background-image","url('/mypage/display?fileName=" + fileCallPath +"')");
+
+			  // let str = "";
+			  //
+			  // str += "<h1 id='colorlib-logo'>";
+			  // str += "<span class='img' id='profile_file_add' style='background-image: url('/mypage/display?fileName=" + fileCallPath +"'></span>"
+			  // str += "</h1>";
+			  // uploadResult.append(str);
+		  }
 	  </script>
   </head>
   <body>
@@ -68,10 +102,16 @@
 		${user}
 		<form name="fileForm" method="POST" ENCTYPE="multipart/form-data">
 			<input type="file" id="fileProfile" name="fileProfile" style="display:none;">
+			<input type="hidden" name="joinId" value="${user.joinId}">
 		</form>
+			<%--${pageContext.request.contextPath}/resources/images/author.jpg --%>
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
 		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-			<h1 id="colorlib-logo"><span class="img" id="profile_file_add" style="background-image: url(${pageContext.request.contextPath}/resources/images/author.jpg);"></span>${user.joinName}</h1>
+			<div id="result_card">
+				<h1 id="colorlib-logo">
+					<span class="img" id="profile_file_add" style="background-image: url('/mypage/display?fileName=test.png');"></span>${user.joinName}
+				</h1>
+			</div>
 			<nav id="colorlib-main-menu" role="navigation">
 				<ul>
 					<li><a href="/main/mainp">Home</a></li>
