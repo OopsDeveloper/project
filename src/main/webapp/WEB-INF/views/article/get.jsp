@@ -50,8 +50,10 @@
           </tr>
           <tr>
             <th>카테고리</th> <td>
-            <%-- ${article.meetCategoryCode == category.CategoryCode? article.meetCategoryCode:" "} --%>
-             ${article.meetCategoryCode}
+               <%-- ${article.meetCategoryCode == Category.categoryName? Category.categoryCode:" "} --%>
+              ${article.meetCategoryCode}
+             <%-- ${article.CategoryName} 
+            	${category.categoryCode} --%>
             </td>
           </tr>
           <tr>
@@ -113,7 +115,7 @@
     			<span id = "comments-count">2</span> 댓글 </div>
     	<hr>
     	<div class = "comment-row">
-    		<textarea id="new-comment" name="new_comment" rows="5" cols="123" placeholder="코멘트"></textarea>
+    		<textarea id="new-comment" name="new_comment" rows="5" cols="123" placeholder="코멘트" style="resize: none;"></textarea>
     	<button type ="submit" onclick="submitComment()" class = "addbutton2">보내기</button> </div>
     	<hr>
     	<div class = "comment-row">

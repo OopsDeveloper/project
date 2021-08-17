@@ -124,6 +124,8 @@
         ORDER BY meet_no DESC
         ]]>
     </select> 
+    
+
 
    <!--   <select id="listPaging" resultMap="ArticleResultMap">
         <![CDATA[
@@ -163,10 +165,15 @@
         ]]>
     </select> -->
     
-	<select id="category" resultMap="categoryMap">
+	<!-- <select id="category" resultMap="categoryMap">
 		SELECT category_code
 		      ,category_name
 		  FROM tbl_category
+	</select>  -->
+	<select id="category" resultMap="categoryMap">
+		SELECT  meet_category_code,category_code,category_name 
+		FROM 	study.tbl_meet, study.tbl_category
+		WHERE   meet_category_code = category_code
 	</select>
 	
 	<resultMap id="categoryMap" type="CategoryVO">

@@ -67,7 +67,7 @@ public class ArticleController {
 
         logger.info("read ...");
         model.addAttribute("article", articleService.read(articleNo));
-//        model.addAttribute("category", articleService.category());
+        model.addAttribute("category", articleService.category());
         return "/article/get";
     }
 

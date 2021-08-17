@@ -4,6 +4,10 @@ public class ArticleVO {
 
     private int meetNo;
 
+    private int meetCount;
+    
+    private char meetLevel;
+    
     private String meetName;
 
     private String meetGroupName;
@@ -18,20 +22,16 @@ public class ArticleVO {
 	
 	private String meetPhone;
 	
-	private char meetLevel;
-	
-	private int meetCount;
 	
 	private String meetStudyTime;
 
-	
-	
+
 	@Override
 	public String toString() {
-		return "ArticleVO [meetNo=" + meetNo + ", meetName=" + meetName + ", meetGroupName=" + meetGroupName
-				+ ", meetRegistrationDate=" + meetRegistrationDate + ", meetJibunAddress=" + meetJibunAddress
-				+ ", meetDetail=" + meetDetail + ", meetCategoryCode=" + meetCategoryCode + ", meetPhone=" + meetPhone
-				+ ", meetLevel=" + meetLevel + ", meetCount=" + meetCount + ", meetStudyTime=" + meetStudyTime + "]";
+		return "ArticleVO [meetNo=" + meetNo + ", meetCount=" + meetCount + ", meetLevel=" + meetLevel + ", meetName="
+				+ meetName + ", meetGroupName=" + meetGroupName + ", meetRegistrationDate=" + meetRegistrationDate
+				+ ", meetJibunAddress=" + meetJibunAddress + ", meetDetail=" + meetDetail + ", meetCategoryCode="
+				+ meetCategoryCode + ", meetPhone=" + meetPhone + ", meetStudyTime=" + meetStudyTime + "]";
 	}
 
 	public int getMeetNo() {

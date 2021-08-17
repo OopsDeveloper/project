@@ -14,7 +14,9 @@ public interface ArticleDAO {
 //    int update(ArticleVO articleVO) throws Exception;
 //
 //    int delete(Integer articleNo) throws Exception;
+    
     List<CategoryVO> category() throws Exception;
+    
     List<ArticleVO> listAll() throws Exception;
 
 //    List<ArticleVO> listPaging(Criteria cri) throws Exception;
