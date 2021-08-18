@@ -69,16 +69,16 @@
 			<tr>
 				<td>스터디 위치</td>
 				<td>
-					<form:input path="meetPostcode" cssClass="form-control"/>
+					<form:input path="meetPostcode" cssClass="form-control" placeholder="우편번호를 입력해주세요" readonly="true"/>
 					<form:errors path="meetPostcode" cssClass="eMsg"/><br>
 					
-					<form:input path="meetRoadAddress" cssClass="form-control"/>
+					<form:input path="meetRoadAddress" cssClass="form-control" placeholder="도로명주소를 입력해주세요" readonly="true"/>
 					<form:errors path="meetRoadAddress" cssClass="eMsg"/><br>
 					
-					<form:input path="meetJibunAddress" cssClass="form-control"/>
+					<form:input path="meetJibunAddress" cssClass="form-control" placeholder="지번주소를 입력해주세요" readonly="true"/>
 					<form:errors path="meetJibunAddress" cssClass="eMsg"/><br>
 					
-					<form:input path="meetDetailAddress" cssClass="form-control"/>
+					<form:input path="meetDetailAddress" cssClass="form-control" placeholder="상세주소를 입력해주세요" />
 					<form:errors path="meetDetailAddress" cssClass="eMsg"/><br>
 					
 					<input class="form-control btn-success" type="button" onclick="korea_address()" value="우편번호 찾기"><br>

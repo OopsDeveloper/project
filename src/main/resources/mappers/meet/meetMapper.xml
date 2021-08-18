@@ -17,7 +17,6 @@
 							,meet_roadaddress
 							,meet_jibunaddress
 							,meet_detailaddress
-							,meet_study_date
 							,meet_study_time
 		) VALUES (
 				#{meetName},
@@ -32,7 +31,6 @@
 				#{meetRoadAddress},
 				#{meetJibunAddress},
 				#{meetDetailAddress},
-				#{meetStudyDate},
 				#{meetStudyTime}
 		)
 	</insert>
