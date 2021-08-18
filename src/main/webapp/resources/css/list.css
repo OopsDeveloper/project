@@ -19,6 +19,16 @@
 	border-bottom-style: solid;
 	border-collapse: collapse;
 }
+
+.pagination {
+	display:block;
+	text-align:center;
+    /* justify-content: center; */
+}
+.pagination > li > a {
+	float:none;
+}
+
 tr { 
 border-top: 1px solid black; 
 border-bottom: 1px solid black; 

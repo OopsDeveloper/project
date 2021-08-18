@@ -22,6 +22,22 @@ public class ArticleDAOImpl implements ArticleDAO {
     public ArticleDAOImpl(SqlSession sqlSession) {
         this.sqlSession = sqlSession;
     }
+    
+  //BoardService
+//    List<Map<String, Object>> selectArticleList(Criteria cri);
+//     
+//    //BoardServiceImpl
+//    @Override
+//    public List<Map<String, Object>> selectBoardList(Criteria cri) {
+//        return boardDAO.selectBoardList(cri);
+//    }
+//     
+//    //BoardDAO
+//    @SuppressWarnings("unchecked")
+//    public List<Map<String, Object>> selectBoardList(Criteria cri) {
+//        return (List<Map<String,Object>>)selectList("board.selectBoardList", cri);
+//    }
+
 //tt
 //    @Override
 //    public void create(ArticleVO articleVO) throws Exception {

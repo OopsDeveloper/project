@@ -43,6 +43,7 @@
     <table class="tabletest">
           <tbody>
           <tr>
+          
             <th>스터디명</th> <td>${article.meetGroupName}</td>
           </tr>
           <tr>
@@ -51,7 +52,8 @@
           <tr>
             <th>카테고리</th> <td>
                <%-- ${article.meetCategoryCode == Category.categoryName? Category.categoryCode:" "} --%>
-              ${article.meetCategoryCode}
+              <%-- ${article.meetCategoryCode} --%>
+              ${user}
              <%-- ${article.CategoryName} 
             	${category.categoryCode} --%>
             </td>

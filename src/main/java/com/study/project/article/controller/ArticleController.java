@@ -1,20 +1,27 @@
 package com.study.project.article.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.study.project.article.domain.ArticleVO;
+
 import com.study.project.article.service.ArticleService;
-import com.study.project.commons.paging.Criteria;
+import com.study.project.user.domain.UserVO;
+import com.study.project.user.service.UserService;
 
 @Controller
 @RequestMapping("/article")
@@ -29,17 +36,38 @@ public class ArticleController {
     public ArticleController(ArticleService articleService) {
         this.articleService = articleService;
     }
+    
+    @Inject
+	private UserService userService;
 
-    // 목록 페이지 이동(페이징 처리)
     
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list( Model model) throws Exception {
-//    	@ModelAttribute("cri") Criteria cri,
+    	 
         
         model.addAttribute("articles", articleService.listAll());
       //  model.addAttribute("pageMaker", new PageDTO(cri, articleService.getTotal(cri)));
         return "/article/list";
     }
+
+
+//    @RequestMapping(value="/list")
+//    public ModelAndView openBoardList(Criteria cri) throws Exception {
+//            
+//        ModelAndView mav = new ModelAndView("/board/boardList");
+//            
+//        PageMaker pageMaker = new PageMaker();
+//        pageMaker.setCri(cri);
+//        pageMaker.setTotalCount(100);
+//            
+//        List<Map<String,Object>> list = ArticleService.selectArticleList(cri);
+//        mav.addObject("list", list);
+//        mav.addObject("pageMaker", pageMaker);
+//            
+//        return mav;
+//            
+//    }
+
 // 이동
     // 등록 페이지 이동
 //    @RequestMapping(value = "/write", method = RequestMethod.GET)
@@ -59,17 +87,22 @@ public class ArticleController {
 //        return "redirect:/article/list";
 //    }
 
-    // 조회 페이지 이동
+    // 조회 페이지 이동 및 모임 신청
     @RequestMapping(value = "/get", method = RequestMethod.GET)
-    public String read(@RequestParam("articleNo") int articleNo,
-                       Model model) throws Exception {
+    public String read(@RequestParam("articleNo") int articleNo,@ModelAttribute("user")UserVO userVO,
+                       Model model, HttpServletRequest request) throws Exception {
 //    	@ModelAttribute("cri") Criteria cri,
 
         logger.info("read ...");
+        
+        HttpSession httpSession = request.getSession();
+		model.addAttribute("user" , httpSession.getAttribute("login"));
         model.addAttribute("article", articleService.read(articleNo));
         model.addAttribute("category", articleService.category());
         return "/article/get";
     }
+
+    
 
     // 수정 페이지 이동
 //    @RequestMapping(value = "/modify", method = RequestMethod.GET)

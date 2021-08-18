@@ -126,8 +126,24 @@
     </select> 
     
 
+<!--  <select id="listPaging" resultMap="ArticleResultMap">
+        <![CDATA[
+        SELECT
+            meet_no,
+            SUBSTRING_INDEX(meet_jibunaddress,' ',3) as meet_jibunaddress,
+            meet_name,
+            meet_group_name,
+            DATE_FORMAT(meet_registration_date, '%Y-%m-%d') as meet_registration_date,
+            meet_del
+        FROM study.tbl_meet   
+        WHERE meet_del = 'N'
+        ORDER BY meet_no DESC
+        LIMIT #{pageStart}, #{perPageNum}
+        ]]>
+    </select> -->
 
-   <!--   <select id="listPaging" resultMap="ArticleResultMap">
+
+     <!--  <select id="listPaging" resultMap="ArticleResultMap">
         <![CDATA[
         SELECT
             article_no,
@@ -135,7 +151,6 @@
             content,
             writer,
             regdate,
-            viewcnt
         FROM
             (
                 SELECT /*+ INDEX_DESC(study.tbl_article(article_no))*/
