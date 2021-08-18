@@ -24,4 +24,9 @@ public class MyStudyDAOImpl implements MyStudyDAO{
 		return sqlSession.selectList(NAMESPACE+".joinStudy",userId);
 	}
 
+	@Override
+	public List<JoinStudyVO> getRegistStduyList(String userId) throws Exception {
+		return sqlSession.selectList(NAMESPACE+".registStudy",userId);
+	}
+
 }

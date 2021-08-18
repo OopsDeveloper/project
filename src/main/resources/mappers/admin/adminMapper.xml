@@ -32,6 +32,18 @@
 		 FROM study.tbl_join
 	</select>
 	
+	<update id="studyDelete">
+		UPDATE study.tbl_meet
+		   SET meet_del = 'Y'
+		 WHERE meet_no = #{meetNo}
+	</update>
+	
+	<update id="userDelete">
+		UPDATE study.tbl_join
+		   SET join_del = 'Y'
+		 WHERE join_id = #{userId}
+	</update>
+	
 
 	<resultMap id="studyVOResultMap" type="StudyVO">
 		<result property="meetNo" column="meet_no"/>

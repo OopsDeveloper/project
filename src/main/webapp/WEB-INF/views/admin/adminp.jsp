@@ -56,7 +56,7 @@
 					<td>${list.meetGroupName}</td>
 					<td>${list.meetName}</td>
 					<td>${list.meetRegisterDate}</td>
-					<td><button class="btn btn-danger">삭제하기</button></td>
+					<td><button class="btn btn-danger" onclick="location.href='/admin/studydelete?meetNo=${list.meetNo}'">삭제하기</button></td>
 					<td>${list.meetDel}</td>
 				</tr>
 				</c:forEach>
@@ -86,7 +86,7 @@
 						<td>${user.joinGender}</td>
 						<td>${user.joinTemp}</td>
 						<td>${user.joinEmail}</td>
-						<td><button class="btn btn-danger">탈퇴하기</button></td>
+						<td><button class="btn btn-danger" onclick="location.href='/admin/userdelete?userId=${user.joinId}'">탈퇴하기</button></td>
 						<td>${user.joinDel}</td>
 					</tr>
 				</c:forEach>
@@ -94,5 +94,7 @@
 		</table>
 	</div>
 </div>
+<script type="text/javascript">
+</script>
 </body>
 </html>

@@ -30,7 +30,7 @@
 		<div class="sec_menu"><button class="hover1" onclick="location.href='/meet/meetRegister'">모임만들기</button></div>
 		<div class="sec_menu"><button class="hover1">스터디 가이드</button></div>
 		<c:if test="${user.joinAdmin=='N'}">
-			<div class="sec_menu"><button class="hover1">나의 스터디</button></div>
+			<div class="sec_menu"><button class="hover1" onclick="location.href='/mystudy/mystudyList'">나의 스터디</button></div>
 		</c:if>
 		<c:if test="${user.joinAdmin=='Y'}">
 			<div class="sec_menu"><button class="hover1" onclick="location.href='/admin/adminp'">관리페이지</button></div>

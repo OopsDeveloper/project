@@ -31,4 +31,14 @@ public class AdminDAOImpl implements AdminDAO{
 		return sqlSession.selectList(NAMESPACE+".getJoin");
 	}
 
+	@Override
+	public void studyDelete(int meetNo) throws Exception {
+		sqlSession.update(NAMESPACE+".studyDelete",meetNo);
+	}
+
+	@Override
+	public void userDelete(String userId) throws Exception {
+		sqlSession.update(NAMESPACE+".userDelete",userId);
+	}
+
 }

@@ -13,6 +13,15 @@
          where a.my_join_no = b.meet_no
          ]]>
 	</select>
+	<select id="registStudy" resultMap="joinStudyVOResultMap">
+		<![CDATA[
+		select b.*
+          from (select my_regist_no 
+                  from study.tbl_myregist 
+	             where my_id = #{userId}) a , study.tbl_meet b
+         where a.my_regist_no = b.meet_no
+         ]]>
+	</select>
 	
 	<resultMap id="joinStudyVOResultMap" type="JoinStudyVO">
 		<result property="meetName" column="meet_name"/>

@@ -29,5 +29,6 @@ public class MystudyController {
 		
 		UserVO uservo = (UserVO)httpSession.getAttribute(LOGIN);
 		model.addAttribute("join", myStudyService.getJoinStduyList(uservo.getJoinId()));
+		model.addAttribute("regist", myStudyService.getRegistStduyList(uservo.getJoinId()));
 	}
 }

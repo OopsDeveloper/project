@@ -25,4 +25,14 @@ public class AdminServiceImple implements AdminService{
 		return admindao.getJoin();
 	}
 
+	@Override
+	public void studyDelete(int meetNo) throws Exception {
+		admindao.studyDelete(meetNo);
+	}
+
+	@Override
+	public void userDelete(String userId) throws Exception {
+		admindao.userDelete(userId);
+	}
+
 }
