@@ -9,4 +9,5 @@ public interface MeetDAO {
 	
 	void register(MeetVO meetvo) throws Exception;
 	List<CategoryVO> category() throws Exception;
+	void registStudy() throws Exception;
 }

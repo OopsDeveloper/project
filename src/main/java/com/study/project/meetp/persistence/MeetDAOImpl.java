@@ -32,6 +32,12 @@ public class MeetDAOImpl implements MeetDAO{
 		return sqlSession.selectList(NAMESPAE+".category");
 	}
 
+	@Override
+	public void registStudy() throws Exception {
+		sqlSession.insert(NAMESPAE+".registStudy");
+		
+	}
+
 	
 
 }

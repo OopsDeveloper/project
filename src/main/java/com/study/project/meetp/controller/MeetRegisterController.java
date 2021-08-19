@@ -59,6 +59,7 @@ public class MeetRegisterController {
 		}
 		
 		meetService.register(meetVO, response);
+		meetService.registStudy();
 		
 		return "redirect:/main/mainp";
 	}

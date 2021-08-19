@@ -7,7 +7,7 @@
 	<select id="joinStudy" resultMap="joinStudyVOResultMap">
 		<![CDATA[
 		select b.*
-          from (select my_join_no 
+          from (select distinct my_join_no 
                   from study.tbl_mypage 
 	             where my_id = #{userId}) a , study.tbl_meet b
          where a.my_join_no = b.meet_no
@@ -16,12 +16,39 @@
 	<select id="registStudy" resultMap="joinStudyVOResultMap">
 		<![CDATA[
 		select b.*
-          from (select my_regist_no 
+          from (select distinct my_regist_no 
                   from study.tbl_myregist 
 	             where my_id = #{userId}) a , study.tbl_meet b
          where a.my_regist_no = b.meet_no
          ]]>
 	</select>
+	<select id="studyMember" resultMap="studyMemberVOResultMap">
+		<![CDATA[
+		select *
+  		  from(select distinct my_id 
+		         from tbl_mypage 
+		        where my_join_no = #{no}) a , tbl_join b
+         where a.my_id = b.join_id;
+         ]]>
+	</select>
+	
+	<resultMap id="studyMemberVOResultMap" type="StudyMemberVO">
+        <result property="joinId" column="join_id"/>
+        <result property="joinPass" column="join_pass"/>
+        <result property="joinName" column="join_name"/>
+        <result property="joinEmail" column="join_email"/>
+        <result property="joinBirth" column="join_birth"/>
+        <result property="joinRegistrationDate" column="join_registration_date"/>
+        <result property="joinInterestsCode" column="join_interests_code"/>
+        <result property="joinGender" column="join_gender"/>
+        <result property="joinPhone" column="join_phone"/>
+        <result property="joinApprovalStatus" column="join_approval_status"/>
+        <result property="joinApprovalKey" column="join_approval_key"/>
+        <result property="joinLeader" column="join_leader"/>
+        <result property="joinAdmin" column="join_admin"/>
+        <result property="joinTemp" column="join_temp"/>
+        <result property="joinDel" column="join_del"/>
+    </resultMap>
 	
 	<resultMap id="joinStudyVOResultMap" type="JoinStudyVO">
 		<result property="meetName" column="meet_name"/>

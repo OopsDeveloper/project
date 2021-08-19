@@ -108,7 +108,9 @@
 	<div class="notice_fx">
 		<div class="notice_list_total">
 			<span>Total ${count}건</span>
-			<span onclick="location.href='/notice/regist'" class="sicon"><i class="fas fa-plus-circle fa-2x"></i></span>
+			<c:if test="${user.joinAdmin == 'Y'}">
+				<span onclick="location.href='/notice/regist'" class="sicon"><i class="fas fa-plus-circle fa-2x"></i></span>
+			</c:if>
 		</div>
 	</div>
 	<div class="list">

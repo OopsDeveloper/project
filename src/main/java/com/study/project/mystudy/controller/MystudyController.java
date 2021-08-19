@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.study.project.mystudy.service.MyStudyService;
 import com.study.project.user.domain.UserVO;
@@ -30,5 +31,10 @@ public class MystudyController {
 		UserVO uservo = (UserVO)httpSession.getAttribute(LOGIN);
 		model.addAttribute("join", myStudyService.getJoinStduyList(uservo.getJoinId()));
 		model.addAttribute("regist", myStudyService.getRegistStduyList(uservo.getJoinId()));
+	}
+	
+	@RequestMapping(value = "/mystudyView", method = RequestMethod.GET)
+	public void mystudyView(@RequestParam("no")int no, Model model) throws Exception {
+		model.addAttribute("member",myStudyService.getStudyMemberList(no));
 	}
 }

@@ -1,5 +1,8 @@
 package com.study.project.notice.contorller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +30,7 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public void list(Model model) throws Exception{
+	public void list(Model model, HttpServletRequest request) throws Exception{
 		int count = noticeService.count();
 		int total = (int)(Math.ceil(((count*1.0)/10)));
 		System.out.println("total:"+total);
@@ -45,6 +48,9 @@ public class NoticeController {
 //		}
 		model.addAttribute("total",total);
 		model.addAttribute("page",page);
+		
+		HttpSession httpSession = request.getSession();
+		model.addAttribute("user" , httpSession.getAttribute("login"));
 		
 		System.out.println("page"+page);
 	}

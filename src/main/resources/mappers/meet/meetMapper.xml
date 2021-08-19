@@ -34,6 +34,15 @@
 				#{meetStudyTime}
 		)
 	</insert>
+	<insert id="registStudy">
+		<![CDATA[
+		INSERT INTO tbl_myregist(my_id,my_regist_no)
+		       SELECT meet_name,meet_no 
+		         FROM tbl_meet 
+		        ORDER BY meet_no DESC
+		        LIMIT 1
+		]]>
+	</insert>
 	
 	<select id="category" resultMap="categoryMap">
 		SELECT category_code

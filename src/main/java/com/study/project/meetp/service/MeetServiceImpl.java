@@ -34,4 +34,10 @@ public class MeetServiceImpl implements MeetService{
 		return meetDAO.category();
 	}
 
+	@Override
+	public void registStudy() throws Exception {
+		meetDAO.registStudy();
+		
+	}
+
 }

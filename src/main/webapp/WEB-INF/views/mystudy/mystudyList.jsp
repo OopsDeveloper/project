@@ -53,7 +53,7 @@
 				<c:forEach items="${join}" var="list">
 				<tr>
 					<td>${list.meetNo}</td>
-					<td>${list.meetGroupName}</td>
+					<td><a href="/mystudy/mystudyView?no=${list.meetNo}">${list.meetGroupName}</a></td>
 					<td>${list.meetName}</td>
 					<td>${list.meetPhone}</td>
 					<td>${list.meetRoadAddress}</td>
@@ -81,7 +81,7 @@
 				<c:forEach items="${regist}" var="my">
 					<tr>
 						<td>${my.meetNo}</td>
-						<td>${my.meetGroupName}</td>
+						<td><a href="/article/get?articleNo=${my.meetNo}">${my.meetGroupName}</a></td>
 						<td>${my.meetName}</td>
 						<td>${my.meetPhone}</td>
 						<td>${my.meetRoadAddress}</td>

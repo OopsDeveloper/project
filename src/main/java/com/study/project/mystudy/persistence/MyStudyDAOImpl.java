@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.study.project.mystudy.domain.JoinStudyVO;
+import com.study.project.mystudy.domain.StudyMemberVO;
 
 @Repository
 public class MyStudyDAOImpl implements MyStudyDAO{
@@ -27,6 +28,11 @@ public class MyStudyDAOImpl implements MyStudyDAO{
 	@Override
 	public List<JoinStudyVO> getRegistStduyList(String userId) throws Exception {
 		return sqlSession.selectList(NAMESPACE+".registStudy",userId);
+	}
+
+	@Override
+	public List<StudyMemberVO> getStudyMemberList(int no) throws Exception {
+		return sqlSession.selectList(NAMESPACE+".studyMember",no);
 	}
 
 }

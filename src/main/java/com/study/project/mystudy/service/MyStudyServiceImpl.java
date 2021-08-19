@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.study.project.mystudy.domain.JoinStudyVO;
+import com.study.project.mystudy.domain.StudyMemberVO;
 import com.study.project.mystudy.persistence.MyStudyDAO;
 
 @Service
@@ -23,6 +24,11 @@ public class MyStudyServiceImpl implements MyStudyService{
 	@Override
 	public List<JoinStudyVO> getRegistStduyList(String userId) throws Exception {
 		return myStudyDao.getRegistStduyList(userId);
+	}
+
+	@Override
+	public List<StudyMemberVO> getStudyMemberList(int no) throws Exception {
+		return myStudyDao.getStudyMemberList(no);
 	}
 	
 }
