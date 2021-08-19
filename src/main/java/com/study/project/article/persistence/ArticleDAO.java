@@ -19,6 +19,7 @@ public interface ArticleDAO {
     
     List<ArticleVO> listAll() throws Exception;
 
+    void meeting(int no, String id) throws Exception;
 //    List<ArticleVO> listPaging(Criteria cri) throws Exception;
 //
 //  int getTotalCount(Criteria cri) throws Exception;

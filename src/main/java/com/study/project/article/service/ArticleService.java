@@ -9,7 +9,7 @@ public interface ArticleService {
 
 //    int create(ArticleVO articleVO) throws Exception;
 
-    ArticleVO read(int articleNo) throws Exception;
+    	ArticleVO read(int articleNo) throws Exception;
 
 //    int update(ArticleVO articleVO) throws Exception;
 //
@@ -18,6 +18,9 @@ public interface ArticleService {
     List<ArticleVO> listAll() throws Exception;
     
     List<CategoryVO> category() throws Exception;
+    
+    void meeting(int no, String id) throws Exception;
+    
     //카테고리
 //    List<ArticleVO> listAll(Criteria cri) throws Exception;
 //

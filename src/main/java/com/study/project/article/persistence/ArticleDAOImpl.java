@@ -69,6 +69,11 @@ public class ArticleDAOImpl implements ArticleDAO {
         return sqlSession.selectList(NAMESPACE + ".listAll");
     }
 
+	@Override
+	public void meeting(int no, String id) throws Exception {
+		sqlSession.insert(NAMESPACE + ".meeting");
+	}
+
 //    @Override
 //    public List<ArticleVO> listPaging(Criteria cri) throws Exception {
 //        return sqlSession.selectList(NAMESPACE + ".listPaging", cri);

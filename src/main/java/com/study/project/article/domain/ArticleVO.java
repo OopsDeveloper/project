@@ -22,8 +22,8 @@ public class ArticleVO {
 	
 	private String meetPhone;
 	
-	
 	private String meetStudyTime;
+	
 
 
 	@Override

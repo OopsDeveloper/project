@@ -42,12 +42,20 @@ public class ArticleController {
 
     
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String list( Model model) throws Exception {
-    	 
+    public String list( Model model) throws Exception { 
         
         model.addAttribute("articles", articleService.listAll());
       //  model.addAttribute("pageMaker", new PageDTO(cri, articleService.getTotal(cri)));
         return "/article/list";
+    }
+    
+    @RequestMapping(value = "/mystudyList", method = RequestMethod.GET)
+    public void regist(int no,String id) throws Exception {
+    	 System.out.println(no+":"+id); 
+        
+    	 articleService.meeting(no, id);
+    	 
+//        return "/article/list";
     }
 
 

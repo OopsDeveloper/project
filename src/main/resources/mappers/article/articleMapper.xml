@@ -68,6 +68,18 @@
         WHERE meet_no = #{meetNo}
     </select>
 
+
+
+	<insert id="meeting">
+	  <![CDATA[
+		INSERT INTO study.tbl_mypage (my_id,my_join_no)
+	            values(#{join_id},#{meet_no})
+	  ]]>
+  </insert>
+
+
+
+
 <!--     <update id="update">
         UPDATE study.tbl_article
         SET
@@ -185,17 +197,17 @@
 		      ,category_name
 		  FROM tbl_category
 	</select>  -->
+
 	<select id="category" resultMap="categoryMap">
 		SELECT  meet_category_code,category_code,category_name 
 		FROM 	study.tbl_meet, study.tbl_category
 		WHERE   meet_category_code = category_code
 	</select>
-	
+
 	<resultMap id="categoryMap" type="CategoryVO">
 		<result property="categoryCode" column="category_code"/>
 		<result property="categoryName" column="category_name"/>
 	</resultMap>
-
 
     <resultMap id="ArticleResultMap" type="ArticleVO">
         <result property="meetNo" column="meet_no"/>

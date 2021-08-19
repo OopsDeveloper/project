@@ -52,10 +52,10 @@
           <tr>
             <th>카테고리</th> <td>
                <%-- ${article.meetCategoryCode == Category.categoryName? Category.categoryCode:" "} --%>
-              <%-- ${article.meetCategoryCode} --%>
-              ${user}
-             <%-- ${article.CategoryName} 
+               ${article.meetCategoryCode}
+				<%-- ${article.CategoryName} 
             	${category.categoryCode} --%>
+            	<%-- <input type="hidden" name="joinId" value="${user.joinId}"> --%>
             </td>
           </tr>
           <tr>
@@ -87,11 +87,12 @@
       </div>
       <div class="middle-right-3"> 
       	<div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      	<input type="button" onclick="btn('/article/list')" class="addbutton" value="모임신청하기"></div>
+      	<input type="button" onclick="btn('/mystudy/mystudyList?no=${user.joinId}&id=${article.meetNo }')" class="addbutton" value="모임신청하기"></div>
+      	
       	<br><br>
       	<span>※ 승인을 받은 후 모임 참여가 가능합니다.</span>
       </div>
-
+	
     </div>
     <br><br>
 	
