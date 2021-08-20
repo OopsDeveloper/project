@@ -5,7 +5,6 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,6 +56,11 @@
 <body>
 <div class="mystudy">
 	<h1>스터디방</h1>
+	<div class="todoList" style="overflow:auto; width:1000px; height:300px;border: solid;">
+		<%-- <c:forEach items="" var="">
+		</c:forEach> --%>
+	</div>
+	<input type="text" value="" name="todo" placeholder="오늘의 할일 등록"><button type="button">추가</button>
 	<hr>
 	<h1>멤버 연락처</h1>
 	<div class="memebrPhone">
@@ -72,4 +76,7 @@
 	</div>
 </div>
 </body>
+<script type="text/javascript">
+	
+</script>
 </html>
