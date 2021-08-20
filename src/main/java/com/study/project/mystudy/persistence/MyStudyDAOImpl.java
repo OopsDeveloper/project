@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.study.project.mystudy.domain.JoinStudyVO;
 import com.study.project.mystudy.domain.StudyMemberVO;
+import com.study.project.mystudy.domain.TodoVO;
 
 @Repository
 public class MyStudyDAOImpl implements MyStudyDAO{
@@ -33,6 +34,16 @@ public class MyStudyDAOImpl implements MyStudyDAO{
 	@Override
 	public List<StudyMemberVO> getStudyMemberList(int no) throws Exception {
 		return sqlSession.selectList(NAMESPACE+".studyMember",no);
+	}
+
+	@Override
+	public int todoRegist(TodoVO todo) throws Exception {
+		return sqlSession.insert(NAMESPACE+".todoRegist",todo);
+	}
+
+	@Override
+	public List<TodoVO> getTodoList() throws Exception {
+		return sqlSession.selectList(NAMESPACE+".getTodoList");
 	}
 
 }

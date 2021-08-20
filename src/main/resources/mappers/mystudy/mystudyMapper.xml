@@ -32,6 +32,22 @@
          ]]>
 	</select>
 	
+	<insert id="todoRegist">
+		INSERT INTO study.tbl_todo(todo_no,todo_do)
+			   VALUES(#{myStudyNum},#{todo})
+	</insert>
+	
+	<select id="getTodoList" resultMap="todoVOResultMap">
+		SELECT todo_no
+		      ,todo_do 
+		  FROM study.tbl_todo
+	</select>
+	
+	<resultMap id="todoVOResultMap" type="TodoVO">
+		<result property="todo" column="todo_do"/>
+		<result property="myStudyNum" column="todo_no"/>
+	</resultMap>
+	
 	<resultMap id="studyMemberVOResultMap" type="StudyMemberVO">
         <result property="joinId" column="join_id"/>
         <result property="joinPass" column="join_pass"/>

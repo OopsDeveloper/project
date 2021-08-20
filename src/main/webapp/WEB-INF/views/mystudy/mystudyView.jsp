@@ -57,26 +57,52 @@
 <div class="mystudy">
 	<h1>스터디방</h1>
 	<div class="todoList" style="overflow:auto; width:1000px; height:300px;border: solid;">
-		<%-- <c:forEach items="" var="">
-		</c:forEach> --%>
+		<c:forEach items="${todoList}" var="list">
+			<input type="text" name="todoList" class="form-control" value="${list.todo}" readonly="readonly"><br><br>
+		</c:forEach>
 	</div>
-	<input type="text" value="" name="todo" placeholder="오늘의 할일 등록"><button type="button">추가</button>
+	<input type="text" class="form-control" value="" name="todo" id="todo" placeholder="오늘의 할일 등록">
+	<input type="hidden" value="${myStudyNum}" name="myStudyNum" id="myStudyNum">
+	<button class="form-control btn-success" type="button" onclick="todo_regist()">추가</button>
 	<hr>
 	<h1>멤버 연락처</h1>
 	<div class="memebrPhone">
 		<c:forEach items="${member}" var="info">
 			<div class="col-md-3 d-flex info">
-		          	<div class="info bg-light p-4">
-			            <p><span>이름:</span>${info.joinName}</p>
-			            <p><span>핸드폰:</span> <a href="tel://${info.joinPhone}">${info.joinPhone}</a></p>
-			            <p><span>메일:</span> ${info.joinEmail}</p>
-			        </div>
+	          	<div class="info bg-light p-4">
+		            <p><span>이름:</span>${info.joinName}</p>
+		            <p><span>핸드폰:</span> <a href="tel://${info.joinPhone}">${info.joinPhone}</a></p>
+		            <p><span>메일:</span> ${info.joinEmail}</p>
+		        </div>
 			</div>
 	    </c:forEach>
 	</div>
 </div>
 </body>
 <script type="text/javascript">
-	
+	function todo_regist(){
+		var todo = $("#todo").val();
+		var myStudyNum = $("#myStudyNum").val();
+		if(todo==="" || todo===null){
+			alert("글을 써주세요");
+			return;
+		}
+		$.ajax({
+			type:"POST",
+			url:"/mystudy/todoRegist.todo",
+			data:{  todo:todo,
+					myStudyNum:myStudyNum
+			},
+			success : function(result) {
+				alert("todoList가 추가되었습니다.");
+				$("#todoList").val(result);
+			},
+			error: function(request,status,error){
+				alert("실패:"+error);
+			}
+			
+			
+		});
+	}
 </script>
 </html>
