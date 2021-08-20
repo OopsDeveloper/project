@@ -20,14 +20,14 @@
 	border-collapse: collapse;
 }
 
-.pagination {
+/* .pagination {
 	display:block;
 	text-align:center;
-    /* justify-content: center; */
+    justify-content: center;
 }
 .pagination > li > a {
 	float:none;
-}
+} */
 
 tr { 
 border-top: 1px solid black; 

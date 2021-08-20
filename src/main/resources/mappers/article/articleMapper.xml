@@ -29,6 +29,10 @@
         </trim>
     </sql> -->
 
+
+
+
+
 <!--     <insert id="create">
         <selectKey order="AFTER" keyProperty="articleNo" resultType="Integer">
             SELECT LAST_INSERT_ID()
@@ -47,7 +51,14 @@
              , #{writer}
         )
     </insert> --><!--  -->
-
+	<insert id="meeting" parameterType="MeetingVO">
+	  <![CDATA[
+		INSERT INTO study.tbl_mypage (my_id,my_join_no)
+	            values(#{join_id},#{meet_no})
+	  ]]>
+  	</insert>
+  
+  
     <select id="read" resultMap="ArticleResultMap">
     <![CDATA[
         SELECT
@@ -61,21 +72,16 @@
             meet_count,
             meet_phone,
             meet_detail
-            
+
         FROM
             study.tbl_meet
-        ]]>
         WHERE meet_no = #{meetNo}
+        ]]>
     </select>
 
 
 
-	<insert id="meeting">
-	  <![CDATA[
-		INSERT INTO study.tbl_mypage (my_id,my_join_no)
-	            values(#{join_id},#{meet_no})
-	  ]]>
-  </insert>
+
 
 
 
@@ -132,11 +138,50 @@
             
 
         FROM study.tbl_meet
-        WHERE meet_no > 0
+        WHERE meet_no > 0 && meet_del ='N'
         ORDER BY meet_no DESC
         ]]>
     </select> 
     
+    <select id = "listPaging" resultMap="ArticleResultMap">
+    	<![CDATA[
+    	SELECT
+			meet_no,
+            SUBSTRING_INDEX(meet_jibunaddress,' ',3) as meet_jibunaddress,
+            meet_name,
+            meet_group_name,
+            DATE_FORMAT(meet_registration_date, '%Y-%m-%d') as meet_registration_date
+		FROM study.tbl_meet
+        WHERE meet_no > 0
+        order by meet_no DESC, meet_registration_date DESC
+        LIMIT #{page}, 10
+    	]]>	
+    </select>
+    
+    <select id = "listCriteria" resultMap="ArticleResultMap">
+    	<![CDATA[
+    	SELECT
+			meet_no,
+            SUBSTRING_INDEX(meet_jibunaddress,' ',3) as meet_jibunaddress,
+            meet_name,
+            meet_group_name,
+            DATE_FORMAT(meet_registration_date, '%Y-%m-%d') as meet_registration_date
+		FROM study.tbl_meet
+        WHERE meet_no > 0
+        order by meet_no DESC, meet_registration_date DESC
+        LIMIT #{pageStart}, #{perPageNum}
+    	]]>	
+    </select>
+
+	<select id = "countArticles" resultType = "int">
+	
+		<![CDATA[
+		SELECT
+			COUNT(meet_no)
+			FROM study.tbl_meet
+			WHERE meet_no > 0
+		]]>	
+	</select>
 
 <!--  <select id="listPaging" resultMap="ArticleResultMap">
         <![CDATA[
@@ -209,6 +254,7 @@
 		<result property="categoryName" column="category_name"/>
 	</resultMap>
 
+
     <resultMap id="ArticleResultMap" type="ArticleVO">
         <result property="meetNo" column="meet_no"/>
         <result property="meetName" column="meet_name" />
@@ -221,6 +267,9 @@
         <result property="meetCount" column="meet_count"/>
         <result property="meetDetail" column="meet_detail"/>
         <result property="meetPhone" column="meet_phone"/>
+        <result property="meetDel" column="meet_del"/>
+
+        
 <!--         <result property="regDate" column="regdate" />
         <result property="viewCnt" column="viewcnt" /> -->
         <!-- <result property="replyCnt" column="reply_cnt" /> -->

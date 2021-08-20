@@ -3,6 +3,8 @@ package com.study.project.article.domain;
 public class ArticleVO {
 
     private int meetNo;
+    
+    private String joinId;
 
     private int meetCount;
     
@@ -24,15 +26,7 @@ public class ArticleVO {
 	
 	private String meetStudyTime;
 	
-
-
-	@Override
-	public String toString() {
-		return "ArticleVO [meetNo=" + meetNo + ", meetCount=" + meetCount + ", meetLevel=" + meetLevel + ", meetName="
-				+ meetName + ", meetGroupName=" + meetGroupName + ", meetRegistrationDate=" + meetRegistrationDate
-				+ ", meetJibunAddress=" + meetJibunAddress + ", meetDetail=" + meetDetail + ", meetCategoryCode="
-				+ meetCategoryCode + ", meetPhone=" + meetPhone + ", meetStudyTime=" + meetStudyTime + "]";
-	}
+	private String meetDel;
 
 	public int getMeetNo() {
 		return meetNo;
@@ -40,6 +34,30 @@ public class ArticleVO {
 
 	public void setMeetNo(int meetNo) {
 		this.meetNo = meetNo;
+	}
+
+	public String getJoinId() {
+		return joinId;
+	}
+
+	public void setJoinId(String joinId) {
+		this.joinId = joinId;
+	}
+
+	public int getMeetCount() {
+		return meetCount;
+	}
+
+	public void setMeetCount(int meetCount) {
+		this.meetCount = meetCount;
+	}
+
+	public char getMeetLevel() {
+		return meetLevel;
+	}
+
+	public void setMeetLevel(char meetLevel) {
+		this.meetLevel = meetLevel;
 	}
 
 	public String getMeetName() {
@@ -98,29 +116,34 @@ public class ArticleVO {
 		this.meetPhone = meetPhone;
 	}
 
-	public char getMeetLevel() {
-		return meetLevel;
-	}
-
-	public void setMeetLevel(char meetLevel) {
-		this.meetLevel = meetLevel;
-	}
-
-	public int getMeetCount() {
-		return meetCount;
-	}
-
-	public void setMeetCount(int meetCount) {
-		this.meetCount = meetCount;
-	}
-
 	public String getMeetStudyTime() {
 		return meetStudyTime;
 	}
 
 	public void setMeetStudyTime(String meetStudyTime) {
 		this.meetStudyTime = meetStudyTime;
-	} 
+	}
+
+	public String getMeetDel() {
+		return meetDel;
+	}
+
+	public void setMeetDel(String meetDel) {
+		this.meetDel = meetDel;
+	}
+
+	@Override
+	public String toString() {
+		return "ArticleVO [meetNo=" + meetNo + ", joinId=" + joinId + ", meetCount=" + meetCount + ", meetLevel="
+				+ meetLevel + ", meetName=" + meetName + ", meetGroupName=" + meetGroupName + ", meetRegistrationDate="
+				+ meetRegistrationDate + ", meetJibunAddress=" + meetJibunAddress + ", meetDetail=" + meetDetail
+				+ ", meetCategoryCode=" + meetCategoryCode + ", meetPhone=" + meetPhone + ", meetStudyTime="
+				+ meetStudyTime + ", meetDel=" + meetDel + "]";
+	}
+	
+
+
+
 	
 	//end
 //  private Date regDate;

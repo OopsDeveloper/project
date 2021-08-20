@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.study.project.article.domain.ArticleVO;
 import com.study.project.article.persistence.ArticleDAO;
+import com.study.project.commons.paging.Criteria;
 import com.study.project.meetp.domain.CategoryVO;
 
 
@@ -51,8 +52,19 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
 	@Override
-	public void meeting(int no, String id) throws Exception {
-		articleDAO.meeting(no, id);
+	public void meeting(int meetNo, String joinId) throws Exception {
+		articleDAO.meeting(meetNo, joinId);
+	}
+
+	@Override
+	public List<ArticleVO> listCriteria(Criteria criteria) throws Exception {
+		
+		return articleDAO.listCriteria(criteria);
+	}
+
+	@Override
+	public int countArticles(Criteria criteria) throws Exception {
+		return articleDAO.countArticles(criteria);
 	}
 
 	/*

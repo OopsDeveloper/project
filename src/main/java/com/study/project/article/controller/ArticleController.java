@@ -1,25 +1,21 @@
 package com.study.project.article.controller;
 
-import java.util.List;
-import java.util.Map;
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
 
 import com.study.project.article.service.ArticleService;
+import com.study.project.commons.paging.Criteria;
+import com.study.project.commons.paging.PageMaker;
 import com.study.project.user.domain.UserVO;
 import com.study.project.user.service.UserService;
 
@@ -27,33 +23,52 @@ import com.study.project.user.service.UserService;
 @RequestMapping("/article")
 public class ArticleController {
 
-    private static final Logger logger = 
-    			LoggerFactory.getLogger(ArticleController.class);
-    private final ArticleService articleService;
-    private int page=10;
-
-    @Inject
-    public ArticleController(ArticleService articleService) {
-        this.articleService = articleService;
-    }
-    
-    @Inject
+	@Inject
+	private ArticleService articleService;
+	@Inject
 	private UserService userService;
+    
+	private static final Logger logger = LoggerFactory.getLogger(ArticleController.class);
+    
+	private int page=10;
+    
+    
 
     
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String list( Model model) throws Exception { 
+    public String list(Model model) throws Exception { 
         
         model.addAttribute("articles", articleService.listAll());
-      //  model.addAttribute("pageMaker", new PageDTO(cri, articleService.getTotal(cri)));
+        //  model.addAttribute("pageMaker", new PageDTO(cri, articleService.getTotal(cri)));
+        //  model.addAttribute("pageMaker", new Criteria(cri, articleService.getTotal(cri)));
+        return "/article/list";
+    }
+    
+    @RequestMapping(value = "/listCriteria", method = RequestMethod.GET)
+    public String listCriteria(Model model,Criteria criteria) throws Exception { 
+        logger.info("listCriteria...");
+        model.addAttribute("articles", articleService.listCriteria(criteria));
+        return "/article/list_criteria";
+    }
+    
+    @RequestMapping(value = "/listPaging", method = RequestMethod.GET)
+    public String listPaging(Model model,Criteria criteria) throws Exception { 
+        logger.info("listPaging...");
+        
+        PageMaker pageMaker = new PageMaker();
+        pageMaker.setCriteria(criteria);
+        pageMaker.setTotalCount(articleService.countArticles(criteria));
+        
+        model.addAttribute("articles", articleService.listCriteria(criteria));
+        model.addAttribute("pageMaker",pageMaker);
         return "/article/list";
     }
     
     @RequestMapping(value = "/mystudyList", method = RequestMethod.GET)
-    public void regist(int no,String id) throws Exception {
-    	 System.out.println(no+":"+id); 
+    public void regist(int meetNo,String joinId) throws Exception {
+    	 System.out.println(meetNo+":"+joinId); 
         
-    	 articleService.meeting(no, id);
+    	 articleService.meeting(meetNo, joinId);
     	 
 //        return "/article/list";
     }

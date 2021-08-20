@@ -2,9 +2,13 @@ package com.study.project.article.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.study.project.article.domain.ArticleVO;
+import com.study.project.commons.paging.Criteria;
 import com.study.project.meetp.domain.CategoryVO;
 
+@Service
 public interface ArticleService {
 
 //    int create(ArticleVO articleVO) throws Exception;
@@ -19,9 +23,14 @@ public interface ArticleService {
     
     List<CategoryVO> category() throws Exception;
     
-    void meeting(int no, String id) throws Exception;
+    void meeting(int meetNo, String joinId) throws Exception;
     
-    //카테고리
+    List<ArticleVO> listCriteria(Criteria criteria) throws Exception;
+    
+    int countArticles(Criteria criteria) throws Exception;
+    
+    
+//카테고리
 //    List<ArticleVO> listAll(Criteria cri) throws Exception;
 //
 //    int getTotal(Criteria cri) throws Exception;

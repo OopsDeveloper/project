@@ -71,12 +71,11 @@
             <th>연락처</th>  <td>${article.meetPhone}</td>
           </tr> 
           </tbody>
-
         </table>
 
     <div class="middle-right">
 
-	    <div class="middle-right-1"> 
+	    <div class="middle-right-1">
 	      	<div class="box" >
 		    	<img class="profile" src="${pageContext.request.contextPath}/resources/images/cat.JPG" >
 		</div> 
@@ -87,7 +86,7 @@
       </div>
       <div class="middle-right-3"> 
       	<div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      	<input type="button" onclick="btn('/mystudy/mystudyList?no=${user.joinId}&id=${article.meetNo }')" class="addbutton" value="모임신청하기"></div>
+      	<input type="button" onclick="btn('/mystudy/mystudyList?no=${article.meetNo }&id=${user.joinId}')" class="addbutton" value="모임신청하기"></div>
       	
       	<br><br>
       	<span>※ 승인을 받은 후 모임 참여가 가능합니다.</span>

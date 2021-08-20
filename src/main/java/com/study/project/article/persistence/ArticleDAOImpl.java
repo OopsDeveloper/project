@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.study.project.article.domain.ArticleVO;
+import com.study.project.commons.paging.Criteria;
 import com.study.project.meetp.domain.CategoryVO;
 
 
@@ -44,6 +45,9 @@ public class ArticleDAOImpl implements ArticleDAO {
 //        sqlSession.insert(NAMESPACE + ".create", articleVO);
 //    }
 
+    
+    
+    
     @Override
     public ArticleVO read(int articleNo) throws Exception {
         return sqlSession.selectOne(NAMESPACE + ".read", articleNo);
@@ -70,9 +74,43 @@ public class ArticleDAOImpl implements ArticleDAO {
     }
 
 	@Override
-	public void meeting(int no, String id) throws Exception {
-		sqlSession.insert(NAMESPACE + ".meeting");
+	public void meeting(int meetNo, String joinId) throws Exception {
+		ArticleVO vo = new ArticleVO();
+		vo.setMeetNo(meetNo);
+		vo.setJoinId(joinId);
+		sqlSession.insert(NAMESPACE + ".meeting",vo);
+		
 	}
+
+	@Override
+	public List<ArticleVO> listPaging(int page) throws Exception {
+		
+		if (page <= 0) {
+			page = 1;
+		}
+		
+		page = (page - 1) * 10;
+		
+		return sqlSession.selectList(NAMESPACE + ".listPaging", page);
+	}
+
+	@Override
+	public List<ArticleVO> listCriteria(Criteria criteria) throws Exception {
+		
+		return sqlSession.selectList(NAMESPACE + ".listCriteria", criteria);
+	}
+
+	@Override
+	public int countArticles(Criteria criteria) throws Exception {
+		return sqlSession.selectOne(NAMESPACE + ".countArticles", criteria);
+	}
+	
+	
+
+//	@Override
+//	public void meeting(MettingVO mettingVO) throws Exception {
+//		sqlSession.insert(NAMESPACE + ".meeting",meetNo,joinId);
+//	}
 
 //    @Override
 //    public List<ArticleVO> listPaging(Criteria cri) throws Exception {
