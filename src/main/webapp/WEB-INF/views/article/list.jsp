@@ -39,7 +39,7 @@
   <p id=sub2>스터디 게시판</p>
 <hr class="hr2" width="100%">
 	<!-- start 검색-->
-	  <div class='row'>
+	  <%-- <div class='row'>
           <div class='col-lg-12'>
             <form id='searchForm' action="/article/list" method="get">
               <select name='type' class="form-select form-select-sm mb-1" aria-label=".form-select-lg example" style="width:300px;height:40px;">
@@ -58,7 +58,7 @@
 	             </div> 
             </form>
           </div>
-        </div> 
+        </div>  --%>
 	<!-- end 검색    -->	
 
 
@@ -111,6 +111,7 @@
 		  </ul>
 		</nav>
 		</div> -->
+		
 	<div class = "box-footer">
 		<div class = "text-center">
 			<ul class = "pagination">

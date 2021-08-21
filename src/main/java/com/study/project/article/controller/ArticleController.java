@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.study.project.article.domain.MeetingVO;
 import com.study.project.article.service.ArticleService;
 import com.study.project.commons.paging.Criteria;
 import com.study.project.commons.paging.PageMaker;
@@ -25,20 +26,30 @@ public class ArticleController {
 
 	@Inject
 	private ArticleService articleService;
+	
 	@Inject
 	private UserService userService;
+	
     
 	private static final Logger logger = LoggerFactory.getLogger(ArticleController.class);
     
-	private int page=10;
+//	private int page=10;
     
     
 
     
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String list(Model model) throws Exception { 
+    public String list(Model model,Criteria criteria) throws Exception { 
         
+    	PageMaker pageMaker = new PageMaker();
+    	
+    	pageMaker.setCriteria(criteria);
+        pageMaker.setTotalCount(articleService.countArticles(criteria));
+    	
         model.addAttribute("articles", articleService.listAll());
+        model.addAttribute("articles", articleService.listCriteria(criteria));
+        model.addAttribute("pageMaker",pageMaker);
+        
         //  model.addAttribute("pageMaker", new PageDTO(cri, articleService.getTotal(cri)));
         //  model.addAttribute("pageMaker", new Criteria(cri, articleService.getTotal(cri)));
         return "/article/list";
@@ -61,14 +72,14 @@ public class ArticleController {
         
         model.addAttribute("articles", articleService.listCriteria(criteria));
         model.addAttribute("pageMaker",pageMaker);
-        return "/article/list";
+        return "/article/list_paging";
     }
     
     @RequestMapping(value = "/mystudyList", method = RequestMethod.GET)
-    public void regist(int meetNo,String joinId) throws Exception {
-    	 System.out.println(meetNo+":"+joinId); 
+    public void regist(MeetingVO meetVO) throws Exception {
+    	 System.out.println(meetVO);
         
-    	 articleService.meeting(meetNo, joinId);
+    	 articleService.meeting(meetVO);
     	 
 //        return "/article/list";
     }

@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.study.project.article.domain.ArticleVO;
+import com.study.project.article.domain.MeetingVO;
 import com.study.project.commons.paging.Criteria;
 import com.study.project.meetp.domain.CategoryVO;
 
@@ -74,10 +75,7 @@ public class ArticleDAOImpl implements ArticleDAO {
     }
 
 	@Override
-	public void meeting(int meetNo, String joinId) throws Exception {
-		ArticleVO vo = new ArticleVO();
-		vo.setMeetNo(meetNo);
-		vo.setJoinId(joinId);
+	public void meeting(MeetingVO vo) throws Exception {
 		sqlSession.insert(NAMESPACE + ".meeting",vo);
 		
 	}

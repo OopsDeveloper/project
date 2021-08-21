@@ -3,6 +3,7 @@ package com.study.project.article.persistence;
 import java.util.List;
 
 import com.study.project.article.domain.ArticleVO;
+import com.study.project.article.domain.MeetingVO;
 import com.study.project.commons.paging.Criteria;
 import com.study.project.meetp.domain.CategoryVO;
 
@@ -26,7 +27,7 @@ public interface ArticleDAO {
     
     int countArticles(Criteria criteria) throws Exception;
 
-    void meeting(int meetNo, String joinId) throws Exception;
+    void meeting(MeetingVO vo) throws Exception;
 //    List<ArticleVO> listPaging(Criteria cri) throws Exception;
 //
 //  int getTotalCount(Criteria cri) throws Exception;

@@ -86,7 +86,7 @@
       </div>
       <div class="middle-right-3"> 
       	<div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      	<input type="button" onclick="btn('/mystudy/mystudyList?no=${article.meetNo }&id=${user.joinId}')" class="addbutton" value="모임신청하기"></div>
+      	<input type="button" onclick="btn('/mystudy/mystudyList?meetNo=${article.meetNo }&joinId=${user.joinId}')" class="addbutton" value="모임신청하기"></div>
       	
       	<br><br>
       	<span>※ 승인을 받은 후 모임 참여가 가능합니다.</span>

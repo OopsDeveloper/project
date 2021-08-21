@@ -54,7 +54,7 @@
 	<insert id="meeting" parameterType="MeetingVO">
 	  <![CDATA[
 		INSERT INTO study.tbl_mypage (my_id,my_join_no)
-	            values(#{join_id},#{meet_no})
+	            values(#{joinId},#{meetNo})
 	  ]]>
   	</insert>
   
