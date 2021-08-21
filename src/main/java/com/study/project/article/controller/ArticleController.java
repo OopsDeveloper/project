@@ -19,6 +19,7 @@ import com.study.project.commons.paging.Criteria;
 import com.study.project.commons.paging.PageMaker;
 import com.study.project.user.domain.UserVO;
 import com.study.project.user.service.UserService;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/article")
@@ -76,12 +77,12 @@ public class ArticleController {
     }
     
     @RequestMapping(value = "/mystudyList", method = RequestMethod.GET)
-    public void regist(MeetingVO meetVO) throws Exception {
+    public String regist(MeetingVO meetVO) throws Exception {
     	 System.out.println(meetVO);
         
     	 articleService.meeting(meetVO);
     	 
-//        return "/article/list";
+    	 return "redirect:/mystudy/mystudyList";
     }
 
 
