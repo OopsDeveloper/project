@@ -56,9 +56,12 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "/view", method = RequestMethod.GET)
-	public String view(@RequestParam("bno")int bno, Model model) throws Exception{		
+	public String view(@RequestParam("bno")int bno, Model model,HttpServletRequest request) throws Exception{		
 		NoticeVO user= noticeService.get(bno);
 		model.addAttribute("user",user);
+		
+		HttpSession httpSession = request.getSession();
+		model.addAttribute("loginUser" , httpSession.getAttribute("login"));
 		
 		return "/notice/view";
 	}

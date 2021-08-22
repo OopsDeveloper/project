@@ -72,8 +72,8 @@ public class MypageController {
 				return new ResponseEntity<>(list, HttpStatus.BAD_REQUEST);
 			}
 		}
-//		String uploadFolder = "C:\\files";
-		String uploadFolder = "/Users/goyongsu/Downloads/files";
+		String uploadFolder = "C:\\files";
+//		String uploadFolder = "/Users/goyongsu/Downloads/files";
 
 		/* 폴더 생성 */
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -136,7 +136,8 @@ public class MypageController {
 
 	@GetMapping("/display")
 	public ResponseEntity<byte[]> getImage(String fileName){
-		File file = new File("/Users/goyongsu/Downloads/files/" + fileName);
+//		File file = new File("/Users/goyongsu/Downloads/files/" + fileName);
+		File file = new File("C:\\files/" + fileName);
 
 		ResponseEntity<byte[]> result = null;
 		try {

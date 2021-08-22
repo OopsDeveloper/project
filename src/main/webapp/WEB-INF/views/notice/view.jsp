@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,8 +60,11 @@
 			<td colspan=2 class="noticContent">${user.noticeCommentContent}</td>
 		</tr>
 	</table>
-	<button onclick="location.href='modify?bno=${user.noticeNo}'" class="bt-motify form-control btn-success">수정</button>
+	<c:if test="${loginUser.joinAdmin=='Y'}">
+		<button onclick="location.href='modify?bno=${user.noticeNo}'" class="bt-motify form-control btn-success">수정</button>
+	</c:if>	
 	<button onclick="location.href='list'" class="bt-list form-control btn-primary">목록</button>
+
 </div>
 </body>
 </html>

@@ -45,9 +45,9 @@ public class MystudyController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/todoRegist.todo",method = RequestMethod.POST)
-	public String todoRegist(Model model, TodoVO todo) throws Exception{
+	public List<TodoVO> todoRegist(Model model, TodoVO todo) throws Exception{
 		myStudyService.todoRegist(todo);
 		model.addAttribute("todoList", myStudyService.getTodoList());
-		return "success";
+		return myStudyService.getTodoList();
 	}
 }
