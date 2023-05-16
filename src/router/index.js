@@ -168,6 +168,22 @@ const routes = [
       import(
         /* webpackChunkName: "reuse", webpackPrefetch:true */ '../views/4_reuse/ListView.vue'
       )
+  },
+  {
+    path: '/reuse/slot',
+    name: 'SlotView',
+    component: () =>
+      import(
+        /* webpackChunkName: "reuse", webpackPrefetch:true */ '../views/4_reuse/SlotView.vue'
+      )
+  },
+  {
+    path: '/advanced/provide',
+    name: 'ProvideView',
+    component: () =>
+      import(
+        /* webpackChunkName: "advanced", webpackPrefetch:true */ '../views/5_advanced/ProvideView.vue'
+      )
   }
 ]
 
