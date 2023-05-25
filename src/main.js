@@ -15,6 +15,7 @@ const i18nStrings = { en, ko }
 const app = createApp(App)
 app.use(store)
 app.use(router)
+app.mixin(mixin)
 app.component('page-title', PageTitle)
 app.use(i18nPlugin, i18nStrings)
 
