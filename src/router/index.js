@@ -208,6 +208,22 @@ const routes = [
       import(
         /* webpackChunkName: "advanced", webpackPrefetch:true */ '../views/5_advanced/PluginView.vue'
       )
+  },
+  {
+    path: '/vuex/todo',
+    name: 'TodoView',
+    component: () =>
+      import(
+        /* webpackChunkName: "vuex", webpackPrefetch:true */ '../views/6_vuex/TodoView.vue'
+      )
+  },
+  {
+    path: '/vuex/login',
+    name: 'LoginView',
+    component: () =>
+      import(
+        /* webpackChunkName: "vuex", webpackPrefetch:true */ '../views/6_vuex/LoginView.vue'
+      )
   }
 ]
 
