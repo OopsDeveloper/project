@@ -264,6 +264,22 @@ const routes = [
       import(
         /* webpackChunkName: "login", webpackPrefetch:true */ '../views/8_login/MainView.vue'
       )
+  },
+  {
+    path: '/login/naver',
+    name: 'NaverLoginView',
+    component: () =>
+      import(
+        /* webpackChunkName: "login", webpackPrefetch:true */ '../views/8_login/NaverLoginView.vue'
+      )
+  },
+  {
+    path: '/module/map',
+    name: 'KakaoMapView',
+    component: () =>
+      import(
+        /* webpackChunkName: "module", webpackPrefetch:true */ '../views/9_module/KakaoMapView.vue'
+      )
   }
 ]
 
