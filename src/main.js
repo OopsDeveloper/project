@@ -14,6 +14,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 // eslint-disable-next-line no-unused-vars
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+import VueSweetalert2 from 'vue-sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
+import { LoadingPlugin } from 'vue-loading-overlay'
+import 'vue-loading-overlay/dist/css/index.css'
+
 /* import specific icons */
 import { faUserSecret, faUserClock } from '@fortawesome/free-solid-svg-icons'
 
@@ -33,6 +38,8 @@ app.mixin(mixin)
 app.component('page-title', PageTitle)
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(i18nPlugin, i18nStrings)
+app.use(VueSweetalert2)
+app.use(LoadingPlugin)
 
 app.directive('focus', {
   mounted(el, binding) {
