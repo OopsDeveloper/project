@@ -18,6 +18,9 @@ import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
 import { LoadingPlugin } from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/css/index.css'
+import VueGoodTablePlugin from 'vue-good-table-next'
+import 'vue-good-table-next/dist/vue-good-table-next.css'
+import VueApexCharts from 'vue3-apexcharts'
 
 /* import specific icons */
 import { faUserSecret, faUserClock } from '@fortawesome/free-solid-svg-icons'
@@ -40,6 +43,8 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(i18nPlugin, i18nStrings)
 app.use(VueSweetalert2)
 app.use(LoadingPlugin)
+app.use(VueGoodTablePlugin)
+app.use(VueApexCharts)
 
 app.directive('focus', {
   mounted(el, binding) {
