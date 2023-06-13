@@ -274,6 +274,14 @@ const routes = [
       )
   },
   {
+    path: '/module/postcode',
+    name: 'DaumPostcodeView',
+    component: () =>
+      import(
+        /* webpackChunkName: "module", webpackPrefetch:true */ '../views/9_module/DaumPostcodeView.vue'
+      )
+  },
+  {
     path: '/module/map',
     name: 'KakaoMapView',
     component: () =>
@@ -359,6 +367,14 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "chart", webpackPrefetch:true */ '../views/10_chart/ColumnChartView.vue'
+      )
+  },
+  {
+    path: '/template/p1/single',
+    name: 'SingleViewEditView',
+    component: () =>
+      import(
+        /* webpackChunkName: "template", webpackPrefetch:true */ '../views/11_template/p1/SingleViewEditView.vue'
       )
   }
 ]
