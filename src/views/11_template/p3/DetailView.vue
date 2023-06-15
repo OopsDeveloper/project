@@ -7,9 +7,7 @@
       </div>
     </div>
     <div class="row mb-3">
-      <label for="customerCompany" class="col-sm-2 col-form-label"
-      >Company</label
-      >
+      <label for="customerCompany" class="col-sm-2 col-form-label">Company</label>
       <div class="col-sm-10">
         {{ customer.company }}
       </div>
@@ -27,9 +25,7 @@
       </div>
     </div>
     <div class="row mb-3">
-      <label for="customerAddress" class="col-sm-2 col-form-label"
-      >Address</label
-      >
+      <label for="customerAddress" class="col-sm-2 col-form-label">Address</label>
       <div class="col-sm-10">
         {{ customer.address }}
       </div>
@@ -55,10 +51,10 @@ export default {
   },
   setup() {},
   created() {
-    // console.log(this.$route.query.id)
-    this.id = this.$route.query.id
-    // console.log(this.$route.params)
-    // this.id = this.$route.params.id
+    // this.id = this.$route.query.id
+    console.log(this.$route)
+    this.id = this.$route.params.id
+    console.log(this.id)
   },
   mounted() {
     this.getCustomer()

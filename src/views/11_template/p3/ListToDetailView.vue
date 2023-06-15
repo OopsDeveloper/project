@@ -3,21 +3,12 @@
     <div class="row gx-3 gy-2 align-items-center">
       <div class="col-sm-3">
         <label class="visually-hidden" for="customerName">Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="customerName"
-          placeholder="Customer Name"
-          v-model="searchName"
-          @keyup.enter="doSearch"
-        />
+        <input type="text" class="form-control" id="customerName" placeholder="Customer Name" v-model="searchName" @keyup.enter="doSearch"/>
       </div>
       <div class="col-auto">
         <button class="btn btn-primary me-1" @click="doSearch">Search</button>
         <button class="btn btn-success me-1" @click="goToCreate">Create</button>
-        <button class="btn btn-secondary me-1" @click="downloadExcel">
-          Excel
-        </button>
+        <button class="btn btn-secondary me-1" @click="downloadExcel">Excel</button>
       </div>
     </div>
     <table class="table table-striped table-bordered mt-2">
@@ -33,9 +24,7 @@
       <tbody>
       <tr :key="customer.id" v-for="customer in customers">
         <td>
-          <a class="link-primary" @click="goToDetail(customer.id)">{{
-              customer.name
-            }}</a>
+          <a class="link-primary" @click="goToDetail(customer.id)">{{customer.name }}</a>
         </td>
         <td>{{ customer.company }}</td>
         <td>{{ customer.email }}</td>
@@ -76,16 +65,16 @@ export default {
       loader.hide()
     },
     goToDetail(customerId) {
-      this.$router.push({
-        path: '/template/p3/detail',
-        query: { id: customerId }
-      })
+      // this.$router.push({
+      //   path: '/template/p3/detail',
+      //   query: { id: customerId }
+      // })
 
       // http://localhost:8080/template/p3/detail?id=6279074d6a80184dc24175f8
       // http://localhost:3000/users/6279074d6a80184dc24175f8
       // http://localhost:3000/products/6279074d6a80184dc24175f8
-
-      //   this.$router.push({ name: 'DetailView', params: { id: customerId } })
+      console.log(customerId)
+      this.$router.push({ name: 'DetailView', params: { id: customerId } })
       // http://localhost:8080/template/p3/detail
     },
     goToCreate() {

@@ -3,14 +3,7 @@
     <div class="row gx-3 gy-2 align-items-center mb-2">
       <div class="col-sm-3">
         <label class="visually-hidden" for="customerName">Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="customerName"
-          placeholder="Customer Name"
-          v-model="searchName"
-          @keyup.enter="doSearch"
-        />
+        <input type="text" class="form-control" id="customerName" placeholder="Customer Name" v-model="searchName" @keyup.enter="doSearch"/>
       </div>
       <div class="col-auto">
         <button class="btn btn-primary me-1" @click="doSearch">Search</button>
@@ -35,115 +28,41 @@
       <div class="row mb-3">
         <label for="customerName" class="col-sm-2 col-form-label">Name</label>
         <div class="col-sm-10">
-          <input
-            type="text"
-            name=""
-            id="customerName"
-            class="form-control"
-            v-model="customer.name"
-            :disabled="!editMode"
-          />
+          <input type="text" name="" id="customerName" class="form-control" v-model="customer.name" :disabled="!editMode"/>
         </div>
       </div>
       <div class="row mb-3">
-        <label for="customerCompany" class="col-sm-2 col-form-label"
-        >Company</label
-        >
+        <label for="customerCompany" class="col-sm-2 col-form-label">Company</label>
         <div class="col-sm-10">
-          <input
-            type="text"
-            name=""
-            id="customerCompany"
-            class="form-control"
-            v-model="customer.company"
-            :disabled="!editMode"
-          />
+          <input type="text" name="" id="customerCompany" class="form-control" v-model="customer.company" :disabled="!editMode"/>
         </div>
       </div>
       <div class="row mb-3">
         <label for="customerEmail" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
-          <input
-            type="email"
-            name=""
-            id=""
-            class="form-control"
-            v-model="customer.email"
-            :disabled="!editMode"
-          />
+          <input type="email" name="" id="" class="form-control" v-model="customer.email" :disabled="!editMode"/>
         </div>
       </div>
       <div class="row mb-3">
         <label for="customerPhone" class="col-sm-2 col-form-label">Phone</label>
         <div class="col-sm-10">
-          <input
-            type="tel"
-            name=""
-            id=""
-            class="form-control"
-            v-model="customer.phone"
-            :disabled="!editMode"
-          />
+          <input type="tel" name="" id="" class="form-control" v-model="customer.phone" :disabled="!editMode"/>
         </div>
       </div>
       <div class="row mb-3">
-        <label for="customerAddress" class="col-sm-2 col-form-label"
-        >Address</label
-        >
+        <label for="customerAddress" class="col-sm-2 col-form-label">Address</label>
         <div class="col-sm-10">
           <div class="input-group mb-3">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="우편번호"
-              aria-label="우편번호"
-              aria-describedby="postcode"
-              v-model="customer.zonecode"
-              readonly
-            />
-            <button
-              class="btn btn-outline-secondary"
-              id="postcode"
-              @click="openPostcode"
-              :disabled="!editMode"
-            >
-              검색
-            </button>
+            <input type="text" class="form-control" placeholder="우편번호" aria-label="우편번호" aria-describedby="postcode" v-model="customer.zonecode" readonly/>
+            <button class="btn btn-outline-secondary" id="postcode" @click="openPostcode" :disabled="!editMode">검색</button>
           </div>
-          <input
-            type="text"
-            class="form-control"
-            v-model="customer.roadAddress"
-            placeholder="주소"
-            readonly
-          />
-          <input
-            type="text"
-            class="form-control"
-            v-model="customer.detailAddress"
-            placeholder="상세주소"
-            :disabled="!editMode"
-          />
+          <input type="text" class="form-control" v-model="customer.roadAddress" placeholder="주소" readonly/>
+          <input type="text" class="form-control" v-model="customer.detailAddress" placeholder="상세주소" :disabled="!editMode"/>
         </div>
       </div>
-      <button
-        class="btn btn-primary me-1"
-        @click="editMode = true"
-        v-show="!editMode"
-        :disabled="selectedId === ''"
-      >
-        Edit
-      </button>
-      <button
-        class="btn btn-secondary me-1"
-        v-show="editMode"
-        @click="editMode = false"
-      >
-        Cancel
-      </button>
-      <button class="btn btn-danger" v-show="editMode" @click="doSave">
-        Save
-      </button>
+      <button class="btn btn-primary me-1" @click="editMode = true" v-show="!editMode" :disabled="selectedId === ''">Edit</button>
+      <button class="btn btn-secondary me-1" v-show="editMode" @click="editMode = false">Cancel</button>
+      <button class="btn btn-danger" v-show="editMode" @click="doSave">Save</button>
     </div>
   </div>
 </template>
@@ -258,8 +177,7 @@ export default {
 
       // 정규식 - 이메일, 전화번호 체크 로직 추가
       const regexpTel = /^010-\d{4}-\d{4}$/
-      const regexpEmail =
-        /^([a-z]+\d*)+(\.?[a-z]+\d*)+@([a-z]+\d*)+(\.[a-z]{2,3})+$/
+      const regexpEmail = /^([a-z]+\d*)+(\.?[a-z]+\d*)+@([a-z]+\d*)+(\.[a-z]{2,3})+$/
 
       if (!regexpTel.test(this.customer.phone)) {
         return this.$swal(

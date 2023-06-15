@@ -38,9 +38,7 @@
           </div>
         </div>
         <div class="row mb-3">
-          <label for="customerEmail" class="col-sm-2 col-form-label"
-          >Email</label
-          >
+          <label for="customerEmail" class="col-sm-2 col-form-label">Email</label>
           <div class="col-sm-10">
             <input type="email" name="" id="" class="form-control" v-model="customer.email" :disabled="!editMode"/>
           </div>
@@ -52,65 +50,21 @@
           </div>
         </div>
         <div class="row mb-3">
-          <label for="customerAddress" class="col-sm-2 col-form-label"
-          >Address</label
-          >
+          <label for="customerAddress" class="col-sm-2 col-form-label">Address</label>
           <div class="col-sm-10">
             <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="우편번호"
-                aria-label="우편번호"
-                aria-describedby="postcode"
-                v-model="customer.zonecode"
-                readonly
-              />
-              <button
-                class="btn btn-outline-secondary"
-                id="postcode"
-                @click="openPostcode"
-                :disabled="!editMode"
-              >
-                검색
-              </button>
+              <input type="text" class="form-control" placeholder="우편번호" aria-label="우편번호" aria-describedby="postcode" v-model="customer.zonecode" readonly/>
+              <button class="btn btn-outline-secondary" id="postcode" @click="openPostcode" :disabled="!editMode">검색</button>
             </div>
-            <input
-              type="text"
-              class="form-control"
-              v-model="customer.roadAddress"
-              placeholder="주소"
-              readonly
-            />
-            <input
-              type="text"
-              class="form-control"
-              v-model="customer.detailAddress"
-              placeholder="상세주소"
-              :disabled="!editMode"
-            />
+            <input type="text" class="form-control" v-model="customer.roadAddress" placeholder="주소" readonly/>
+            <input type="text" class="form-control" v-model="customer.detailAddress" placeholder="상세주소" :disabled="!editMode"/>
           </div>
         </div>
       </template>
       <template v-slot:footer>
-        <button
-          class="btn btn-primary me-1"
-          @click="editMode = true"
-          v-show="!editMode"
-          :disabled="selectedId === ''"
-        >
-          Edit
-        </button>
-        <button
-          class="btn btn-secondary me-1"
-          v-show="editMode"
-          @click="editMode = false"
-        >
-          Cancel
-        </button>
-        <button class="btn btn-danger" v-show="editMode" @click="doSave">
-          Save
-        </button>
+        <button class="btn btn-primary me-1" @click="editMode = true" v-show="!editMode" :disabled="selectedId === ''">Edit</button>
+        <button class="btn btn-secondary me-1" v-show="editMode" @click="editMode = false">Cancel</button>
+        <button class="btn btn-danger" v-show="editMode" @click="doSave">Save</button>
       </template>
     </slot-modal>
   </div>

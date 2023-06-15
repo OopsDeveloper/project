@@ -3,89 +3,36 @@
     <div class="row mb-3">
       <label for="customerName" class="col-sm-2 col-form-label">Name</label>
       <div class="col-sm-10">
-        <input
-          type="text"
-          name=""
-          id="customerName"
-          class="form-control"
-          v-model="customer.name"
-        />
+        <input type="text" name="" id="customerName" class="form-control" v-model="customer.name"/>
       </div>
     </div>
     <div class="row mb-3">
-      <label for="customerCompany" class="col-sm-2 col-form-label"
-      >Company</label
-      >
+      <label for="customerCompany" class="col-sm-2 col-form-label">Company</label>
       <div class="col-sm-10">
-        <input
-          type="text"
-          name=""
-          id="customerCompany"
-          class="form-control"
-          v-model="customer.company"
-        />
+        <input type="text" name="" id="customerCompany" class="form-control" v-model="customer.company"/>
       </div>
     </div>
     <div class="row mb-3">
       <label for="customerEmail" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-10">
-        <input
-          type="email"
-          name=""
-          id=""
-          class="form-control"
-          v-model="customer.email"
-        />
+        <input type="email" name="" id="" class="form-control" v-model="customer.email"/>
       </div>
     </div>
     <div class="row mb-3">
       <label for="customerPhone" class="col-sm-2 col-form-label">Phone</label>
       <div class="col-sm-10">
-        <input
-          type="tel"
-          name=""
-          id=""
-          class="form-control"
-          v-model="customer.phone"
-        />
+        <input type="tel" name="" id="" class="form-control" v-model="customer.phone"/>
       </div>
     </div>
     <div class="row mb-3">
-      <label for="customerAddress" class="col-sm-2 col-form-label"
-      >Address</label
-      >
+      <label for="customerAddress" class="col-sm-2 col-form-label">Address</label>
       <div class="col-sm-10">
         <div class="input-group mb-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="우편번호"
-            aria-label="우편번호"
-            aria-describedby="postcode"
-            v-model="customer.zonecode"
-            readonly
-          />
-          <button
-            class="btn btn-outline-secondary"
-            id="postcode"
-            @click="openPostcode"
-          >
-            검색
-          </button>
+          <input type="text" class="form-control" placeholder="우편번호" aria-label="우편번호" aria-describedby="postcode" v-model="customer.zonecode" readonly/>
+          <button class="btn btn-outline-secondary" id="postcode" @click="openPostcode">검색</button>
         </div>
-        <input
-          type="text"
-          class="form-control"
-          v-model="customer.roadAddress"
-          placeholder="주소"
-          readonly
-        />
-        <input
-          type="text"
-          class="form-control"
-          v-model="customer.detailAddress"
-          placeholder="상세주소"
-        />
+        <input type="text" class="form-control" v-model="customer.roadAddress" placeholder="주소" readonly/>
+        <input type="text" class="form-control" v-model="customer.detailAddress" placeholder="상세주소"/>
       </div>
     </div>
     <button class="btn btn-secondary me-1" @click="goToDetail">Cancel</button>
