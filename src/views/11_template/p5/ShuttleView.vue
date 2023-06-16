@@ -5,19 +5,10 @@
         <div class="row gx-3 gy-2 align-items-center">
           <div class="col-6">
             <label class="visually-hidden" for="customerName">Name</label>
-            <input
-              type="text"
-              class="form-control"
-              id="customerName"
-              placeholder="Customer Name"
-              v-model="searchName"
-              @keyup.enter="doSearch"
-            />
+            <input type="text" class="form-control" id="customerName" placeholder="Customer Name" v-model="searchName" @keyup.enter="doSearch"/>
           </div>
           <div class="col-auto">
-            <button class="btn btn-primary me-1" @click="doSearch">
-              Search
-            </button>
+            <button class="btn btn-primary me-1" @click="doSearch">Search</button>
           </div>
         </div>
         <table class="table table-striped table-bordered mt-2">
@@ -31,12 +22,7 @@
           <tbody>
           <tr :key="customer.id" v-for="customer in customers">
             <td>
-              <input
-                type="checkbox"
-                class="form-check-input"
-                :value="customer.id"
-                v-model="checkedItems"
-              />
+              <input type="checkbox" class="form-check-input" :value="customer.id" v-model="checkedItems"/>
             </td>
             <td>{{ customer.name }}</td>
             <td>{{ customer.email }}</td>
@@ -79,12 +65,7 @@
           <tbody>
           <tr :key="customer.id" v-for="customer in customers2">
             <td>
-              <input
-                type="checkbox"
-                class="form-check-input"
-                :value="customer.id"
-                v-model="checkedItems2"
-              />
+              <input type="checkbox" class="form-check-input" :value="customer.id" v-model="checkedItems2"/>
             </td>
             <td>{{ customer.name }}</td>
             <td>{{ customer.email }}</td>
@@ -123,18 +104,13 @@ export default {
       if (this.checkedItems.length > 0) {
         const selectedCustomers = []
         this.checkedItems.forEach((id) => {
-          const item = this.customers.filter(
-            (customer) => customer.id === id
-          )[0]
+          const item = this.customers.filter((customer) => customer.id === id)[0]
           selectedCustomers.push(item)
         })
 
         const existCustomer = [...this.customers2]
         selectedCustomers.forEach((selectedCustomer) => {
-          if (
-            existCustomer.filter((c) => c.id === selectedCustomer.id).length ===
-            0
-          ) {
+          if (existCustomer.filter((c) => c.id === selectedCustomer.id).length === 0) {
             existCustomer.push(selectedCustomer)
           }
         })
